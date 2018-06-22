@@ -1,0 +1,36 @@
+div#tab-reviews {
+    display: block !important;
+    width: 100%;
+}
+.woocommerce-verification-required {
+  display: none;
+}
+.meta [itemprop="author"], #reviews .commentlist li p.meta time {
+  display: inline-block;
+}
+.meta [itemprop="author"]:after {
+  content:"\00a0 -";
+  display: inline-block;
+}
+#reviews {
+  border: 1px solid $color-main1;
+border-radius: 10px;
+padding: 3%;
+}
+#reviews .commentlist li .comment_container .comment-text {
+  border: 1px solid $color-main1;
+border-radius: 10px;
+padding: 2%;
+background-color: $color-main7;
+}
+#reviews .commentlist li .comment_container .comment-text .star-rating {
+    font-size: 1.2em;
+  }
+  #reviews .commentlist li .avatar {
+    @include span(1 of 12);
+    @include gutter(1vw);
+    }
+    #reviews .commentlist li .comment_container .comment-text{
+      @include span(11 of 12);
+      @include gutter(0);
+      }

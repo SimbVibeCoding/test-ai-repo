@@ -1,0 +1,139 @@
+.titolo-slider, .testo1-slider, .testo2-slider,
+.widget-single .widget-title,
+footer #facebook-box .testo,
+.woocommerce-products-header .term-description, .titolo-content  {
+font-family:$font-family1;
+}
+.page-template-contatti h5 {
+  font-size: $widget-title;
+}
+.ubu70, .ubu20, .ubu18, .ubu17, .ubu15, body, footer #facebook-box .titolo, .call-out-blue, .call-out-red {
+  font-family: $font-family2;
+}
+.menu-menu-sinistra-container ul li, .menu-menu-destra-container  ul li {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+#rotator .titolo-slider {
+  font-size: $titoli-principali;
+  color: $color-main7;
+}
+#slider-footer .titolo-slider {
+  font-size: $titoli-principali;
+  color: $color-main4;
+}
+.testo1-slider {
+  color: $color-main7;
+}
+.cat-feat h1, .prodotti-feat h1 {
+  font-size: $titoli-secondari;
+}
+.call-out-blue, ul.products li.product.product-category .woocommerce-loop-category__title {
+  font-size: $sottotitoli;
+}
+.gh60 {
+  font-size: $titoli-secondari;
+}
+.gh55 {
+  font-size: $sottotitoli;
+}
+footer #facebook-box .titolo {
+  font-size: $spot-facebook;
+  color: $color-main2;
+}
+/*footer #facebook-box .testo {
+  font-size: $titoli-principali;
+  color: $color-main2;
+}*/
+.box-intro .single-box .widget .widget-title {
+  font-size: $titoli-widget-big;
+  font-weight: bold;
+  font-family:$font-family1;
+}
+.single-box .widget .widget-title {
+  font-size: $widget-title;
+  font-weight: bold;
+  font-family:$font-family1;
+}
+.single-box .widget .textwidget p{
+  font-size: $sub-spot;
+}
+
+#info-boxes {
+  h3.widget-title {
+  font-size: $titoli-shop;
+  text-transform: uppercase;
+}
+.textwidget p, .widget_nav_menu ul li a, .widget_nav_menu ul li p {
+  font-size: $widget-text;
+  margin: 0 0 0.5em 0;
+}
+.widget_nav_menu ul li {
+  line-height: 0.5em;
+}
+}
+.site-info {
+  font-size: $copy;
+}
+.ubu17 {
+  font-size: $footer-testo;
+}
+.widget-single .widget-title {
+  font-size: $sottotitoli;
+  color: $color-main6;
+  font-weight: normal;
+}
+body, .ubu15, .single-product div.product .product_meta, .feat-prod .add_to_cart_button {
+  font-size: $testo;
+  color: $color-main6;
+}
+.page-template {
+  strong {
+  color: $color-main6;
+  }
+  .titolo-content {
+    font-size: $titoli-secondari;
+    text-align: center;
+  }
+  .spot-box-page .titolo-slider {
+  font-size: $spot-box-title;
+  color: $color-main4;
+}
+.contatti-text {
+  .titolo {
+  font-weight: bold;
+  font-size: $form;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  }
+  .testo {
+  font-family: $font-family1;
+}
+}
+#content-page {
+ul:not(.products) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+  padding-left: 1em;
+  &:before {
+    content: "\f111";
+    font-family: 'Font Awesome\ 5 Free';
+    color: $color-main1;
+    font-size : 0.7em;
+    padding-right: 1em;
+  }
+  }
+  li > *{
+  display: inline-block;
+  vertical-align: middle;
+  }
+}
+}
+}
+ul.products li.product .woocommerce-loop-product__title, ul.products li.product h2, ul.products li.product h3 {
+  font-size: 2.5rem;
+  font-family: 'butlerbold';
+  color: $color-main1;
+}

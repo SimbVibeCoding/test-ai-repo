@@ -1,0 +1,42 @@
+@media screen and (max-width:$desktop) {
+  #sub-header .single-box {
+    @include span(6 of 12);
+    @include gutter(5px);
+  }
+  .info-boxes-list .info-box {
+    @include span(6 of 12);
+    @include gutter(5px);
+    &:first-child {
+      @include span(12 of 12);
+    }
+    &:last-child {
+    float: left;
+    }
+  }
+  .slide .col-6 {
+    @include span(12 of 12);
+    &:last-child {
+      margin: 0 auto;
+float: none;
+width: auto;
+text-align: center;
+    }
+  }
+  .slide img {
+    height: inherit;
+    max-width: inherit;
+    display: inline;
+  }
+  .storefront-primary-navigation {
+    margin-top: 1em;
+margin-bottom: 0em;
+position: relative;
+  }
+  .woocommerce-cart .quantity {
+    width: 100%;
+  }
+  .woocommerce-active .site-header .site-search {
+    right: -10%;
+    top: 100%;
+}
+}

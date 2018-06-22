@@ -1,0 +1,34 @@
+{
+  "name": "@retina/gulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://formazioneRetina@bitbucket.org/retina_sviluppo/gulp.git"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "mauro",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/retina_sviluppo/gulp#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-git": "^2.7.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-bourbon": "^4.2.8",
+    "require-dir": "^1.0.0",
+    "run-sequence": "^2.2.1",
+    "susy": "^2.2.11",
+    "vinyl-ftp": "^0.6.1"
+  },
+  "dependencies": {}
+}

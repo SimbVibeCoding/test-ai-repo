@@ -1,0 +1,19 @@
+.page-template-contatti {
+    .input-text,
+    input[type=email],
+    input[type=password],
+    input[type=search],
+    input[type=text],
+    input[type=url],
+    textarea {}
+    .submit-button {}
+    input[type="submit"] {
+        &:hover {}
+    }
+    form {
+
+        p {}
+        div {}
+    }
+
+}

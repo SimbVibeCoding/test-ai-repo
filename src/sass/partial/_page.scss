@@ -1,0 +1,145 @@
+.page-template #content {
+  padding-top: 1em;
+  a.page-link {
+    border-radius: 30px;
+    padding: 15px;
+    color: $color-main2;
+    text-transform: uppercase;
+    border: 1px solid $color-main2;
+  &:hover {
+    background-color: $color-main1;
+    border-color: $color-main1;
+    color: $color-main7;
+  }
+  }
+  #content-page:last-child {
+    padding-bottom: 2em;
+}
+}
+.spot-box-page {
+  position:relative;
+  z-index:1;
+ &:after {
+  content: "";
+background: #000;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: block;
+opacity: 0.5;
+}
+.btn-slider {
+  font-style: normal !important;
+z-index: 100;
+position: absolute;
+top: 50%;
+right: 50%;
+transform: translate(50%, 50%);
+a {
+background-color: transparent;
+padding: 10px 40px;
+color: $color-main4;
+font-weight:bold;
+text-transform: uppercase;
+border: 3px solid $color-main4;
+&:hover {
+  background-color: $color-main1;
+}
+}
+}
+.titolo-slider {
+    position: absolute;
+    right: 50%;
+    top: 35%;
+    z-index: 100;
+    transform: translate(50%);
+    width: 100%;
+    text-align: center;
+}
+}
+.page-template .alternato {
+  display: inline-block;
+  width: 100%;
+  &:nth-child(odd) {
+    background-color: $color-main7;
+  }
+  &:nth-child(even) {
+    background-color: $color-main3;
+  }
+}
+.grigio-bianco {
+    padding: 2em 0;
+}
+.page-template-contatti #content {
+  padding-top: 0;
+}
+.page-template .entry-content {
+  @include span(12 of 12);
+}
+.page-template #content-page {
+  @include span(12 of 12);
+  .content-inner {
+      //@include span(8 of 24);
+      //@include gutter(1em);
+      max-width: $site-width;
+      margin: 0 auto;
+      padding-bottom: 1em;
+      &:last-child {
+      //@include last;
+      }
+      .spot-box-page {
+        @include span(12 of 24);
+        @include gutter(1em);
+        padding-bottom: 0;
+        /*&:last-child {
+        @include last;
+      }*/
+      &:nth-child(even){
+        float: right;
+        margin-right: 0;
+      }
+      }
+      .ingredienti-box{
+        @include span(6 of 24);
+        @include gutter(1em);
+        padding-bottom: 0;
+      /* &:last-child {
+        @include last;
+      }*/
+      &:nth-child(4){
+        float: right;
+        margin-right: 0;
+      }
+        img {
+          border-bottom: 1px solid;
+          padding: 1em 0;
+        }
+        .titolo-slider {
+          padding-top: 1em;
+        }
+      }
+    }
+.content {
+  //@include span(8 of 24);
+  //@include gutter(1em);
+  padding-bottom: 1em;
+  &:last-child {
+  //@include last;
+  }
+}
+}
+.page-template .contatti-page {
+  &.acf-map {
+  @include span(12 of 12);
+  height: 550px;
+}
+    @include span(4 of 12);
+    @include last;
+  margin-bottom: 3em;
+}
+/* fixes potential theme css conflict */
+.acf-map img {
+   max-width: inherit !important;
+}

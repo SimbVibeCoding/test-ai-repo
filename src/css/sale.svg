@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #df1919;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-size: 15px;
+        font-family: Lato-Black, Lato;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <g id="sale" transform="translate(-718 -687)">
+    <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-1" cx="22.5" cy="22.5" r="22.5" transform="translate(718 687)"/>
+    <text id="_" data-name="%" class="cls-2" transform="translate(741 716)"><tspan x="-6.135" y="0">%</tspan></text>
+  </g>
+</svg>

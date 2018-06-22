@@ -1,0 +1,277 @@
+#widget-middle-page {
+    float: left;
+    padding: 1em 0 3em 0;
+}
+.widget-single section {
+  @include span(6 of 12);
+  @include gutter(1vw);
+  &:last-child {
+    @include gutter(0);
+  }
+  h3{
+    text-align: left;
+  }
+}
+.widget-single {
+  @include span(4 of 12);
+  background-color: $color-main3;
+  border-radius: 3%;
+  .widget_text
+  {
+    padding: 3%;
+    margin: 0;
+  }
+  .widget_media_image {
+    padding: 3%;
+    margin: 0;
+    text-align: right;
+    img {
+      display: inline-block;
+    }
+  }
+}
+#sub-header .box-list {
+  //border: 1px solid $color-main3;
+//border-radius: 15px;
+//padding: 2%;
+}
+#sub-header .box-list .widget {
+  margin: 0;
+}
+#sub-header .call-out-blue {
+  background-color: $color-main1;
+  border-radius: 10px;
+  color: $color-main7;
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+.info-box {
+  position: relative;
+}/*
+.widget-single section:first-child img{
+  width: 100%;
+}
+.widget-single section:nth-child(2) {
+  position: absolute;
+top: 0;
+width: 100%;
+left: 0;
+}
+.widget-single section:nth-child(2) img {
+  top: 15px;
+position: absolute;
+width: 100%;
+}*/
+.info-box:nth-child(1):after {
+  content: "";
+background-color: #ffffff;
+height: 50%;
+position: absolute;
+width: 1px;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+}
+.info-box:nth-child(3):before {
+  content: "";
+background-color: #ffffff;
+height: 50%;
+position: absolute;
+width: 1px;
+left: 0;
+top: 50%;
+transform: translateY(-50%);
+}
+/*.info-box:last-child:after {
+  content: "";
+  background-color: transparent;
+}*/
+.site-footer {
+  padding: 0;
+}
+.call-out-bg1 {
+  @include span(12 of 12);
+    background-image: url(../storefront-child/assets/img/sfondo-blu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $color-main7;
+    border-radius: 10px;
+    padding: 1em;
+    .content {
+      @include span(6 of 12);
+      @include gutter(1vw);
+      padding: 1em;
+    }
+}
+.call-out-bg2 {
+  @include span(12 of 12);
+    background-image: url(../storefront-child/assets/img/sfondo-rosso.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: $color-main7;
+    border-radius: 10px;
+    padding: 1em;
+    .content {
+      @include span(4 of 12);
+      @include gutter(1vw);
+      padding: 1em 0 0.5em 0;
+      margin: 0 auto;
+      float: none;
+      text-align: center;
+    }
+    .call-out-action {
+      @include span(2 of 12);
+      @include gutter(1vw);
+      padding: 0.5em 0 1em 0;
+      margin: 0 auto;
+      float: none;
+    }
+}
+.call-out-action  {
+  a {
+  color: $color-main7;
+  &:hover {
+  opacity: 0.5;
+  }
+}
+  .call-out-button {
+    padding: 3%;
+    width: auto;
+    display: block;
+    border: 2px solid;
+    text-align: center;
+    border-radius: 2em;
+}
+}
+.call-out-bg1 .call-out-action{
+  @include span(3 of 12);
+  @include last;
+  padding: 2em;
+}
+#facebook-box {
+  @include span(12 of 12);
+}
+#facebook-box .titolo {
+  @include span(9 of 12);
+  @include gutter(1vw);
+}
+#facebook-box .social-icon{
+  @include span(12 of 12);
+  @include last;
+  text-align: center;
+}
+.google-plus:before {
+  content: "\f0d5";
+  display: inline-block;
+    color: $color-main7;
+   font-family: 'Font Awesome\ 5 Brands';
+    font-size: 20px;
+    background-color: $google-plus;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+.linkedin:before {
+  content: "\f0e1";
+  display: inline-block;
+    color: $color-main7;
+   font-family: 'Font Awesome\ 5 Brands';
+   font-size: 20px;
+   background-color: $linkedin;
+   border-radius: 25px;
+   padding: 5px 13px;
+}
+.instagram:before {
+  content: "\f16d";
+  display: inline-block;
+    color: $color-main7;
+   font-family: 'Font Awesome\ 5 Brands';
+   font-size: 20px;
+   background-color: $instagram;
+   border-radius: 25px;
+   padding: 5px 13px;
+}
+.twitter:before {
+  content: "\f099";
+  display: inline-block;
+    color: $color-main7;
+   font-family: 'Font Awesome\ 5 Brands';
+   font-size: 20px;
+   background-color: $twitter;
+   border-radius: 25px;
+   padding: 5px 10px;
+}
+.facebook:before {
+  content: "\f39e";
+  display: inline-block;
+    color: $color-main7;
+   font-family: 'Font Awesome\ 5 Brands';
+   font-size: 20px;
+   //background-color: $facebook;
+   border-radius: 25px;
+   padding: 5px 15px;
+}
+.tripadvisor:before {
+  content: "\f262";
+  display: inline-block;
+    color: $color-main7;
+   font-family: 'Font Awesome\ 5 Brands';
+   font-size: 20px;
+   //background-color: $facebook;
+   border-radius: 25px;
+   padding: 5px 15px;
+}
+footer #info-boxes {
+  display: inline-block;
+  width: 100%;
+  //padding-top: 2%;
+  text-align: center;
+
+}
+/*footer #facebook-box {
+    text-align: left;
+    border-radius: 10px;
+    background-color: $color-main3;
+}*/
+
+#info-boxes h3.widget-title {
+    padding-bottom: 20px;
+}
+#info-boxes .widget_nav_menu ul li {
+  padding-left: 0;
+}
+
+#info-boxes .widget_nav_menu ul li:before {
+  content:"";
+}
+footer .orange {
+  color: $color-main6;
+  font-weight: bold;
+}
+/*footer .separator-footer {
+  display: block;
+box-shadow: 0px -2px 10px 2px #efefef;
+border: 1px solid #efefef;
+position: absolute;
+width: 100%;
+left: 0;
+}*/
+.site-info {
+  text-align: center;
+a {
+  font-weight: $bold;
+}
+}
+.widget_layered_nav li:before {
+    content: url(https://use.fontawesome.com/releases/v5.0.12/svgs/regular/square.svg);
+}
+.widget_layered_nav .chosen:before {
+    content: url(https://use.fontawesome.com/releases/v5.0.12/svgs/regular/check-square.svg);
+}
+
+.price_slider_amount button {
+  background-color: $color-main1;
+    border-color: $color-main1;
+}

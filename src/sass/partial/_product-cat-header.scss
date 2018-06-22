@@ -1,0 +1,25 @@
+.woocommerce-products-header {
+    text-align: center;
+    background-image: url('/wp-content/uploads/2018/05/sfondo-grigio.png');
+    background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 176px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  }
+  .woocommerce-products-header div.color-background {
+    position:absolute;
+      top:0;
+      left:0;
+      bottom: 0;
+      right: 0;
+      mix-blend-mode: color;
+    }
+  .woocommerce-products-header .term-description {
+    font-size: $titoli-principali;
+    color: $color-main6;
+    padding: 35px 0;
+    position: relative;
+    p {margin: 0;}
+  }
