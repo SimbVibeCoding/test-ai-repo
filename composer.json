@@ -14,7 +14,7 @@
       "wpackagist-plugin/contact-form-7":">=5.0.2",
       "wpackagist-plugin/simply-show-hooks":">=1.2.1",
       "wpackagist-plugin/query-monitor":">=3.0.1",
-      "wpackagist-plugin/google-analytics-dashboard-for-wp":">=5.3.5",
+      "wpackagist-plugin/google-analytics-dashboard-for-wp":">=5.3.5"
     },    "repositories": [      {
         "type": "package",
         "package": {
