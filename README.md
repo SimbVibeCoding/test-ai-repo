@@ -42,6 +42,8 @@ per verifica digitare da shell
   + "ftp_pasw":"",
   + "ftp_path":"/web/dominio.ext/public_html"
 
+* per rimuovere tutti i file .gt dalle sottocartelle da shell digitare il comando
+```gulp clean-git```
 
 * da shell digitare il comando
 ```gulp```
