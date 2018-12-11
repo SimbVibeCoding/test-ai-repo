@@ -5,8 +5,8 @@
 
 ## Su bitbucket creare la ropository del progetto (inserire un file readme) ##
 ## creare il progetto locale ##
-* da shell clonare la repository del custom-installer nella cartella del nuovo progetto
-``` git clone https://formazioneRetina@bitbucket.org/retina_sviluppo/retina-custom-installer.git cartellanuovoprogetto```
+* da shell clonare la repository del retina-bootstrap-installer nella cartella del nuovo progetto
+``` git clone https://formazioneRetina@bitbucket.org/retina_sviluppo/retina-bootstrap-installer.git cartellanuovoprogetto```
 * portarsi nella cartellanuovoprogetto
 * reimpostare la remote repository su quella del nuovo progetto
 ``` git remote -v (mostra elenco delle attuali repository)```
