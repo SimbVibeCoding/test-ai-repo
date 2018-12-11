@@ -63,3 +63,14 @@ il sistema monitora i cambiamenti dei file in
 
 il browser si apre sul dominio impostato nel file config.json
 i file scss vengono compilati nel file themePath/style.css
+
+Utilità:
+resettare la versione locale alla versione remota
+```
+git fetch origin
+git reset --hard origin/master
+```
+
+- [x] importare mixin e variabili da un progetto finito
+- [x] sostituire storefront con versione standard da wpackagist
+- [ ] automatizzare git remote
