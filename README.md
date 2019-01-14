@@ -15,6 +15,8 @@
 
 digitare il comando git clean-git per pulire tutte le .git
 
+modificare nel file src/style.css i riferimenti al template corretti
+
 pushare il contenuto nella nuova repository
 ``` git push -f ```
 
