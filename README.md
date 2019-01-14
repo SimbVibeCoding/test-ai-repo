@@ -13,6 +13,8 @@
 ``` git remote set-url origin user@bitbucket.org/nuovoprogetto.git```
 ``` git remote -v (mostra elenco aggiornato alla nuova repository)```
 
+digitare il comando git clean-git per pulire tutte le .git
+
 pushare il contenuto nella nuova repository
 ``` git push -f ```
 
