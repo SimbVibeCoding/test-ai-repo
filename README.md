@@ -13,7 +13,7 @@
 ``` git remote set-url origin user@bitbucket.org/nuovoprogetto.git```
 ``` git remote -v (mostra elenco aggiornato alla nuova repository)```
 
-digitare il comando git clean-git per pulire tutte le .git
+digitare il comando ``` gulp clean-git ``` per pulire tutte le .git
 
 modificare nel file src/style.css i riferimenti al template corretti
 
