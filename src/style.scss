@@ -1,10 +1,11 @@
 /*
-Theme Name:     Storefront Child Theme
-Theme URI:      https://github.com/stuartduff/storefront-child-theme
+Theme Name:     wp-bootstrap-starter-child Theme
+Theme URI:      https://github.com/stuartduff/@import
+
 Author:         Stuart Duff
 Author URI:     http://stuartduff.com
-Template:     	storefront
-Description:  	This is a blank child theme for WooThemes StoreFront theme
+Template:     	wp-bootstrap-starter
+Description:  	This is a blank child theme for  wp-bootstrap-starter theme
 Version:      	1.0.0
 License:      	GNU General Public License v2 or later
 License URI:  	http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,43 +23,26 @@ Images License: GNU General Public License v2 or later
 /*
  * Add your own custom css below this text.
  */
-@import '../node_modules/bourbon/core/bourbon';
-@import 'sass/utils/mixins';
-@import 'sass/utils/variables';
-@import 'sass/partial/variables';
-@import 'sass/partial/mixins';
-// Vendors
-// External libraries and frameworks.
-//@import 'sass/vendors/normalize';
-@import 'sass/vendors/modular-scale';
-// Base
-// Includes all the main Storefront css.
+@import 'scss/partials/variables';
+@import 'scss/partials/mixins';
+
 @import '../node_modules/susy/sass/susy';
-//@import 'sass/base/base';
-//@import 'sass/base/layout';
-// Utilities
-// Sass tools and helpers used across the project.
-//@import 'sass/utils/variables';
-@import 'css/demo';
-@import 'css/style1';
-@import 'css/slick-theme';
-@import 'css/slick';
-@import 'sass/partial/fonts';
-@import 'sass/partial/nav';
-@import 'sass/partial/widgets-footer';
-//@import 'sass/partial/product-review';
-@import 'sass/partial/products';
-//@import 'sass/partial/product-cat-header';
-@import 'sass/partial/sidebar';
-@import 'sass/partial/ie';
-@import 'sass/partial/desktop';
-@import 'sass/partial/tablet';
-@import 'sass/partial/mobile';
-@import 'sass/partial/custom-slick';
-@import 'sass/partial/page';
-@import 'sass/partial/contact-form';
-@include font-face('butlerbold', 'butlerbold');
-@include font-face('abelregular', 'abelregular');
+
+@import 'scss/vendors/slick/slick-theme';
+@import 'scss/vendors/slick/slick';
+@import 'scss/partials/fonts';
+@import 'scss/partials/nav';
+@import 'scss/partials/widgets-footer';
+@import 'scss/partials/products';
+@import 'scss/partials/sidebar';
+@import 'scss/partials/ie';
+@import 'scss/partials/desktop';
+@import 'scss/partials/tablet';
+@import 'scss/partials/mobile';
+@import 'scss/partials/custom-slick';
+@import 'scss/partials/page';
+@import 'scss/partials/contact-form';
+
 $susy: (
   columns: 24,  // The number of columns in your grid
   gutters: 0.25, // The size of a gutter in relation to a single column

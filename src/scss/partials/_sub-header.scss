@@ -1,0 +1,77 @@
+#rotator{
+ //slick.scss
+}
+#box-home-widgets{
+  background-image: url("assets/img/pattern.png");
+  padding: 40px 0;
+  .col-full{
+    width: 100%;
+    .box-list{
+      display:flex;
+      flex-wrap: wrap;
+      .single-box{
+        position: relative;
+        @include span(6 of 24  );
+        //background-image: url("assets/img/macchia-vino-1.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding: 2%;
+        text-align: center;
+        img{
+          margin: 0 auto;
+        }
+        &.box1{
+        }
+        &.box2{
+        }
+        &.box3{
+        }
+        &.box4{
+          @include last()
+        }
+        .single-box-content{
+          margin: 3vw;
+          margin-top: 3.5vw;
+          h3{
+            font-size: 1.3vw;
+          }
+        }
+        *{
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+@media (min-width: $desktop-wide){
+  #box-home-widgets{
+    .col-full{
+      .box-list{
+        .single-box{
+          .single-box-content{
+            h3{
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: $tablet){
+  #box-home-widgets{
+    .col-full{
+      max-width: $site-width;
+      margin: 0 auto;
+      display: block;
+      padding-top: 2em;
+    }
+  }
+  .header-top-container {
+    max-width: $site-width;
+    margin: 0 auto;
+    display: block;
+  }
+}

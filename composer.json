@@ -9,17 +9,20 @@
       "wpackagist-plugin/all-in-one-wp-security-and-firewall":">=4.3.3.1",
       "wpackagist-plugin/webriti-smtp-mail":">=1.7",
       "wpackagist-plugin/wordfence":">=7.1.4",
-      "wpackagist-theme/wp-bootstrap-starter":">=3.0.16",
+      "wpackagist-theme/storefront":"2.3.3",
       "advanced-custom-fields/advanced-custom-fields-pro":"*",
+      "wpackagist-plugin/woocommerce":">=3.4.2",
+      "wpackagist-plugin/yith-essential-kit-for-woocommerce-1":">=1.6.0",
       "wpackagist-plugin/contact-form-7":">=5.0.2",
       "wpackagist-plugin/simply-show-hooks":">=1.2.1",
       "wpackagist-plugin/query-monitor":">=3.0.1",
-      "wpackagist-plugin/google-analytics-dashboard-for-wp":">=5.3.5"
+      "wpackagist-plugin/google-analytics-dashboard-for-wp":">=5.3.5",
+      "wpackagist-plugin/woocommerce-pdf-invoices-packing-slips":">=2.1.9"
     },    "repositories": [      {
         "type": "package",
         "package": {
           "name": "advanced-custom-fields/advanced-custom-fields-pro",
-          "version": "5.6.8",
+          "version": "5.7.0",
           "type": "wordpress-plugin",
           "dist": {
             "type": "zip",
@@ -37,7 +40,7 @@
        },
         {
             "type": "vcs",
-            "url":  "https://formazioneRetina@bitbucket.org/retina_sviluppo/wp-bootstrap-starter-child.git"
+              "url":  "https://formazioneRetina@bitbucket.org/retina_sviluppo/wp-bootstrap-starter-child.git"
         }
 
     ],
@@ -48,5 +51,15 @@
            "wp/wp-content/plugins/{$name}/" : ["type:wordpress-plugin"],
            "wp/wp-content/themes/{$name}/" : ["type:wordpress-theme"]
       }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "gulp clean-git"
+        ],
+        "post-install-cmd": [
+            "npm install",
+            "gulp clean-git"
+        ]
+
     }
 }

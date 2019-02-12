@@ -1,0 +1,407 @@
+// isolare il css del widget di ricerca di woocommerce
+//@import"woo-search";
+
+
+/*https://tympanus.net/codrops/2017/02/08/inspiration-search-ui-effects/*/
+/* Reset Search Input */
+/* Links */
+
+
+
+
+
+.search-wrap button:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: $color_main1;
+}
+
+.btn,
+a {
+  text-decoration: none;
+  color: $color_main1;
+  outline: none;
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+/* Icons */
+
+.icon {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0 auto;
+  fill: currentColor;
+}
+/* Layout for search container */
+
+.search-form-custom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(164, 177, 219, 0.9);
+}
+
+.js .search-form-custom {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.search-form-custom {
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: calc(100% + 15px);
+    height: calc(100% + 15px);
+    pointer-events: none;
+    /*border: 1.5em solid #212fa0;*/
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+  }
+
+  &::after {
+    right: 0;
+    bottom: 0;
+    border-top-width: 0;
+    border-left-width: 0;
+  }
+}
+
+.btn--search-close {
+  font-size: 2em;
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  display: none;
+}
+
+.js .btn--search-close {
+  display: block;
+}
+
+.search__form {
+  margin: 5em 0;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: 7vh;
+  line-height: 1;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 75%;
+  padding: 0.05em 0;
+  color: #d17c78;
+  border-bottom: 2px solid;
+
+  &::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    opacity: 0.3;
+    color: #060919;
+  }
+
+  &::-moz-placeholder {
+    opacity: 0.3;
+    /* Mozilla Firefox 19+ */
+    color: #060919;
+  }
+
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    opacity: 0.3;
+    color: #060919;
+  }
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+.search__info {
+  font-size: 90%;
+  font-weight: bold;
+  display: block;
+  width: 75%;
+  margin: 0 auto;
+  padding: 0.85em 0;
+  text-align: right;
+  color: #d17c78;
+}
+
+.search__related {
+  display: flex;
+  width: 75%;
+  pointer-events: none;
+}
+
+.search__suggestion {
+  width: 33.33%;
+  text-align: left;
+
+  &:nth-child(2) {
+    margin: 0 3em;
+  }
+
+  h3 {
+    font-size: 1.35em;
+    margin: 0;
+
+    &::before {
+      content: '\21FE';
+      display: inline-block;
+      padding: 0 0.5em 0 0;
+    }
+  }
+
+  p {
+    font-size: 1.15em;
+    line-height: 1.4;
+    margin: 0.75em 0 0;
+  }
+}
+/************************/
+/* Transitions 			*/
+/************************/
+
+.js {
+  .search-form-custom {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .search--open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+/* Border */
+
+.search-form-custom {
+  &::after,
+  &::before {
+    transition: transform 0.5s;
+  }
+
+  &::before {
+    transform: translate3d(-15px, -15px, 0);
+  }
+
+  &::after {
+    transform: translate3d(15px, 15px, 0);
+  }
+}
+
+.search--open {
+  &::after,
+  &::before {
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* Close button */
+
+.btn--search-close {
+  opacity: 0;
+  transform: scale3d(0.8, 0.8, 1);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.search--open .btn--search-close {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+/* Search form with input and description */
+
+.js {
+  .search__form {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 1);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .search--open .search__form {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.search__suggestion {
+  opacity: 0;
+  transform: translate3d(0, -30px, 0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.search--open .search__suggestion {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+
+  &:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+
+  &:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+}
+@media screen and (max-width: 40em) {
+  .search__form {
+    margin: 5em 0 1em;
+  }
+
+  .btn--search-close {
+    font-size: 1.25em;
+    top: 1.5em;
+    right: 1.5em;
+  }
+
+  .search__info {
+    text-align: left;
+  }
+
+  .search__suggestion {
+    font-size: 80%;
+    width: 100%;
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: none;
+    }
+  }
+}
+/* components ************************
+*
+*/
+/* Search icon by IcoMoon, made with http://icomoon.io/app/ */
+.sb-search {
+  position: relative;
+  margin-top: 10px;
+  width: 0;
+  min-width: 60px;
+  height: 60px;
+  float: right;
+  overflow: hidden;
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  transition: width 0.3s;
+  -webkit-backface-visibility: hidden;
+}
+
+.sb-search-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  background: #fff;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  z-index: 10;
+  padding: 20px 65px 20px 20px;
+  font-family: inherit;
+  font-size: 20px;
+  color: #2c3e50;
+
+  &:-moz-placeholder,
+  &:-ms-input-placeholder,
+  &::-moz-placeholder,
+  &::-webkit-input-placeholder {
+    color: #efb480;
+  }
+}
+
+.sb-icon-search {
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sb-search-submit {
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  -ms-filter:  'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+  /* IE 8 */
+  filter: alpha(opacity = 0);
+  /* IE 5-7 */
+  opacity: 0;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: -1;
+}
+
+.sb-icon-search {
+  color: #010101;
+  background: transparent;
+  z-index: 90;
+  font-size: 22px;
+  font-family: 'FontAwesome';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+
+  &:before {
+    content: "\f002";
+  }
+}
+/* Open state */
+.no-js .sb-search,
+.sb-search.sb-search-open {
+  width: 100%;
+}
+
+.no-js .sb-search .sb-icon-search,
+.sb-search.sb-search-open .sb-icon-search {
+  background: #A4B1DB;
+  color: #fff;
+  z-index: 11;
+}
+
+.no-js .sb-search .sb-search-submit,
+.sb-search.sb-search-open .sb-search-submit {
+  z-index: 90;
+}

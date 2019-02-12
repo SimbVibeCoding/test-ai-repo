@@ -1,0 +1,67 @@
+@import 'scss/partials/sub-header';
+@import 'scss/partials/woo-search';
+@import 'scss/partials/logotraimenu';
+ .site{
+   //overflow-x: visible;
+ }
+ .storefront-secondary-navigation.woocommerce-active,.woocommerce-active{
+   .site-header{
+     .site-branding {
+       img{
+         padding: 0 30px;
+       }
+     }
+   }
+ }
+#header-top{
+  background-color:$color-main1;
+  overflow:hidden;
+  padding: 10px 0;
+  font-size: 11px;
+  line-height: 11px;
+  color: $color-neutro4;
+  a{
+    font-size: 11px;
+    color: $color-neutro4
+  }
+  .container-info-box{
+    @include span(12 of 24 );
+    float:left;
+    clear:none;
+    .widget {
+      margin: 0;
+      ul{
+        @include reset_box_model;
+        li{
+        }
+      }
+    }
+    ul{
+      li{
+        display: inline-block;
+        padding: 0 10px;
+        border-right: 1px solid $color-neutro4;
+        &:last-child{
+          border: none;
+        }
+      }
+    }
+  }
+  .secondary-navigation {
+    @include span(12 of 24 last);
+    @include reset_box_model;
+    float:right;
+    clear:none;
+  }
+}
+#masthead{
+  &.site-header{
+    background-color: transparent;
+  }
+  .col-full{
+    width: 100%
+  }
+}
+#page header {
+  height: auto;
+}

@@ -3,17 +3,39 @@ $parentThemePath : "wp/wp-content/themes/storefront/";
 $childThemePath : "wp/wp-content/themes/storefront-child/";
 
 
-$color-main1: #8B4513; //bronzo
-$color-main2: #808080; //grigio scuro
-$color-main3: #E9E9E9; //grigio chiaro
-$color-main4: #FFC639; //oro
-$color-main6: #000000; //nero
-$color-main7: #ffffff; //bianco
+$color-main1: #3A248B; //viola
+$color-main2: #FF8A26; //arancio
+$color-main3: #D9D2F3; //lilla
+$color-main4: #DC88A4; //rosa
+$color-main2-light: lighten($color-main2, 20); //arancio light
+
+$color-neutro1: #000000; //nero
+$color-neutro2: #707070; //grigio scuro
+$color-neutro3: #C7C7C7; //grigio
+$color-neutro4: #ffffff; //bianco
+
+
+$nero : $color-neutro1;
+$grigio_scuro : $color-neutro2;
+$grigio: $color-neutro3;
+$bianco : $color-neutro4;
+
+
+$color-p: $nero;
+$color-link: $color-main1;
+$color-link_hover: $color-main1;
+$color-h1: $color-main1;
+$color-h2: $nero;
+$color-h3: $nero;
+$color-h4: $nero;
+$color-h5: $nero;
+
 
 $bold: bold;
 
-$font-family1: 'butlerbold';
-$font-family2: 'abelregular';
+$font-family1: 'Chalet NewYork';
+$font-family2: 'Roboto-medium';
+$font-family3: 'Roboto-regular';
 
 $google-plus: #dd4b39;
 $linkedin: #0077B5;
@@ -37,9 +59,9 @@ $form: 1.2rem;
 $copy: 14px;
 $titoli-widget-big: 4em;
 
-$desktop-wide: 4000px;
+$desktop-wide: 1920px;
 $desktop-laptop: 1440px;
-$site-width: 1300px;
+$site-width: 1700px;
 $desktop: 1024px;
 $tablet-wide: 960px;
 $tablet: 768px;

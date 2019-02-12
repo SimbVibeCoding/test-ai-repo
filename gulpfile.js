@@ -59,7 +59,7 @@ gulp.task('sass', function(){
 gulp.task('browserSync', function() {
   browserSync({
     proxy: site,
-    port: 80,
+    port: 81,
   })
 })
 gulp.task( 'deploy', function () {

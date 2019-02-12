@@ -1,0 +1,77 @@
+/* TODO: separare i colori dal box-model*/
+
+.storefront-secondary-navigation.woocommerce-active,.woocommerce-active{
+  .site-header{
+    .site-branding {
+      @include span(4 of 24 );
+      margin: 0!important;
+      img{
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+.site-header {
+  background-color: $color-main1;
+  .col-full {
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5em 0;
+    max-width:$site-width;
+    margin-left: 0;
+    margin-right: 0;
+    margin: 0 auto;
+  }
+  .menu-menu-sinistra-container,.menu-menu-destra-container {
+    @include span(11 of 24);
+    @include gutter(1px);
+    ul{
+      width: 100%;
+      list-style: none;
+      margin: 0 ;
+      flex-wrap: nowrap;
+      display: flex;
+      li{
+        padding: 1em;
+        border-right: 1px solid $color-main1;
+        a {
+          color: $color-main1;
+          white-space: nowrap;
+          text-transform: uppercase;
+          padding: 0 10px 10px;
+          text-align: center;
+        }
+        a:hover, &.current-menu-item a {
+          border-bottom: 1px solid $color-main1;
+          //color: $color-main2;
+        }
+      }
+    }
+  }
+  .menu-menu-sinistra-container {
+    margin-right: 0;
+    ul{
+      justify-content: flex-end;
+      li:last-child{
+        border-right: none;
+      }
+    }
+  }
+
+}
+
+.mobile-menu li {
+  list-style: none;
+  a {
+  color: $color-main2;
+}
+}
+  .home.blog .site-header,
+  .home.page:not(.page-template-template-homepage) .site-header,
+  .home.post-type-archive-product .site-header {
+      margin-bottom: 2em;
+  }

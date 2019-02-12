@@ -12,3 +12,78 @@
     font-size: $testo;
 }
 }
+
+@mixin reset_box_model(){
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+@mixin absolute_centered($top:50%, $left: 50%){
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translate(-50%,-50%);
+}
+@mixin fill_container($opacity:1){
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: $opacity;
+    display: block;
+}
+@mixin before_block($content:" "){
+  content: $content;
+  display: block;
+  width: auto;
+}
+@mixin text-contrast($n) {
+  $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
+  $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+  @if abs($color-brightness) < ($light-color/2){
+    color: white;
+  }
+  @else {
+    color: black;
+  }
+}
+
+@mixin color_contrast($value){
+ background-color: $value;
+ @include text-contrast($value);
+ content: ""+$value ;
+}
+
+@mixin stile_header($size, $font-family:$font-family1, $color:$nero, $weight:400  )
+{
+ font-family: $font-family;
+ font-size: $size;
+ font-weight: $weight;
+ color: $color;
+
+}
+@mixin contact-box($size, $font-family:$font-family1, $color:$color-main1, $weight:400  )
+{
+ font-family: $font-family;
+ font-size: $size;
+ font-weight: $weight;
+ color: $color;
+}
+@mixin sfumatura($color1:$color-main1, $color2:$color-main2){
+  background-color: $color1;
+  background-image:
+    linear-gradient(
+      to bottom,
+      $color1,
+      $color2
+    );
+}
+@mixin button($bgcolor: $color-main1,$color:$color-neutro1,$padding-button:20px){
+  background-color: $bgcolor;
+  padding: $padding-button;
+  color:$color;
+  border-radius: 0;
+  border-color: transparent;
+  border: none;
+}
