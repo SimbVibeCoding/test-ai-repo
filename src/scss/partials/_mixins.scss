@@ -1,89 +1,340 @@
 @mixin font-face($fontname, $filename) {
-@font-face {
+  @font-face {
     font-family: $fontname;
-    src: url('fonts/#{$filename}.eot');
-    src: url('fonts/#{$filename}.woff2') format('woff2'),
-         url('fonts/#{$filename}.woff') format('woff'),
-         url('fonts/#{$filename}.eot?#iefix') format('embedded-opentype'),
-         url('fonts/#{$filename}.ttf') format('truetype'),
-         url('fonts/#{$filename}.svg##{$fontname}') format('svg');
+    src: url("fonts/#{$filename}.eot");
+    src: url("fonts/#{$filename}.woff2") format('woff2'), url("fonts/#{$filename}.woff") format('woff'), url("fonts/#{$filename}.eot?#iefix") format('embedded-opentype'), url("fonts/#{$filename}.ttf") format('truetype'), url("fonts/#{$filename}.svg##{$fontname}") format('svg');
     font-weight: normal;
     font-style: normal;
     font-size: $testo;
+  }
 }
+@mixin elenco-categorie() {
+  width: 100%;
+  max-width: $desktop;
+  @include flex-default;
+  margin: 0 auto 40px;
+
+  .tax {
+    flex: 1 1;
+    margin: 0 10px;
+    position: relative;
+
+    h3.titolo {
+      background-color: rgba($color-main2, 0.5);
+      width: 100%;
+      margin: 0;
+      padding: 20px 0;
+      color: $color-neutro4;
+      text-align: center;
+      &.absolute{
+        position: absolute;
+        bottom: 0;
+      }
+      &:hover {
+        background-color: rgba($color-main1, 0.5);
+        a {
+          color: $color-neutro4;
+        }
+      }
+    }
+
+    .excerpt {
+      display: none;
+    }
+
+    .img {
+      padding: 0;
+      margin: 0;
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+@mixin slickslider-arrow($posleft:-20px,$posright:-20px,$background-color:$color-neutro3, $content-left: $var-icon-arrowleft,$content-right: $var-icon-arrowright, $button-class:".slick-arrow") {
+  #{$button-class} {
+    z-index: 1000;
+    &:before {
+      color: $color-main2;
+      font-family: $var-fontellofamily;
+      background-color: $color-neutro3;
+      width: 30px;
+      line-height: 30px;
+      display: block;
+    }
+
+    &.slick-next {
+      right:$posright;
+      &:before {
+        content: $var-icon-arrowright;
+      }
+    }
+
+    &.slick-prev {
+      left:$posleft;
+      &:before {
+        content: $var-icon-arrowleft;
+      }
+    }
+  }
+}
+@mixin grid-articoli-salvattore($gridselector:'#grid', $columnselector:'.column') {
+  /*
+  add the data-columns attribute to the grid element.
+  */
+  #{$gridselector}[data-columns]::before {
+    content: '4 .column.size-1of4';
+  }
+
+  #{$columnselector} {
+    float: left;
+
+    &.size-1of1 {
+      width: 100%;
+    }
+
+    &.size-1of2 {
+      width: 50%;
+    }
+
+    &.size-1of3 {
+      width: 33.333%;
+    }
+
+    &.size-1of4 {
+      width: 25%;
+    }
+
+    &.size-1of6 {
+      width: 20%;
+    }
+
+    article {
+      padding: 20px;
+      border: 1px solid $color-neutro3;
+      margin: 20px;
+
+      .post-thumbnail {}
+
+      .entry-header {
+        .entry-title {
+          a {}
+        }
+      }
+
+      .entry-content {
+        p {
+          a {}
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    #{$gridselector}[data-columns]::before {
+      content: '1 .column.size-1of1';
+    }
+  }
+  @media screen and (min-width: $tablet) and (max-width: $desktop) {
+    #{$gridselector}[data-columns]::before {
+      content: '2 .column.size-1of2';
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    #{$gridselector}[data-columns]::before {
+      content: '4 .column.size-1of4';
+    }
+  }
+}
+@mixin list-style($ontent: $var-icon-arrowright, $color:$color-main2,$fontsize:10px,$fontfamily:$var-fontellofamily) {
+  &:before {
+    display: inline-block;
+    font-family: $fontfamily;
+    font-size: $fontsize;
+    content: $ontent;
+    color: $color;
+    padding: 0 10px;
+  }
+}
+@mixin separatore($colorText:$color-main1,$colorLine:$color-neutro3,$fontSize:$titoli-secondari,$fontFamily:$font-family2,$textTranform:uppercase) {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  color: $colorText;
+  margin-top: 20px;
+  width: 100%;
+  white-space: nowrap;
+  text-transform: $textTranform;
+  font-size: $fontSize;
+  font-family: $fontFamily;
+  color: $colorText;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0 10px;
+
+  &:after,
+  &:before {
+    z-index: 0;
+    display: block;
+    content: "";
+    width: 50%;
+    //position: absolute;
+    top: 50%;
+    height: 1px;
+    background: $colorLine;
+  }
+
+  &.even {
+    color: $colorText;
+    padding-bottom: 40px;
+
+    &:after,
+    &:before {
+      background-color: $colorLine;
+    }
+
+    a {
+      color: $colorText;
+    }
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+
+  a {
+    text-transform: $textTranform;
+    font-size: $fontSize;
+    font-family: $fontFamily;
+    color: $colorText;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0 10px;
+  }
 }
 
-@mixin reset_box_model(){
+@mixin flex-wall($flex-wrap:wrap,$flex-direction:row,$justify-content:space-between,$align-items:center,$align-content:flex-start) {
+  flex-direction:$flex-direction
+  flex-wrap:$flex-wrap;
+  justify-content:$justify-content;
+  align-items: $align-items;
+  align-content:$align-content
+}
+
+@mixin flex-items($itemSelector:item,$flex-grow:0,$flex-shrink:0, $flex-basis:auto,$justify-content:space-between,$align-items:center,$align-self:flex-start) {
+  .#{$itemSelector}{
+    flex:$flex-grow $flex-shrink $flex-basis
+    align-self:$align-self
+  }
+}
+@mixin flex-default($justify-content:space-between,$align-items:center,) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+
+}
+@mixin reset_box_model() {
   padding: 0;
   margin: 0;
   border: none;
 }
-@mixin absolute_centered($top:50%, $left: 50%){
-    position: absolute;
-    top: $top;
-    left: $left;
-    transform: translate(-50%,-50%);
+
+@mixin absolute_center($top:50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%,-50%);
 }
-@mixin fill_container($opacity:1){
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: $opacity;
-    display: block;
-}
-@mixin before_block($content:" "){
-  content: $content;
+@mixin fill_container($opacity:1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: $opacity;
   display: block;
+}
+@mixin pseudoelement_block_content($content:" ",$display:inline-block) {
+  content: $content;
   width: auto;
+  display: $display;
+}
+@mixin before_block_icon($content:$var-icon-arrowleft,$clear:true) {
+  @if $clear == true {
+    &:after {
+      content: "";
+    }
+  }
+  &:before {
+    @include pseudoelement_block_content($content)
+    font-family: $var-iconsfamily;
+    content: $content;
+  }
+}
+@mixin after_block_icon($padding:10px,$content:$var-icon-arrowright,$clear:true) {
+  @if $clear == true {
+    &:before {
+      content: "";
+    }
+  }
+  &:after {
+    @include pseudoelement_block_content($content)
+    font-family: $var-iconsfamily;
+    padding: $padding;
+  }
 }
 @mixin text-contrast($n) {
   $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
   $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
-  @if abs($color-brightness) < ($light-color/2){
+  @if abs($color-brightness) < ($light-color/2) {
     color: white;
-  }
-  @else {
+  } @else {
     color: black;
   }
 }
-
-@mixin color_contrast($value){
- background-color: $value;
- @include text-contrast($value);
- content: ""+$value ;
+@mixin color_contrast($value) {
+  background-color: $value;
+  @include text-contrast($value);
+  content: ""+$value;
 }
-
-@mixin stile_header($size, $font-family:$font-family1, $color:$nero, $weight:400  )
-{
- font-family: $font-family;
- font-size: $size;
- font-weight: $weight;
- color: $color;
-
+@mixin stile_header($size, $font-family:$font-family1, $color:$nero, $weight:400) {
+  font-family: $font-family;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
 }
-@mixin contact-box($size, $font-family:$font-family1, $color:$color-main1, $weight:400  )
-{
- font-family: $font-family;
- font-size: $size;
- font-weight: $weight;
- color: $color;
+@mixin contact-box($size, $font-family:$font-family1, $color:$color-main1, $weight:400) {
+  font-family: $font-family;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
 }
-@mixin sfumatura($color1:$color-main1, $color2:$color-main2){
+@mixin sfumatura($color1:$color-main1, $color2:$color-main2) {
   background-color: $color1;
-  background-image:
-    linear-gradient(
-      to bottom,
-      $color1,
-      $color2
-    );
+  background-image: linear-gradient(to bottom, $color1, $color2);
 }
-@mixin button($bgcolor: $color-main1,$color:$color-neutro1,$padding-button:20px){
+@mixin button($bgcolor: $color-main1,$color:$color-neutro1,$padding-button:20px) {
   background-color: $bgcolor;
   padding: $padding-button;
-  color:$color;
+  color: $color;
   border-radius: 0;
   border-color: transparent;
   border: none;
+}
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
 }
