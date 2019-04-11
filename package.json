@@ -28,7 +28,8 @@
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
     "susy": "^2.2.11",
-    "vinyl-ftp": "^0.6.1"
+    "vinyl-ftp": "^0.6.1",
+    "gulp-strip-comments": "^2.5.2"
   },
   "dependencies": {}
 }
