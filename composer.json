@@ -58,8 +58,7 @@
             "gulp clean-git"
         ],
         "post-install-cmd": [
-            "npm install",
-            "gulp clean-git"
+            "npm install"
         ]
 
     }
