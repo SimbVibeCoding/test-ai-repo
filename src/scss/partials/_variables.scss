@@ -33,9 +33,34 @@ $color-h5: $nero;
 
 $bold: bold;
 
-$font-family1: 'Chalet NewYork';
-$font-family2: 'Roboto-medium';
-$font-family3: 'Roboto-regular';
+$font-family1: 'OpenSansRegular';
+$font-family2: 'OpenSansRegular';
+$font-family3: 'OpenSansRegular';
+$font-family1_fontname:'OpenSansRegular';
+$font-family2_fontname:'OpenSansRegular';
+$font-family3_fontname:'OpenSansRegular';
+
+$var-fontAwesomefamily: "Font Awesome 5 Free";
+$var-fontellofamily: "fontello";
+
+$var-iconsfamily: $var-fontellofamily;
+
+/*
+*Inserire una classe aggiuntiva nell'elemento html menu per abilitare l'icona es."icon-facebook"
+*per i menu-item-160 di wordpress è possibile farlo da dashboard
+*/
+$var-icon-facebook:"\f30c";
+$var-icon-gplus:"\f30f";
+$var-icon-twitter:"\f309";
+$var-icon-linkedin:"\f318";
+$var-icon-pinterest:"\f312";
+$var-icon-instagram:"\f32d";
+
+$var-icon-arrowleft:"\e802";
+$var-icon-arrowright:"\e801";
+$var-icon-arrowup:"\e800";
+$var-icon-arrowdown:"\e803";
+$var-icon-download:"\e809";
 
 $google-plus: #dd4b39;
 $linkedin: #0077B5;

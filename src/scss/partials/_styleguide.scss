@@ -1,0 +1,192 @@
+
+
+.page-template-styleguide {
+  .separatore {
+    @include separatore;
+  }
+
+  #styleguide {
+    width: 100%;
+    h1:not(.logo),
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:before {
+        //@include before_block(attr(class))
+      }
+    }
+
+    p {
+      &:before {
+        //@include before_block(attr(class))
+      }
+    }
+
+    a {
+      &:before {
+        //@include before_block(attr(class))
+      }
+    }
+
+    section {
+      font-size: 30px;
+      color: black;
+      font-family: helvetica;
+      line-height: 20px;
+      padding: 20px 0;
+      margin: 0;
+
+      &:after {
+        display: inline-block;
+        height: 2px;
+        background-color: $color-neutro3;
+        width: 100%;
+        content: "";
+      }
+    }
+
+    .sfumatura {
+      position: relative;
+      height: 300px;
+      width: 100px;
+      background-color: $color-main1;
+
+      @include sfumatura($color-main3, $color-main2-light) &:before {
+        display: block;
+        content: ""+$color-main3;
+        @include text-contrast($color-main3)
+      }
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        content: ""+$color-main2-light;
+        @include text-contrast($color-main2-light)
+      }
+    }
+
+    .colors {
+      li.item {
+        list-style: none;
+        //display: inline-block;
+      }
+
+      li.item:before {
+        display: inline-block;
+        //float: left;
+        text-align: center;
+        width: 150px;
+        line-height: 50px;
+        background: red;
+        border-radius: 5px;
+      }
+
+      li.item1:before {
+        @include color_contrast($color-main1);
+      }
+
+      li.item2:before {
+        @include color_contrast($color-main2);
+      }
+
+      li.item3:before {
+        @include color_contrast($color-main3);
+      }
+
+      li.item4:before {
+        @include color_contrast($color-main4);
+      }
+
+      li.item5:before {
+        @include color_contrast($nero);
+      }
+
+      li.item6:before {
+        @include color_contrast($color-neutro2);
+      }
+
+      li.item7:before {
+        @include color_contrast($color-neutro3);
+      }
+
+      li.item8:before {
+        @include color_contrast($bianco);
+      }
+
+      .button {
+        border-radius: 30px;
+        background-color: $color-main4;
+        color: $bianco;
+
+        &:hover {
+          background-color: $color-main1;
+          color: $bianco;
+        }
+      }
+    }
+  }
+
+  $colSelectorSizesMap: (
+    xs: 12,
+    sm: 8,
+    md: 6,
+    lg: 2,
+    xl: 6
+  );
+  $colSelectorSizesMapLeft: (
+    xs: 12,
+    sm: 4,
+    md: 4,
+    lg: 7,
+    xl: 2
+  );
+  $colSelectorSizesMapRight: (
+    xs: 12,
+    sm: 12,
+    md: 2,
+    lg: 3,
+    xl: 4
+  );
+  $map:(
+    "#col-id1": $colSelectorSizesMapLeft,
+    "#col-id2": $colSelectorSizesMap,
+    "#col-id3": $colSelectorSizesMapRight,
+    "#col-id4": $colSelectorSizesMapLeft,
+    "#col-id5": $colSelectorSizesMap,
+    "#col-id6": $colSelectorSizesMapRight
+  );
+  %before{
+    @include before_block_icon();
+  }
+.custom-col-class{
+  @extend %before;
+  border:1px solid red;
+}
+  a{
+    @include before_block_icon();
+  }
+
+
+  @include make-bootstrap-col-structure-responsive(".custom-container-class",".custom-row-class",$map,$colSelectorSizesMap)
+
+
+  //@include make-bootstrap-col-structure-responsive(".custom-container-class",".custom-row-class",".custom-col-class",$colSelectorSizesMap)
+
+  @include flex-fill-subitem('.row','.item');
+  @include generate-random-content('.item', '.sub')
+  .item{
+    max-width: 25%;
+        .sub2{
+        }
+        .sub3{
+          max-width: 300px;
+          min-height: 30vh;
+          background-image: url($childThemePath+"assets/image/placeholder-1000x1000.jpg");
+          align-self:flex-end;
+          background-size: contain;
+        }
+  }
+}

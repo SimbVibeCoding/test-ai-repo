@@ -1,0 +1,25 @@
+body{
+  font-family: $font-family1;
+  font-size: 15px;
+}
+h1,h2,h3,h4,h5{
+  color: $color-main2;
+  font-family: $font-family2;
+}
+h1{
+  font-size: $titoli-principali;
+  text-align: left;
+}
+h3{
+  font-size: $titoli-secondari;
+  text-align: left;
+}
+a{
+  color: $color-neutro4;
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+    color: $color-main2;
+
+  }
+}

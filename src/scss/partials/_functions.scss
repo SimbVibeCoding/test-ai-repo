@@ -1,0 +1,11 @@
+// i rem sono relativi alla root
+@function pixel2rem($pixel){
+  @return ($pixel/$baseFontSize)*1rem;
+}
+// gli em sono relativi al genitore diretto
+@function pixel2em($pixel){
+  @return ($pixel/$baseFontSize)*1em;
+}
+@function is-map($var){
+  @return type-of($var) == 'map';
+}
