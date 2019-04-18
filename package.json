@@ -33,6 +33,6 @@
   },
   "dependencies": {},
   "scripts": {
-    "postinstall": "gulp clean-git",
+    "postinstall": "gulp clean-git"
   }
 }
