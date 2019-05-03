@@ -1,3 +1,4 @@
+
 var config = require('./config.json');
 var childThemePath=config.childThemePath;
 var parentThemePath=config.parentThemePath;
@@ -11,6 +12,7 @@ var gutil = require( 'gulp-util' );
 var ftp = require( 'vinyl-ftp' );
 var sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
+const stripCssComments = require('gulp-strip-css-comments');
 
 const autoprefixer = require('gulp-autoprefixer');
 gulp.task('tree', function () {
@@ -25,31 +27,20 @@ gulp.task('watch', function() {
   gulp.watch('src/css/**/*.css', ['sass']);
   gulp.watch('src/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', browserSync.reload);
+  gulp.watch(childThemePath+'/**/*.js', browserSync.reload);
   gulp.watch(childThemePath+'/**/*.php', browserSync.reload);
 })
 
-gulp.task('initStorefront', function(){
-  gulp.src([parentThemePath+'/style.scss'])
-    .pipe(sass({
-        includePaths: [require('node-bourbon').includePaths,'node_modules/susy/sass/']
-    }).on('error', sass.logError))
-    .pipe(autoprefixer({
-           browsers: ['last 2 versions'],
-           cascade: false
-       }))
-    .pipe(gulp.dest(parentThemePath))
 
-});
 gulp.task('sass', function(){
   gulp.src(['src/*.scss'])
    .pipe(sourcemaps.init())
-    .pipe(sass({
-      includePaths: [require('node-bourbon').includePaths,'node_modules/susy/sass/']
-    }).on('error', sass.logError))
+    .pipe(sass({ style: 'compressed' }).on('error', sass.logError))
     .pipe(autoprefixer({
-           browsers: ['last 2 versions'],
+           browsers: ['last 3 versions'],
            cascade: false
        }))
+    .pipe(stripCssComments())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(childThemePath))
     .pipe(browserSync.reload({ // Reloading with Browser Sync

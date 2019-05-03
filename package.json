@@ -24,14 +24,11 @@
     "gulp-git": "^2.7.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "node-bourbon": "^4.2.8",
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
-    "susy": "^2.2.11",
     "vinyl-ftp": "^0.6.1",
-    "gulp-strip-comments": "^2.5.2"
+    "gulp-strip-css-comments": "^2.0.0",
   },
-  "dependencies": {},
   "scripts": {
     "postinstall": "gulp clean-git"
   }
