@@ -1,29 +1,29 @@
 $ThemesPath : "wp/wp-content/themes/";
 $parentThemePath : "wp/wp-content/themes/storefront/";
-$childThemePath : "wp/wp-content/themes/storefront-child/";
+$childThemePath : "/wp-content/themes/storefront-child/";
 
-
-$color-main1: #3A248B; //viola
-$color-main2: #FF8A26; //arancio
+// COLORS
+$color-main1: #EC3B42; //rosso
+$color-main2: #aa0000; //rosso
 $color-main3: #D9D2F3; //lilla
 $color-main4: #DC88A4; //rosa
 $color-main2-light: lighten($color-main2, 20); //arancio light
 
 $color-neutro1: #000000; //nero
-$color-neutro2: #707070; //grigio scuro
-$color-neutro3: #C7C7C7; //grigio
+$color-neutro2: #aaaaaa; //grigio scuro
+$color-neutro3: #EFEFEF; //grigio
 $color-neutro4: #ffffff; //bianco
 
-
+$color-neutro3-chiaro: #EFEFEF; //grigio
 $nero : $color-neutro1;
 $grigio_scuro : $color-neutro2;
 $grigio: $color-neutro3;
 $bianco : $color-neutro4;
 
-
 $color-p: $nero;
-$color-link: $color-main1;
-$color-link_hover: $color-main1;
+$color-link: $nero;
+$color-bg-link-hover: $color-main1;
+$color-text-link-hover: $color-main2;
 $color-h1: $color-main1;
 $color-h2: $nero;
 $color-h3: $nero;
@@ -31,20 +31,146 @@ $color-h4: $nero;
 $color-h5: $nero;
 
 
-$bold: bold;
 
-$font-family1: 'OpenSansRegular';
-$font-family2: 'OpenSansRegular';
-$font-family3: 'OpenSansRegular';
-$font-family1_fontname:'OpenSansRegular';
-$font-family2_fontname:'OpenSansRegular';
-$font-family3_fontname:'OpenSansRegular';
+// DIMENSIONI
+//
+// Grid containers OVERRIDE BOOTSTRAP
+// Define the maximum width of `.container` for different screen sizes.
+// VALORI DI DEFAULT DI BOOTSTRAP
+// sm: 540px,
+// md: 720px,
+// lg: 960px,
+// xl: 1140px
+
+
+$bootstrap-grid-breakpoint-xl: 1240px;
+$bootstrap-grid-breakpoint-lg: 1080px;
+$bootstrap-grid-breakpoint-md: 992px;
+$bootstrap-grid-breakpoint-sm: 576px;
+
+$full-wide: 1920px;
+$site-width: 1700px;
+$desktop-wide: $bootstrap-grid-breakpoint-xl;
+$desktop-laptop: $bootstrap-grid-breakpoint-lg;
+$desktop: $bootstrap-grid-breakpoint-lg;
+$tablet-wide: $bootstrap-grid-breakpoint-lg - 1;
+$tablet: $bootstrap-grid-breakpoint-md;
+$mobile: $bootstrap-grid-breakpoint-sm;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: $bootstrap-grid-breakpoint-sm,
+  md: $bootstrap-grid-breakpoint-md,
+  lg: $bootstrap-grid-breakpoint-lg,
+  xl: $bootstrap-grid-breakpoint-xl
+);
+
+
+$container-max-widths: (
+xs: 98% ,
+sm: 98% ,
+md: 98%,
+lg: $bootstrap-grid-breakpoint-lg * 0.95,
+xl: $bootstrap-grid-breakpoint-xl * 0.95
+) ;
+$colSelectorSizeMapHalf: (
+xs: 12 ,
+sm: 12 ,
+md: 6,
+lg: 6,
+xl: 6
+) ;
+$colSelectorSizeMapThird: (
+xs: 12 ,
+sm: 12 ,
+md: 6,
+lg: 4,
+xl: 4
+) ;
+$colSelectorSizeMapQuarter: (
+xs: 12 ,
+sm: 6 ,
+md: 4,
+lg: 3,
+xl: 3
+) ;
+// GUTTER DEFAULT DI BOOTSTRAP
+//$grid-gutter-width:           30px ;
+
+
+$break-huge: $bootstrap-grid-breakpoint-xl;
+$break-wide: $bootstrap-grid-breakpoint-lg;
+$break-xlarge: $bootstrap-grid-breakpoint-lg;
+$break-large: $bootstrap-grid-breakpoint-md;	// admin sidebar auto folds
+$break-medium: $bootstrap-grid-breakpoint-md;	// adminbar goes big
+$break-small: $bootstrap-grid-breakpoint-sm;
+$break-mobile: $bootstrap-grid-breakpoint-sm;
+
+// Most used breakpoints in gutemberg
+// $break-huge: 1440px;
+// $break-wide: 1280px;
+// $break-xlarge: 1080px;
+// $break-large: 960px;	// admin sidebar auto folds
+// $break-medium: 782px;	// adminbar goes big
+// $break-small: 600px;
+// $break-mobile: 480px;
+
+
+//TYPOGRAPHY
+
+$font-family1: 'Roboto Regular';
+$font-family2: 'Roboto Medium';
+$font-family3: 'Roboto Light';
+$font-family4: 'Roboto Bold';
+$font-family1_fontname:'Roboto-Regular';
+$font-family2_fontname:'Roboto-Medium';
+$font-family3_fontname:'Roboto-Light';
+$font-family4_fontname:'Roboto-Bold';
+
 
 $var-fontAwesomefamily: "Font Awesome 5 Free";
 $var-fontellofamily: "fontello";
-
 $var-iconsfamily: $var-fontellofamily;
+$sandwich-font-size: 30px;
 
+$baseFontSize: 17;
+
+
+$titoli-principali: pixel2rem(54);
+$titoli-secondari: pixel2rem(30);
+$titoli-shop: pixel2rem(24);
+$titoli-shop-categorie: pixel2rem(18);
+$titoli-spot : pixel2rem(14);
+$titolo-slider : $titoli-principali;
+$titolo-widget : pixel2rem(20);
+
+%titoli{
+  font-family:$font-family1;
+  font-size:$titoli-principali;
+  color:$color-neutro1;
+}
+
+
+$sottotitoli:pixel2rem(22);
+$font-size-data:pixel2rem(14);
+$font-size-testo: pixel2rem(18);
+$testo-slider:$font-size-testo;
+
+$spot-facebook: pixel2rem(22);
+$widget-title: pixel2rem(22);
+$widget-text: pixel2rem(22);
+$sub-spot: pixel2rem(22);
+$footer-testo: pixel2rem(22);
+$form: pixel2em(22);
+$copy: pixel2rem(22);
+$titoli-widget-big: pixel2rem(50);
+
+
+$menu-mobile: pixel2rem(10px);
+$mobile-titoli-principali: pixel2rem(55px);
+$mobile-titoli-secondari: pixel2rem(45px);
+
+//ICONE
 /*
 *Inserire una classe aggiuntiva nell'elemento html menu per abilitare l'icona es."icon-facebook"
 *per i menu-item-160 di wordpress è possibile farlo da dashboard
@@ -55,48 +181,66 @@ $var-icon-twitter:"\f309";
 $var-icon-linkedin:"\f318";
 $var-icon-pinterest:"\f312";
 $var-icon-instagram:"\f32d";
+$var-icon-youtube:'\f167';
+$var-icon-phone:"\e80a";
+$var-icon-mail:"\e80b";
 
 $var-icon-arrowleft:"\e802";
 $var-icon-arrowright:"\e801";
 $var-icon-arrowup:"\e800";
 $var-icon-arrowdown:"\e803";
+// $var-icon-UC-arrowleft:"\E80C";
+// $var-icon-UC-arrowleft-fill:"\E80D";
+
 $var-icon-download:"\e809";
+$var-icon-ext-pdf:"\F1C1";
+$var-icon-ext-doc:"\f0f6";
+$var-icon-ext-zip:"\f1c6";
 
-$google-plus: #dd4b39;
-$linkedin: #0077B5;
-$facebook:#3b5999;
-$instagram:#e4405f;
-$twitter:#55acee;
+$color-google-plus: #dd4b39;
+$color-linkedin: #0077B5;
+$color-facebook:#3b5999;
+$color-instagram:#e4405f;
+$color-twitter:#55acee;
 
-$transform-uppercase: uppercase;
-$titoli-principali: 42px;
-$titoli-secondari: 4em;
-$spot-box-title: 2em;
-$sottotitoli: 24px;
-$spot-facebook: 24px;
-$widget-title: 30px;
-$titoli-shop: 20px;
-$sub-spot: 18px;
-$widget-text: 15px;
-$footer-testo: 17px;
-$testo: 18px;
-$form: 1.2rem;
-$copy: 14px;
-$titoli-widget-big: 4em;
+$fa-var-facebook: \f09a;
+$fa-var-facebook-f: \f39e;
+$fa-var-facebook-square: \f082;
 
-$desktop-wide: 1920px;
-$desktop-laptop: 1440px;
-$site-width: 1700px;
-$desktop: 1024px;
-$tablet-wide: 960px;
-$tablet: 768px;
-$mobile: 767px;
 
-$menu-mobile: 1010px;
-$mobile-titoli-principali: 55px;
-$mobile-titoli-secondari: 45px;
+
+
+
+
+
+
+
 
 $bg-bianco-grigio: '../storefront-child/assets/img/bianco-grigio.jpg';
 $bg-grigio-bianco: '../storefront-child/assets/img/grigio-bianco.jpg';
 $bg-bianco: #fff;
 $bg-grigio: #E9E9E9;
+
+
+/* MAPS */
+$colSelectorSizesMap2col:(
+    xs: 12,
+    sm: 12,
+    md: 6,
+    lg: 6,
+    xl: 3
+)!default;
+$colSelectorSizesMap4col:(
+    xs: 12,
+    sm: 6,
+    md: 4,
+    lg: 4,
+    xl: 3
+)!default;
+$colSelectorSizesMap6col:(
+    xs: 12,
+    sm: 6,
+    md: 4,
+    lg: 3,
+    xl: 2
+)!default;
