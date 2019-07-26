@@ -32,5 +32,8 @@
     "susy": "^2.2.11",
     "vinyl-ftp": "^0.6.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "scripts": {
+    "postinstall": "gulp clean-git"
+  }
 }
