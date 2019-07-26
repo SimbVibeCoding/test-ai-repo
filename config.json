@@ -2,7 +2,7 @@
   "themesPath" : "wp/wp-content/themes/",
   "childThemePath" : "wp/wp-content/themes/wp-bootstrap-starter-child/",
   "parentThemePath" : "wp/wp-content/themeswp-bootstrap-starter/",
-    "site" : "http://test-custom-installer.local/",
+    "site" : "http://test-bootstrap-installer.local/",
     "ftp_host":"192.168.0.50",
     "ftp_user":"macchef",
     "ftp_pasw":"uE6MzlC929",
