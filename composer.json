@@ -13,7 +13,7 @@
       "wpackagist-plugin/wordfence":">=7.1.4",
       "advanced-custom-fields/advanced-custom-fields-pro":"*",
       "wpackagist-plugin/contact-form-7":">=5.0.2",
-      "wpackagist-plugin/contact-form-7-get-and-show-parameter-from-url":">=0.9.7",
+    "wpackagist-plugin/contact-form-7-dynamic-text-extension":">=2.0.3",
       "wpackagist-plugin/simply-show-hooks":">=1.2.1",
       "wpackagist-plugin/query-monitor":">=3.0.1",
       "wpackagist-plugin/regenerate-thumbnails":">=3.1.0",
