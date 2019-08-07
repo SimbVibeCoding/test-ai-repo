@@ -1,65 +1,92 @@
-@mixin hilight($content:true,$selector:class) {
+@mixin hilight($selector:id,$content:true) {
   $color: random_color();
   background-color: $color;
-
+  position: relative;
+  * {
+    @include text-contrast($color)
+  }
   &:before {
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+    overflow: hidden;
+    //width:  25px;
+    //position: absolute;
+    white-space: nowrap;
+    top: 0 ;
+    left: 0;
+    padding-right: 25px;
+    display: inline-block;
     @if($content) {
       content: attr($selector);
-      color: $color;
-      padding: 5px;
-      @include text-contrast($color)
+      background-color: red;
+      @include text-contrast(red)
+      font-size: pixel2rem(12);
+      text-align: right;
     }
   }
-
-  * {
+  &:hover:before{
+    background-color: black;
+    @include text-contrast(red)
   }
 }
 
 header {
+
+
   &#masthead {
     @include hilight;
 
     div.container {
-      @include hilight;
+      @include hilight(class);
+
       nav.navbar {
-        @include hilight;
+        @include hilight(class);
+
         button.navbar-toggler {
           span.navbar-toggler-icon {}
         }
 
         div#main-nav {
           @include hilight;
-          ul#menu-menu-1 {
-            li#menu-item-38 {
-              a.nav-link {}
-            }
 
-            li#menu-item-39 {
-              a.nav-link {}
-            }
+          ul.navbar-nav {
+            @include hilight;
 
-            li#menu-item-40 {
-              a.nav-link {}
-            }
+            li.menu-item {
+              @include hilight;
 
-            li#menu-item-41 {
-              a.nav-link {}
-            }
-
-            li#menu-item-43 {
-              a.nav-link {}
-            }
-
-            li#menu-item-44 {
-              a.nav-link {}
-            }
-
-            li#menu-item-45 {
               a.nav-link {}
             }
           }
         }
       }
+    }
+  }
+}
+
+#header-top {
+  @include hilight(class);
+}
+#header-home {
+  @include hilight;
+}
+
+#header-bottom {
+  @include hilight;
+}
+
+#page-sub-header {
+  @include hilight;
+
+  .container {
+    @include hilight;
+
+    h1 {}
+
+    p {}
+
+    .page-scroller {
+      .fa {}
     }
   }
 }

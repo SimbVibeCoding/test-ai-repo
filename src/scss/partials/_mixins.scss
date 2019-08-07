@@ -506,7 +506,6 @@
 }
 @mixin media-breakpoint-up-unique-class($colSelector,$colSelectorSizesMap) {
   #{$colSelector} {
-    @debug $colSelector;
     @each $breakpoint, $colsnumber in $colSelectorSizesMap {
       @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
         @include make-col($colsnumber);
