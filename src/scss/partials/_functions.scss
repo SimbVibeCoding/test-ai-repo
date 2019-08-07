@@ -9,3 +9,8 @@
 @function is-map($var){
   @return type-of($var) == 'map';
 }
+
+@function random_color($val:255) {
+  @return rgb(random($val),random($val),random($val));
+
+}
