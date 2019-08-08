@@ -428,6 +428,9 @@
   background-position: $background-position;
   background-size: $background-size;
 }
+@mixin extend-atomic-gutemberg-container(){
+  @include extend-container(".wp-block-atomic-blocks-ab-container", ".ab-container-inside")
+}
 // ************************* Gutemberg ********************************
 @mixin gutemberg-block-copertina-testo-maxheight() {
   @media screen and (max-width:$tablet) {
@@ -495,6 +498,22 @@
 @mixin bootstrap-media-breakpoint-up() {
   @include media-breakpoint-up($breakpoint, $breakpoints) {}
 }
+
+@mixin extend-container($container, $content){
+  @if #{$container} {
+    @media screen and (min-width:$bootstrap-grid-breakpoint-xl){
+       margin-left: calc(-100vw / 2 + #{map-get($container-max-widths, "xl")-$grid-gutter-width/2} / 2);
+       margin-right: calc(-100vw / 2 + #{map-get($container-max-widths, "xl")-$grid-gutter-width/2} / 2);
+    }
+    #{$content}{
+      @media screen and (min-width:$bootstrap-grid-breakpoint-xl){
+        margin: 0 auto;
+        width:map-get($container-max-widths, "xl");
+      }
+    }
+  }
+}
+
 //**************************************bootstrap **************************
 @mixin bootstrap-make-row {
   @include make-row;
