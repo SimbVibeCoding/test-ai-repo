@@ -6,6 +6,10 @@
 @function pixel2em($pixel){
   @return ($pixel/$baseFontSize)*1em;
 }
+@function abs2pixel($pixel){
+  @return ($pixel)*1px;
+}
+
 @function is-map($var){
   @return type-of($var) == 'map';
 }
