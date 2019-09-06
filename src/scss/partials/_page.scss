@@ -1,0 +1,36 @@
+#page-sub-header {
+  background: $bg-grigio;
+
+  a,
+  p {
+    color: $color-neutro4;
+  }
+}
+
+#content {
+  &.site-content {
+    .wp-block-atomic-blocks-ab-container {
+      .ab-container-inside {
+        .ab-container-content {
+          p {}
+        }
+      }
+      &.extend-full-width {
+        @include extend-atomic-gutemberg-container;
+      }
+      &.intro {
+        background: red;
+        padding: 10px;
+
+        .ab-container-inside {
+          background: blue;
+
+          .ab-container-content {
+            p {}
+          }
+        }
+      }
+    }
+    .home {}
+  }
+}
