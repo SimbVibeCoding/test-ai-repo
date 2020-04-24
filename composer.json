@@ -25,7 +25,8 @@
       "wpackagist-plugin/block-lab":">=1.2.2",
       "wpackagist-plugin/mailchimp-for-wp":">=4.5.2",
       "wpackagist-plugin/atomic-blocks":">=2.0",
-      "wpackagist-plugin/worker": ">=4.8.1"
+      "wpackagist-plugin/worker": ">=4.8.1",
+      "wpackagist-plugin/wp-mail-smtp":">=1.9.0"
     },    "repositories": [      {
         "type": "package",
         "package": {
