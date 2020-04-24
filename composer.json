@@ -63,7 +63,10 @@
     },
     "scripts": {
         "post-update-cmd": [
-            "npm install"
+          "npm install",
+          "wp plugin update --all --path=wp/",
+          "wp plugin activate wp-mail-smtp --path=wp/",
+          "wp language core update --path=wp/"
         ]
 
     }
