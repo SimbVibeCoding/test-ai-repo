@@ -1,0 +1,30 @@
+#main-nav.collapse {
+
+	ul.navbar-nav {
+    flex: 0 0 25%;
+		background: red;
+		li.menu-item {
+
+			a.dropdown-toggle {
+
+			}
+
+			ul.dropdown-menu {
+
+				li.menu-item {
+
+					a.dropdown-item {
+
+					}
+				}
+			}
+		}
+		&.menu-works{
+			li{
+				a{
+					font-size: 10px
+				}
+			}
+		}
+	}
+}
