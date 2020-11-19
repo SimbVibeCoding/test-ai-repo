@@ -1,25 +1,78 @@
-body{
-  font-family: $font-family1;
-  font-size: 15px;
-}
-h1,h2,h3,h4,h5{
-  color: $color-main2;
-  font-family: $font-family2;
-}
-h1{
-  font-size: $titoli-principali;
-  text-align: left;
-}
-h3{
-  font-size: $titoli-secondari;
-  text-align: left;
-}
-a{
-  color: $color-neutro4;
-  text-decoration: none;
-  &:hover{
-    text-decoration: none;
-    color: $color-main2;
-
+@if variable-exists(font-family1) {
+  @if variable-exists(font-family1_fontname) {
+    @include font-face($font-family1, $font-family1_fontname);
+  } @else {
+    @include font-face($font-family1, $font-family1);
   }
 }
+@if variable-exists(font-family2) {
+  @if variable-exists(font-family2_fontname) {
+    @include font-face($font-family2, $font-family2_fontname);
+  } @else {
+    @include font-face($font-family2, $font-family2);
+  }
+}
+@if variable-exists(font-family3) {
+  @if variable-exists(font-family3_fontname) {
+    @include font-face($font-family3, $font-family3_fontname);
+  } @else {
+    @include font-face($font-family3, $font-family3);
+  }
+}
+@if variable-exists(font-family4) {
+  @if variable-exists(font-family4_fontname) {
+    @include font-face($font-family4, $font-family4_fontname);
+  } @else {
+    @include font-face($font-family4, $font-family4);
+  }
+}
+@if variable-exists(font-family5) {
+  @if variable-exists(font-family5_fontname) {
+    @include font-face($font-family5, $font-family5_fontname);
+  } @else {
+    @include font-face($font-family5, $font-family5);
+  }
+}
+@include font-face($var-fontellofamily, "/icons/fontello");
+
+%titoli {
+  font-family: $font-family4;
+  font-size: $titoli-secondari;
+  color: $color-main1;
+}
+
+body {
+  font-family: $font-family1;
+  font-size: $testo-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // color: $color-main1;
+  // font-family: $font-family4;
+  @extend %titoli;
+}
+// h1{
+//   font-size: $titoli-principali;
+//   text-align: left;
+// }
+// h2{
+//   font-size: $titoli-secondari;
+//   text-align: left;
+// }
+// h3{
+//   font-size: $sottotitoli;
+//   text-align: left;
+// }
+// a{
+//   color: $color-neutro4;
+//   text-decoration: none;
+//   &:hover{
+//     text-decoration: none;
+//     color: $color-main2;
+//   }
+// }

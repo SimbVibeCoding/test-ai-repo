@@ -4,8 +4,6 @@
   "description": "package per scaricare wordpress e il tema retina",
   "require": {
 
-      "wpackagist-theme/wp-bootstrap-starter":"3.1.0",
-      "retina/wp-bootstrap-starter-child": "dev-master",
       "wpackagist-plugin/ultimate-addons-for-gutenberg":">=1.13.3",
       "wpackagist-plugin/w3-total-cache":">=0.9.7",
       "wpackagist-plugin/all-in-one-wp-security-and-firewall":">=4.3.3.1",
@@ -26,12 +24,14 @@
       "wpackagist-plugin/mailchimp-for-wp":">=4.5.2",
       "wpackagist-plugin/atomic-blocks":">=2.0",
       "wpackagist-plugin/worker": ">=4.8.1",
-      "wpackagist-plugin/wp-mail-smtp":">=1.9.0"
+      "wpackagist-plugin/wp-mail-smtp":">=1.9.0",
+      "wpackagist-theme/wp-bootstrap-starter":">=3.1.0",
+      "retina/wp-bootstrap-starter-child": "dev-master",
     },    "repositories": [      {
         "type": "package",
         "package": {
           "name": "advanced-custom-fields/advanced-custom-fields-pro",
-          "version": "5.8.8",
+          "version": "5.9.3",
           "type": "wordpress-plugin",
           "dist": {
             "type": "zip",

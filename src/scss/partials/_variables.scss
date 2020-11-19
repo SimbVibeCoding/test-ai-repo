@@ -3,10 +3,10 @@ $parentThemePath : "wp/wp-content/themes/storefront/";
 $childThemePath : "/wp-content/themes/storefront-child/";
 
 // COLORS
-$color-main1: #EC3B42; //rosso
-$color-main2: #aa0000; //rosso
-$color-main3: #D9D2F3; //lilla
-$color-main4: #DC88A4; //rosa
+$color-main1: #3366cc; //blu
+$color-main2: #339966; //verde
+$color-main3: #339966; //lilla
+$color-main4: #339966; //rosa
 $color-main2-light: lighten($color-main2, 20); //arancio light
 
 $color-neutro1: #000000; //nero
@@ -43,8 +43,8 @@ $color-h5: $nero;
 // xl: 1140px
 
 
-$bootstrap-grid-breakpoint-xl: 1240px;
-$bootstrap-grid-breakpoint-lg: 1080px;
+$bootstrap-grid-breakpoint-xl: 1440px;
+$bootstrap-grid-breakpoint-lg: 1280px;
 $bootstrap-grid-breakpoint-md: 992px;
 $bootstrap-grid-breakpoint-sm: 576px;
 
@@ -118,14 +118,14 @@ $break-mobile: $bootstrap-grid-breakpoint-sm;
 
 //TYPOGRAPHY
 
-$font-family1: 'Roboto Regular';
-$font-family2: 'Roboto Medium';
-$font-family3: 'Roboto Light';
+$font-family1: 'Roboto Light';
+$font-family2: 'Roboto Regular';
+$font-family3: 'Roboto Medium';
 $font-family4: 'Roboto Bold';
-$font-family1_fontname:'Roboto-Regular';
-$font-family2_fontname:'Roboto-Medium';
-$font-family3_fontname:'Roboto-Light';
-$font-family4_fontname:'Roboto-Bold';
+$font-family1_fontname:'RobotoLight';
+$font-family2_fontname:'RobotoRegular';
+$font-family3_fontname:'RobotoMedium';
+$font-family4_fontname:'RobotoBold';
 
 
 $var-fontAwesomefamily: "Font Awesome 5 Free";
@@ -133,25 +133,23 @@ $var-fontellofamily: "fontello";
 $var-iconsfamily: $var-fontellofamily;
 $sandwich-font-size: 30px;
 
-$baseFontSize: 17;
+$baseFontSize: 18;
+$testo-base:pixel2rem($baseFontSize);
 
-
-$titoli-principali: pixel2rem(54);
-$titoli-secondari: pixel2rem(30);
-$titoli-shop: pixel2rem(24);
-$titoli-shop-categorie: pixel2rem(18);
-$titoli-spot : pixel2rem(14);
+$titoli-principali: pixel2rem(85);
+$titoli-secondari: pixel2rem(40);
 $titolo-slider : $titoli-principali;
+$titoli-spot : pixel2rem(40);
 $titolo-widget : pixel2rem(20);
 
-%titoli{
-  font-family:$font-family1;
-  font-size:$titoli-principali;
-  color:$color-neutro1;
-}
+$voci-menu: pixel2rem(14);
+$voci-menu-secondario: pixel2rem(12);
+$voci-sub-menu: pixel2rem(11);
 
 
-$sottotitoli:pixel2rem(22);
+
+
+$sottotitoli:pixel2rem(30);
 $font-size-data:pixel2rem(14);
 $font-size-testo: pixel2rem(18);
 $testo-slider:$font-size-testo;
@@ -210,14 +208,6 @@ $color-twitter:#55acee;
 $fa-var-facebook: '\f09a';
 $fa-var-facebook-f: '\f39e';
 $fa-var-facebook-square: '\f082';
-
-
-
-
-
-
-
-
 
 
 $bg-bianco-grigio: '../storefront-child/assets/img/bianco-grigio.jpg';

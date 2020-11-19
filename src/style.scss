@@ -30,7 +30,7 @@ Images License: GNU General Public License v2 or later
   @import 'scss/vendors/bootstrap4/variables';
 
 //uso il mio file _variables.css per sovrascrivere quello standard di bootstrap
-@import 'scss/partials/functions';
+  @import 'scss/partials/functions';
   @import 'scss/partials/variables';
 
 //carico i file di bootstrap che utilizzano le  variabili
@@ -47,6 +47,9 @@ Images License: GNU General Public License v2 or later
 
 
   @import 'scss/partials/styleguide';
+  @import 'scss/partials/typography';
+  @import 'scss/partials/layout';
+  @import 'scss/partials/header';
 
 
 
