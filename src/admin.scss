@@ -1,1 +1,40 @@
-.wp-block { max-width: 100%; }
+//admin->personalizza->layout
+#input_retina_layout{
+  label{
+    height: auto;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  input{
+    &.ui-checkboxradio-icon{
+
+    }
+  }
+}
+
+//gutemberg customization
+.wp-block{
+   max-width: 80%;
+  &.full { max-width: 100%; }
+}
+.block-editor-block-list__layout{
+  &.is-root-container{
+    border: 1px solid blue;
+    .wp-block-group{
+      border: 10px solid #afafaf;
+      &.section{
+        background-color:#afafaf;
+      }
+      &.full{
+        background-color:#ffafaf;
+      }
+    }
+    .wp-block-columns{
+      border: 10px solid #ffafaf;
+
+      .wp-block-column{
+        border: 10px solid #afffaf;
+      }
+    }
+  }
+}
