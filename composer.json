@@ -26,7 +26,7 @@
       "wpackagist-plugin/worker": ">=4.8.1",
       "wpackagist-plugin/wp-mail-smtp":">=1.9.0",
       "wpackagist-theme/wp-bootstrap-starter":">=3.1.0",
-      "retina/wp-bootstrap-starter-child": "dev-master",
+      "retina/wp-bootstrap-starter-child": "dev-master"
     },    "repositories": [      {
         "type": "package",
         "package": {
