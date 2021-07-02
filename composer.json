@@ -6,9 +6,6 @@
 
       "wpackagist-plugin/ultimate-addons-for-gutenberg":">=1.13.3",
       "wpackagist-plugin/w3-total-cache":">=0.9.7",
-      "wpackagist-plugin/all-in-one-wp-security-and-firewall":">=4.3.3.1",
-      "wpackagist-plugin/webriti-smtp-mail":">=1.7",
-      "wpackagist-plugin/wordfence":">=7.1.4",
       "advanced-custom-fields/advanced-custom-fields-pro":"*",
       "wpackagist-plugin/contact-form-7":">=5.0.2",
       "wpackagist-plugin/contact-form-7-dynamic-text-extension":">=2.0.3",
@@ -28,20 +25,8 @@
       "wpackagist-theme/wp-bootstrap-starter":">=3.1.0",
       "retina/wp-bootstrap-starter-child": "dev-master"
     },    "repositories": [      {
-        "type": "package",
-        "package": {
-          "name": "advanced-custom-fields/advanced-custom-fields-pro",
-          "version": "5.9.3",
-          "type": "wordpress-plugin",
-          "dist": {
-            "type": "zip",
-            "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
-          },
-          "require": {
-            "philippbaschke/acf-pro-installer": "^1.0",
-            "composer/installers": "^1.0"
-          }
-        }
+        "type": "composer",
+  "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"
       },
       {
            "type":"composer",
@@ -66,7 +51,8 @@
           "npm install",
           "wp plugin update --all --path=wp/",
           "wp plugin activate wp-mail-smtp --path=wp/",
-          "wp language core update --path=wp/"
+          "wp language core update --path=wp/",
+          "wp theme activate wp-bootstrap-starter-child --path=wp/"
         ]
 
     }
