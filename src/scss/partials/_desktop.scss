@@ -4,3 +4,6 @@
 }
 @media screen and (min-width: $site-width) and (max-width: $desktop-laptop) {
 }
+html{
+    scroll-behavior: smooth;
+}

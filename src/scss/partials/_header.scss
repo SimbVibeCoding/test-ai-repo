@@ -1,17 +1,79 @@
 // @import 'scss/partials/sub-header';
 // @import 'scss/partials/woo-search';
 // @import 'scss/partials/logotraimenu';
-@import 'higlight-header';
+//@import 'higlight-header';
 
 .site {
-  //overflow-x: visible;
   #header-top {
-    background-color: $color-main1;
+    background-color: transparent;
     overflow: hidden;
     padding: 10px 0;
-    font-size: 11px;
+    font-size: 21px;
     line-height: 11px;
     color: $color-neutro4;
+    position:absolute;
+    width: 100%;
+    .container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .widget {
+        margin: 0;
+        ul {
+          margin: 0;
+        }
+      }
+
+
+      a {
+        transform: scale(2);
+        padding: 5px;
+        color: $color-neutro3;
+      }
+
+      .widget_nav_menu{
+       @include menu-social;
+
+      }
+      .-widget_nav_menu{
+        flex: 0 0 20%;
+        ul{
+          display:flex;
+          flex-wrap: nowrap;
+          justify-content: flex-end;
+          list-style-type: none;
+          padding:0;
+          align-items: center;
+          margin: 0;
+        }
+        .menu-item{
+          a{
+            &:before{
+            }
+          }
+          &.icon{
+            a{
+              margin: 0;
+              &:before{
+              }
+            }
+          }
+          &.icon-email{
+            a{
+              content:$var-icon-mail;
+            }
+          }
+          &:hover{
+            a{
+
+             
+            }
+          }
+        }
+      }
+    }
+
 
     a {
       font-size: 11px;
@@ -48,11 +110,42 @@
 
   header {
     &#masthead {
+      padding: 0;
+
       &.site-header {
+        >.container{
+          padding: 5px;
+
+        }
+        .navbar-brand {
+          img {
+            //max-height: 50px;
+            height: 70px;
+          }
+        }
+
+        .navbar-nav {
+          .menu-item-highlight{
+            background-color: $color-main2;
+            border-radius: 5px;
+          }
+          .menu-item {
+            a {
+              color: $color-neutro1;
+              font-size: 18px;
+            }
+          }
+        }
+
+        background-color: $color-neutro4;
       }
 
       .col-full {
         width: 100%;
+      }
+
+      .menu-item-highlight {
+        background: $color-main1;
       }
     }
   }

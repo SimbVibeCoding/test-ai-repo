@@ -128,6 +128,10 @@
   }
 
 }
+@mixin style-button_rounded($color:$color-neutro4,$color-hover:$color-neutro1,$bgcolor:$color-main1,$bgcolor-hover:$color-main2,$radius){
+  @include style-button($color,$color-hover,$bgcolor,$bgcolor-hover);
+  border-radius:$radius;
+}
 @mixin style-button-sticky() {
   background-color: $color-neutro1;
   color: $color-neutro4;
