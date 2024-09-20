@@ -2,12 +2,17 @@
   @font-face {
     font-family: $fontname;
     src: url("fonts/#{$filename}.eot");
-    src: url("fonts/#{$filename}.woff2") format('woff2'), url("fonts/#{$filename}.woff") format('woff'), url("fonts/#{$filename}.eot?#iefix") format('embedded-opentype'), url("fonts/#{$filename}.ttf") format('truetype'), url("fonts/#{$filename}.svg##{$fontname}") format('svg');
+    src: url("fonts/#{$filename}.woff2") format('woff2'),
+    url("fonts/#{$filename}.woff") format('woff'),
+    url("fonts/#{$filename}.eot?#iefix") format('embedded-opentype'),
+    url("fonts/#{$filename}.ttf") format('truetype'),
+    url("fonts/#{$filename}.svg##{$fontname}") format('svg');
     font-weight: normal;
     font-style: normal;
     font-size: $font-size-testo;
   }
 }
+
 @mixin elenco-categorie() {
   width: 100%;
   max-width: $desktop;
@@ -56,7 +61,8 @@
     }
   }
 }
-@mixin slickslider-arrow($size: 30px,$posleft:0,$posright:0,$background-color:transparent, $content-left: $var-icon-arrowleft,$content-right: $var-icon-arrowright, $button-class:".slick-arrow") {
+
+@mixin slickslider-arrow($size: 30px, $posleft: 0, $posright: 0, $background-color: transparent, $content-left: $var-icon-arrowleft, $content-right: $var-icon-arrowright, $button-class: ".slick-arrow") {
   #{$button-class} {
     z-index: 1000;
 
@@ -88,7 +94,8 @@
     }
   }
 }
-@mixin grid-articoli-salvattore($gridselector:'#grid', $columnselector:'.column') {
+
+@mixin grid-articoli-salvattore($gridselector: '#grid', $columnselector: '.column') {
   $map: (
     ".size-1of1": 100%,
     ".size-1of2": 50%,
@@ -96,40 +103,46 @@
     ".size-1of4": 25%,
     ".size-1of6": 16.666%,
   );
-  //@warn "add the data-columns attribute to the grid element.";
-  #{$gridselector}[data-columns]::before {
-    content: '6 .column.size-1of6';
+
+//@warn "add the data-columns attribute to the grid element.";
+#{$gridselector}[data-columns]::before {
+  content: '6 .column.size-1of6';
+}
+
+#{$columnselector} {
+  float: left;
+
+  @each $class, $size in $map {
+    &#{$class} {
+      width: $size;
+    }
   }
 
-  #{$columnselector} {
-    float: left;
-    @each $class,$size in $map {
-      &#{$class} {
-        width: $size;
-      }
-    }
-
-    article {
-      @content;
-    }
-  }
-  @media screen and (max-width: $mobile) {
-    #{$gridselector}[data-columns]::before {
-      content: '1 .column.size-1of1';
-    }
-  }
-  @media screen and (min-width: $tablet) and (max-width: $desktop) {
-    #{$gridselector}[data-columns]::before {
-      content: '2 .column.size-1of2';
-    }
-  }
-  @media screen and (min-width: $desktop) {
-    #{$gridselector}[data-columns]::before {
-      content: '4 .column.size-1of4';
-    }
+  article {
+    @content;
   }
 }
-@mixin list-style($ontent: $var-icon-arrowright, $color:$color-main2,$fontsize:10px,$fontfamily:$var-fontellofamily) {
+
+@media screen and (max-width: $mobile) {
+  #{$gridselector}[data-columns]::before {
+    content: '1 .column.size-1of1';
+  }
+}
+
+@media screen and (min-width: $tablet) and (max-width: $desktop) {
+  #{$gridselector}[data-columns]::before {
+    content: '2 .column.size-1of2';
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  #{$gridselector}[data-columns]::before {
+    content: '4 .column.size-1of4';
+  }
+}
+}
+
+@mixin list-style($ontent: $var-icon-arrowright, $color: $color-main2, $fontsize: 10px, $fontfamily: $var-fontellofamily) {
   &:before {
     display: inline-block;
     font-family: $fontfamily;
@@ -139,7 +152,8 @@
     padding: 0 10px;
   }
 }
-@mixin separatore($colorText:$color-main1,$colorLine:$color-neutro3,$fontSize:$titoli-secondari,$fontFamily:$font-family2,$textTranform:uppercase) {
+
+@mixin separatore($colorText: $color-main1, $colorLine: $color-neutro3, $fontSize: $titoli-secondari, $fontFamily: $font-family2, $textTranform: uppercase) {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -202,10 +216,12 @@
     padding: 0 10px;
   }
 }
+
 @mixin flex-wall-single-col() {
-  @include flex-wall(wrap,row,flex-start,flex-start,flex-start);
+  @include flex-wall(wrap, row, flex-start, flex-start, flex-start);
 }
-@mixin flex-wall($flex-wrap:wrap,$flex-direction:row,$justify-content:space-between,$align-items:center,$align-content:flex-start) {
+
+@mixin flex-wall($flex-wrap: wrap, $flex-direction: row, $justify-content: space-between, $align-items: center, $align-content: flex-start) {
   display: flex;
   flex-direction: $flex-direction;
   flex-wrap: $flex-wrap;
@@ -213,71 +229,85 @@
   align-items: $align-items;
   align-content: $align-content;
 }
-@mixin flex-items($itemSelector:item,$flex-grow:0,$flex-shrink:0, $flex-basis:auto,$justify-content:space-between,$align-items:center,$align-self:null) {
+
+@mixin flex-items($itemSelector: item, $flex-grow: 0, $flex-shrink: 0, $flex-basis: auto, $justify-content: space-between, $align-items: center, $align-self: null) {
   .#{$itemSelector} {
     flex: $flex-grow $flex-shrink $flex-basis;
+
     @if($align-self) {
       align-self: $align-self;
     }
   }
 }
-@mixin flex-default($justify-content:space-between,$align-items:center,) {
+
+@mixin flex-default($justify-content: space-between, $align-items: center, ) {
   display: flex;
   flex-flow: row wrap;
   justify-content: $justify-content;
   align-items: $align-items;
 }
-@mixin generate-random-content($gridselector:'.grid',$itemSelector:'.item',$itemsnumber:12, $subsnumber: 3) {
+
+@mixin generate-random-content($gridselector: '.grid', $itemSelector: '.item', $itemsnumber: 12, $subsnumber: 3) {
   $items: $itemsnumber;
-  @while $items > 0 {
+
+  @while $items >0 {
     #{$gridselector}#{$items} {
       $subs: $subsnumber;
-      @while $subs > 0 {
+
+      @while $subs >0 {
         #{$itemSelector}#{$subs} {
           //height: random(200)*1px;
           min-height: 50px;
           //background-color: rgb(random(255),random(255),random(255));
         }
+
         $subs: $subs - 1;
       }
     }
+
     $items: $items - 1;
   }
 }
-@mixin flex-fill-subitem($gridselector:'.grid',$itemSelector:'.item',) {
+
+@mixin flex-fill-subitem($gridselector: '.grid', $itemSelector: '.item', ) {
   #{$gridselector} {
     //@mixin flex-wall($flex-wrap:wrap,$flex-direction:row,$justify-content:space-between,$align-items:center,$align-content:flex-start) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
-    @include flex-items(item, 1 ,0);
+    @include flex-items(item, 1, 0);
 
     #{$itemSelector} {
-      @include flex-items(sub, 0 ,0, 100%);
+      @include flex-items(sub, 0, 0, 100%);
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: stretch;
       min-width: 200px;
-      border: 1px solid red;
+
+      //border: 1px solid red;
       @include respond-to('lg') {}
     }
+
     @include generate-random-content
   }
 }
+
 @mixin reset_box_model() {
   padding: 0;
   margin: 0;
   border: none;
 }
-@mixin absolute_center($top:50%, $left: 50%) {
+
+@mixin absolute_center($top: 50%, $left: 50%, $translateTop: -50%, $translateLeft: -50%) {
   position: absolute;
   top: $top;
   left: $left;
-  transform: translate(-50%,-50%);
+  transform: translate($translateLeft, $translateTop);
 }
-@mixin fill_container($opacity:1) {
+
+@mixin fill_container($opacity: 1) {
   position: absolute;
   top: 0;
   left: 0;
@@ -286,69 +316,83 @@
   opacity: $opacity;
   display: block;
 }
-@mixin pseudoelement_block_content($content:" ",$display:inline-block) {
+
+@mixin pseudoelement_block_content($content: " ", $display: inline-block) {
   content: $content;
   width: auto;
   display: $display;
 }
-@mixin before_block_icon($content:$var-icon-arrowleft,$padding:10px,$font-size:$font-size-testo,$clear:true) {
-  @if $clear == true {
+
+@mixin before_block_icon($content: $var-icon-arrowleft, $padding: 10px, $font-size: $font-size-testo, $clear: true) {
+  @if $clear ==true {
     &:after {
       content: "";
     }
   }
 
   &:before {
-    @include pseudoelement_block_content($content) font-family: $var-iconsfamily;
+    @include pseudoelement_block_content($content);
+     font-family: $var-iconsfamily;
     content: $content;
     font-size: $font-size;
     padding: 0 $padding 0 0;
   }
 }
-@mixin after_block_icon($content:$var-icon-arrowright,$padding:10px,$font-size:$font-size-testo,$clear:true) {
-  @if $clear == true {
+
+@mixin after_block_icon($content: $var-icon-arrowright, $padding: 10px, $font-size: $font-size-testo, $clear: true) {
+  @if $clear ==true {
     &:before {
       content: "";
     }
   }
 
   &:after {
-    @include pseudoelement_block_content($content) font-family: $var-iconsfamily;
+    @include pseudoelement_block_content($content);
+     font-family: $var-iconsfamily;
     font-size: $font-size;
     padding: 0 0 0 $padding;
   }
 }
+
 @mixin text-contrast($n) {
   $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
   $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
   @if abs($color-brightness) < ($light-color/2) {
     color: white;
-  } @else {
+  }
+
+  @else {
     color: black;
   }
 }
+
 @mixin color_contrast($value) {
   background-color: $value;
   @include text-contrast($value);
-  content: ""+$value;
+  content: "" +$value;
 }
-@mixin stile_header($size, $font-family:$font-family1, $color:$nero, $weight:400) {
+
+@mixin stile_header($size, $font-family: $font-family1, $color: $nero, $weight: 400) {
   font-family: $font-family;
   font-size: $size;
   font-weight: $weight;
   color: $color;
 }
-@mixin contact-box($size, $font-family:$font-family1, $color:$color-main1, $weight:400) {
+
+@mixin contact-box($size, $font-family: $font-family1, $color: $color-main1, $weight: 400) {
   font-family: $font-family;
   font-size: $size;
   font-weight: $weight;
   color: $color;
 }
-@mixin sfumatura($color1:$color-main1, $color2:$color-main2) {
+
+@mixin sfumatura($color1: $color-main1, $color2: $color-main2) {
   background-color: $color1;
   background-image: linear-gradient(to bottom, $color1, $color2);
 }
-@mixin button($bgcolor: $color-main1,$color:$color-neutro1,$padding-button:20px) {
+
+@mixin button($bgcolor: $color-main1, $color: $color-neutro1, $padding-button: 20px) {
   background-color: $bgcolor;
   padding: $padding-button;
   color: $color;
@@ -356,8 +400,9 @@
   border-color: transparent;
   border: none;
 }
-@mixin embed-responsive ($container:'.wp-block-embed__wrapper'){
-   #{$container} {
+
+@mixin embed-responsive ($container: '.wp-block-embed__wrapper') {
+  #{$container} {
     position: relative;
     padding-bottom: 56.25%;
     overflow: hidden;
@@ -375,16 +420,20 @@
     height: 100%;
   }
 }
+
 // For each breakpoint, define the maximum width of the container in a media query
 @mixin respond-to($breakpoint) {
   @if map-has-key($grid-breakpoints, $breakpoint) {
     @media (min-width: #{map-get($grid-breakpoints, $breakpoint)}) {
       @content;
     }
-  } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Please make sure it is defined in `$breakpoints` map.";
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Please make sure it is defined in `$breakpoints` map.";
   }
 }
+
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
   @each $breakpoint, $container-max-width in $max-widths {
     @include media-breakpoint-up($breakpoint, $breakpoints) {
@@ -392,17 +441,22 @@
     }
   }
 }
+
 @mixin text-contrast($n) {
   $color-brightness: round((red($n) * 299) + (green($n) * 587) + (blue($n) * 114) / 1000);
   $light-color: round((red(#ffffff) * 299) + (green(#ffffff) * 587) + (blue(#ffffff) * 114) / 1000);
+
   @if abs($color-brightness) < ($light-color/2) {
     color: white;
-  } @else {
+  }
+
+  @else {
     color: black;
   }
 }
+
 // stili
-@mixin style-form($color:$color-neutro2,$font-family:$font-family2,$inputBackground:$color-neutro3-chiaro,$submitBackground:$color-main1,$submitColor:$color-neutro4,$submitBackgroundHover:$color-main2) {
+@mixin style-form($color: $color-neutro2, $font-family: $font-family2, $inputBackground: $color-neutro3-chiaro, $submitBackground: $color-main1, $submitColor: $color-neutro4, $submitBackgroundHover: $color-main2) {
   label {
     color: $color;
     font-family: $font-family;
@@ -426,27 +480,32 @@
     }
   }
 }
+
 @mixin stile-titoli($font-size: $titoli-secondari) {
   font-size: $font-size;
   font-family: $font-family2;
   color: $color-neutro1;
 }
+
 @mixin stile-date($font-size: $font-size-testo) {
   font-size: $font-size-data;
   font-family: $font-family1;
   color: $color-neutro3;
 }
+
 @mixin stile-excerpt($font-size: $font-size-testo) {
   font-size: $font-size-testo;
   font-family: $font-family1;
   color: $color-neutro1;
 }
-@mixin image-background($min-height:25vh,$background-position:center center,$background-size:cover,$background-repeat: no-repeat) {
+
+@mixin image-background($min-height: 25vh, $background-position: center center, $background-size: cover, $background-repeat: no-repeat) {
   min-height: $min-height;
   background-repeat: $background-repeat;
   background-position: $background-position;
   background-size: $background-size;
 }
+
 @mixin extend-container($container, $content) {
   @if #{$container} {
     @media screen and (min-width:$bootstrap-grid-breakpoint-xl) {
@@ -462,10 +521,22 @@
     }
   }
 }
+@mixin extend-all($container) {
+  @if #{$container} {
+    @media screen and (min-width:$bootstrap-grid-breakpoint-xl) {
+      margin-left: calc(-100vw / 2 + #{map-get($container-max-widths, "xl")-$grid-gutter-width/2} / 2);
+      margin-right: calc(-100vw / 2 + #{map-get($container-max-widths, "xl")-$grid-gutter-width/2} / 2);
+    }
+
+    
+  }
+}
+
 // ************************* Gutemberg ********************************
 @mixin extend-atomic-gutemberg-container() {
   @include extend-container(".wp-block-atomic-blocks-ab-container", ".ab-container-inside")
 }
+
 @mixin gutemberg-block-copertina-testo-maxheight() {
   @media screen and (max-width:$tablet) {
     &.has-2-columns {
@@ -478,6 +549,7 @@
       &.even {
         .wp-block-column {
           .wp-block-cover {}
+
           order: 2;
 
           &:nth-child(2) {
@@ -494,9 +566,12 @@
     }
   }
 }
+
 @mixin fix-gutemberg-block-columns-responsive() {
+
   // fix comportamento colonne in bootstrap
   @media (min-width: $mobile) {
+
     //resetto i breakpont di gutemberg
     .wp-block-column:not(:last-child) {
       margin-right: 0;
@@ -512,6 +587,7 @@
       margin-left: 0;
     }
   }
+
   //imposto i breakpoint di bootstrap
   @media (min-width: $tablet) {
     .wp-block-column:not(:last-child) {
@@ -529,19 +605,23 @@
     }
   }
 }
+
 @mixin bootstrap-media-breakpoint-up() {
   @include media-breakpoint-up($breakpoint, $breakpoints) {}
 }
+
 //**************************************bootstrap **************************
 @mixin bootstrap-make-row {
   @include make-row;
 }
-@mixin media-breakpoint-up-map-class($colSelectormap,$colSelectorSizesMap) {
+
+@mixin media-breakpoint-up-map-class($colSelectormap, $colSelectorSizesMap) {
   @each $selector, $colsnumberListMap in $colSelectormap {
-    @include media-breakpoint-up-unique-class($selector,$colsnumberListMap)
+    @include media-breakpoint-up-unique-class($selector, $colsnumberListMap)
   }
 }
-@mixin media-breakpoint-up-unique-class($colSelector,$colSelectorSizesMap) {
+
+@mixin media-breakpoint-up-unique-class($colSelector, $colSelectorSizesMap) {
   #{$colSelector} {
     @each $breakpoint, $colsnumber in $colSelectorSizesMap {
       @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
@@ -550,26 +630,32 @@
     }
   }
 }
-@mixin make-bootstrap-col-structure-responsive($containerSelector,$rowSelector,$colSelector,$colSelectorSizesMap) {
+
+@mixin make-bootstrap-col-structure-responsive($containerSelector, $rowSelector, $colSelector, $colSelectorSizesMap) {
   #{$containerSelector} {
     @include make-container();
 
     #{$rowSelector} {
       @include make-row();
+
       @if is-map($colSelector) {
-        @include media-breakpoint-up-map-class($colSelector,$colSelectorSizesMap)
-      } @else {
-        @include media-breakpoint-up-unique-class($colSelector,$colSelectorSizesMap)
+        @include media-breakpoint-up-map-class($colSelector, $colSelectorSizesMap)
+      }
+
+      @else {
+        @include media-breakpoint-up-unique-class($colSelector, $colSelectorSizesMap)
       }
     }
   }
 }
-@mixin make-bootstrap-col-structure($containerSelector,$rowSelector,$colSelectors,$colnumber:4) {
+
+@mixin make-bootstrap-col-structure($containerSelector, $rowSelector, $colSelectors, $colnumber: 4) {
   #{$containerSelector} {
     @include make-container();
 
     #{$rowSelector} {
       @include make-row();
+
       @if is-map($colSelectors) {
         @each $colSelector, $colnumbers in $colSelectors {
           #{$colSelector} {
@@ -577,12 +663,154 @@
             @include make-col($colnumbers);
           }
         }
-      } @else {
+      }
+
+      @else {
         #{$colSelectors} {
           @include make-col-ready();
           @include make-col($colnumber);
         }
       }
+    }
+  }
+}
+
+/*
+*
+*
+       |<---- site width ---->|
+.......|-----------|----------!.......
+.......|           |
+.......|    boxed  |     full --->
+.......|           |
+.......|-----------|----------!.......
+ */
+
+@mixin extend-container($content: '.content-widget', $padding: 0) {
+  margin-left: -$grid-gutter-width/2;
+  margin-right: -$grid-gutter-width/2;
+
+  @media screen and (min-width:$site-width) {
+    margin-left: calc((-100vw / 2 + #{$site-width} / 2));
+    margin-right: calc((-100vw / 2 + #{$site-width} / 2));
+  }
+
+  #{$content} {
+    max-width: none;
+    width: 100vw;
+  }
+}
+
+@mixin extend-container2($content: '.content-widget', $padding: 0) {
+  margin-left: -$grid-gutter-width/2;
+  margin-right: -$grid-gutter-width/2;
+
+  @media screen and (min-width:map-get($container-max-widths, "xl")) {
+    margin-left: calc((-100vw / 2 + #{map-get($container-max-widths, "xl")+2-$grid-gutter-width/2} / 2));
+    margin-right: calc((-100vw / 2 + #{map-get($container-max-widths, "xl")+2-$grid-gutter-width/2} / 2));
+  }
+}
+
+@mixin style-section-full($content: '.content-widget') {
+  @include extend-container($content, 150px);
+}
+
+@mixin style-section-full-content-boxed($content: '.section-content') {
+  @include extend-container;
+
+  #{$content} {
+    max-width: $site-width;
+    margin: 0 auto;
+  }
+}
+
+
+
+@mixin style-section-full-content-halfboxed($target-boxed: ".loop-item-content-wrapper", $content: '.section-content') {
+  @include extend-container2;
+
+  #{$content} {
+    // border: 5px solid yellow;
+    margin: 0 auto;
+
+    #{$target-boxed} {
+      // border: 5px solid aquamarine;
+      @include half-width;
+
+    }
+
+  }
+}
+
+@mixin half-width {
+  max-width:calc(#{$site-width}/2);
+}
+
+@mixin gutemberg-block-copertina-testo-maxheight() {
+  @media screen and (max-width:$tablet) {
+    &.has-2-columns {
+      .wp-block-column {
+        .wp-block-cover {
+          min-height: 400px;
+        }
+      }
+
+      &.even {
+        .wp-block-column {
+          .wp-block-cover {}
+
+          order: 2;
+
+          &:nth-child(2) {
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .wp-block-column {
+    .wp-block-cover {
+      min-height: 100%;
+    }
+  }
+}
+
+@mixin fix-gutemberg-block-columns-responsive() {
+
+  // fix comportamento colonne in bootstrap
+  @media (min-width: $mobile) {
+
+    //resetto i breakpont di gutemberg
+    .wp-block-column:not(:last-child) {
+      margin-right: 0;
+    }
+
+    .wp-block-column {
+      flex-basis: 100%;
+      flex-grow: 0;
+    }
+
+    .wp-block-column:not(:first-child),
+    .wp-block-column:nth-child(2n) {
+      margin-left: 0;
+    }
+  }
+
+  //imposto i breakpoint di bootstrap
+  @media (min-width: $tablet) {
+    .wp-block-column:not(:last-child) {
+      margin-right: 32px;
+    }
+
+    .wp-block-column {
+      flex-basis: 50%;
+      flex-grow: 0;
+    }
+
+    .wp-block-column:not(:first-child),
+    .wp-block-column:nth-child(2n) {
+      margin-left: 32px;
     }
   }
 }
