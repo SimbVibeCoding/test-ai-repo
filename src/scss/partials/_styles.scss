@@ -45,7 +45,10 @@
     color: $hoverColor;
   }
 }
-@mixin style-button-calltoaction($font-size:$font-size-testo, $font-family:$font-family1,$icon:$var-icon-download) {}
+@mixin style-button-calltoaction($font-size:$font-size-testo, $font-family:$font-family1,$icon:$var-icon-download) {
+
+
+}
 @mixin style-readmore($font-size:$font-size-testo, $font-family:$font-family1) {
   @include flex-default;
   align-items: center;
@@ -103,34 +106,33 @@
     color: $color-neutro1;
   }
 }
-@mixin style-button_rounded($color:$color-neutro4,$color-hover:$color-main1,$bgcolor:$color-neutro4,$bgcolor-hover:$color-neutro4){
-  @include style-button($color,$color-hover,$bgcolor,$bgcolor-hover);
-  border-radius:25px/50%;
-}
-@mixin style-button($color:$color-main2,$color-hover:$color-neutro4,$bgcolor:transparent,$bgcolor-hover:$color-neutro1)  {
-  transition: background-color 0.3s ease-out;
-  border: 2px solid $color;
-  color: $color;
-  // font-size: $button-text;
-  // text-transform: uppercase;
-  font-family: $font-family1;
-  background: transparent;
-  @if($bgcolor) {
-    background: $bgcolor;
-  }
-  border-radius: 0;
-  padding: 20px ;
-  @content;
-  &:hover {
-    color: $color-hover;
-    background-color: $bgcolor-hover;
-    border-color: $color-hover;
-  }
 
-}
-@mixin style-button_rounded($color:$color-neutro4,$color-hover:$color-neutro1,$bgcolor:$color-main1,$bgcolor-hover:$color-main2,$radius){
+@mixin style-button_rounded($color:$color-neutro4,$color-hover:$color-neutro1,$bgcolor:$color-main1,$bgcolor-hover:$color-main2){
   @include style-button($color,$color-hover,$bgcolor,$bgcolor-hover);
-  border-radius:$radius;
+  border-radius:8px;
+}
+@mixin style-button(
+  //parametri
+  $color:$color-neutro4,
+  $color-hover:$color-neutro1,
+  $bgcolor:$color-main1,
+  $bgcolor-hover:$color-main2)
+  //
+    {
+      color: $color;
+      font-family: $font-family1;
+      background: transparent;
+      @if($bgcolor) {
+        background: $bgcolor;
+      }
+      &:hover {
+        color: $color-hover;
+        background-color: $bgcolor-hover;
+        border-color: $color-hover;
+      }
+      //quando si implementa il mixin è possibile utilizare istruzioni aggiuntive
+      @content;
+
 }
 @mixin style-button-sticky() {
   background-color: $color-neutro1;
@@ -149,3 +151,32 @@
   text-align: center;
 
 }
+@mixin menu-social{
+  ul{
+    flex-direction: row!important;
+    li{
+      a{
+        font-size:0;
+        &:before{
+          font-size: 12px;
+          line-height: 24px;
+          font-family:$var-fontellofamily;
+          content:$var-icon-phone;
+          padding-right: 12px;
+
+        }
+        &:hover{
+          background-color: transparent;
+        }
+      }
+      &.icon-email{
+        a{
+          &:before{
+            content:$var-icon-mail;
+          }
+        }
+      }
+    }
+  }
+}
+
