@@ -1,38 +1,56 @@
 //admin->personalizza->layout
-#input_retina_layout{
-  label{
+#input_retina_layout {
+  label {
     height: auto;
     margin-bottom: 10px;
     padding: 0;
   }
-  input{
-    &.ui-checkboxradio-icon{
 
-    }
+  input {
+    &.ui-checkboxradio-icon {}
   }
 }
 
 //gutemberg customization
-.wp-block{
-   max-width: 80%;
-  &.full { max-width: 100%; }
+.wp-block {
+  max-width: 80%;
+
+  &.full,
+  &.full-boxed {
+    max-width: 100%;
+  }
 }
-.block-editor-block-list__layout{
-  &.is-root-container{
+
+.block-editor-block-list__layout {
+  &.is-root-container {
     border: 1px solid blue;
-    .wp-block-group{
+
+    .wp-block-group {
       border: 10px solid #afafaf;
-      &.section{
-        background-color:#afafaf;
+
+      &.section {
+        background-color: #afafaf;
       }
-      &.full{
-        background-color:#ffafaf;
+
+      &.full {
+        background-color: #ffafaf;
+      }
+
+      &.full-boxed {
+        max-width: 100%;
+        background-color: #00afaf;
+
+        .wp-block-columns {
+          max-width: 80%;
+          border: 10px solid #00afaf;
+        }
       }
     }
-    .wp-block-columns{
+
+    .wp-block-columns {
       border: 10px solid #ffafaf;
 
-      .wp-block-column{
+      .wp-block-column {
         border: 10px solid #afffaf;
       }
     }
