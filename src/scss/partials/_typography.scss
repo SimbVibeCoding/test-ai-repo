@@ -1,44 +1,66 @@
 @if variable-exists(font-family1) {
   @if variable-exists(font-family1_fontname) {
     @include font-face($font-family1, $font-family1_fontname);
-  } @else {
+  }
+
+  @else {
     @include font-face($font-family1, $font-family1);
   }
 }
+
 @if variable-exists(font-family2) {
   @if variable-exists(font-family2_fontname) {
     @include font-face($font-family2, $font-family2_fontname);
-  } @else {
+  }
+
+  @else {
     @include font-face($font-family2, $font-family2);
   }
 }
+
 @if variable-exists(font-family3) {
   @if variable-exists(font-family3_fontname) {
     @include font-face($font-family3, $font-family3_fontname);
-  } @else {
+  }
+
+  @else {
     @include font-face($font-family3, $font-family3);
   }
 }
+
 @if variable-exists(font-family4) {
   @if variable-exists(font-family4_fontname) {
     @include font-face($font-family4, $font-family4_fontname);
-  } @else {
+  }
+
+  @else {
     @include font-face($font-family4, $font-family4);
   }
 }
+
 @if variable-exists(font-family5) {
   @if variable-exists(font-family5_fontname) {
     @include font-face($font-family5, $font-family5_fontname);
-  } @else {
-    @include font-face($font-family5, $font-family5);
+  }
+
+  @else {
+    @include font-face($font-family5,$font-family5);
   }
 }
-@include font-face($var-fontellofamily, "/icons/fontello");
+@if variable-exists(var-iconsfamily) {
+    @include font-face($var-iconsfamily, "icons/"+$var-iconsfamily);
+}
+@if variable-exists(var-iconsfamilyColor) {
+    @include font-face($var-iconsfamilyColor, "icons/"+$var-iconsfamilyColor);
+}
+
 
 %titoli {
-  font-family: $font-family4;
+  font-family: $font-family3;
   font-size: $titoli-secondari;
   color: $color-main1;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -56,23 +78,49 @@ h6 {
   // font-family: $font-family4;
   @extend %titoli;
 }
-// h1{
-//   font-size: $titoli-principali;
-//   text-align: left;
-// }
-// h2{
-//   font-size: $titoli-secondari;
-//   text-align: left;
-// }
-// h3{
-//   font-size: $sottotitoli;
-//   text-align: left;
-// }
-// a{
-//   color: $color-neutro4;
-//   text-decoration: none;
-//   &:hover{
-//     text-decoration: none;
-//     color: $color-main2;
-//   }
-// }
+
+h1 {
+
+}
+
+h2 {}
+
+h3 {
+
+}
+
+h4
+{
+
+}
+
+
+p {
+
+}
+/*
+ Retina
+dovrebbe sistemare il difetto dei grassetti in iphone.
+iphone sembra sballare quando il tag b o strong hanno un fontweight diverso da "normal" assegnato e un fontfamily che no sia Bold.
+in pratica o non si da nessun css al font o gli si dasia il weight che il font bold
+ad esempio, in simbiosigroup il testo aveva ereditato il regular, weight 600 e aveva il tag <strong>, iphone scassava il carattere, 
+forzando    
+    font-family: "FontBold"; sarebbe il font del sito in versione Bold.
+    font-weight: normal!important;
+si vede bene
+
+Non è una scienza esatta, bisogna verificare su un iphone. La media query comunque sembra funzionare, almeno sull'iphone di Matte :)
+*/
+/* Retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+
+    b,
+    strong {
+        //font-family: "FontBold"; //inserire il font corretto
+        font-weight: normal ;
+    }
+
+}
