@@ -1,0 +1,182 @@
+@mixin style-testo-overlay($top:50%, $left: 50%, $translateTop: -50%,$translateLeft:-50%) {
+  color: black;
+  z-index: 999;
+  @include absolute_center($top,$left,$translateTop, $translateLeft);
+}
+
+@mixin style-style-testo-overlay-realizzazioni($top:50%, $left: 0, $translateTop: -50%,$translateLeft: 0) {
+  @include style-testo-overlay(auto, 0 ,0, 0);
+  padding: calc(2vw) calc(2vw) calc(2vw) 40px;
+  margin: 0;
+  bottom: 20px;
+  max-width: 90%;
+  min-width: 300px;
+
+  .entry-title {
+    @include style-titolo(24px)
+  }
+
+  p {
+    @include style-testo(18px);
+    line-height: 1;
+
+    strong {
+      font-family: $font-family1;
+    }
+  }
+}
+@mixin style-titolo($font-size:$titoli-principali, $font-family:$font-family2) {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: 1;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+}
+@mixin style-testo($font-size:$font-size-testo, $font-family:$font-family1) {
+  font-family: $font-family;
+  font-size: $font-size;
+  color: $color-neutro1;
+  line-height: 1.5;
+}
+@mixin style-link($font-size:$font-size-testo, $font-family:$font-family1, $hoverColor:$color-main1) {
+  @include style-testo($font-size, $font-family);
+
+  &:hover {
+    color: $hoverColor;
+  }
+}
+@mixin style-button-calltoaction($font-size:$font-size-testo, $font-family:$font-family1,$icon:$var-icon-download) {
+
+
+}
+@mixin style-readmore($font-size:$font-size-testo, $font-family:$font-family1) {
+  @include flex-default;
+  align-items: center;
+  justify-content: flex-start;
+
+  .label {
+    @include style-testo;
+    text-transform: uppercase;
+    font-size: $testo-readmore;
+    font-family: $font-family2;
+    line-height: 1;
+    padding-bottom: 5px;
+  }
+
+  i {
+    padding-right: 5px;
+    @include before_block_icon(url("assets/images/sunroom-arrow-right.svg"),0);
+  }
+}
+@mixin style-label-hide-on-over() {
+  overflow: hidden;
+  .entry-header {
+    transition: transform 0.3s ease-out;
+  }
+  &:hover {
+    .entry-header {
+      transform: translate(-100%, 0);
+    }
+  }
+}
+@mixin style-image-zoom-on-over() {
+  overflow: hidden;
+
+  img {
+    transition: transform 0.5s ease-out;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+}
+@mixin style-menu-item() {
+  font-family: $font-family1;
+  font-size: $voci-menu;
+  text-transform: uppercase;
+  &:hover,&.active {
+    >a{
+      font-weight: 600;
+      color: $color-neutro1;
+    }
+  }
+  a{
+    color: $color-neutro1;
+  }
+}
+
+@mixin style-button_rounded($color:$color-neutro4,$color-hover:$color-neutro1,$bgcolor:$color-main1,$bgcolor-hover:$color-main2){
+  @include style-button($color,$color-hover,$bgcolor,$bgcolor-hover);
+  border-radius:8px;
+}
+@mixin style-button(
+  //parametri
+  $color:$color-neutro4,
+  $color-hover:$color-neutro1,
+  $bgcolor:$color-main1,
+  $bgcolor-hover:$color-main2)
+  //
+    {
+      color: $color;
+      font-family: $font-family1;
+      background: transparent;
+      @if($bgcolor) {
+        background: $bgcolor;
+      }
+      &:hover {
+        color: $color-hover;
+        background-color: $bgcolor-hover;
+        border-color: $color-hover;
+      }
+      //quando si implementa il mixin è possibile utilizare istruzioni aggiuntive
+      @content;
+
+}
+@mixin style-button-sticky() {
+  background-color: $color-neutro1;
+  color: $color-neutro4;
+  border:  1px solid $color-neutro4;
+  &:hover{
+    background-color: $color-neutro4;
+    color: $color-neutro1;
+    border:  1px solid $color-neutro1;
+  }
+}
+@mixin style-entry-header(){
+  max-width:560px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+@mixin menu-social{
+  ul{
+    flex-direction: row!important;
+    li{
+      a{
+        font-size:0;
+        &:before{
+          font-size: 12px;
+          line-height: 24px;
+          font-family:$var-iconsfamily;
+          content:$var-icon-phone;
+          padding-right: 12px;
+
+        }
+        &:hover{
+          background-color: transparent;
+        }
+      }
+      &.icon-email{
+        a{
+          &:before{
+            content:$var-icon-mail;
+          }
+        }
+      }
+    }
+  }
+}
+
