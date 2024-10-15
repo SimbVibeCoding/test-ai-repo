@@ -1,0 +1,147 @@
+@mixin style-section-full-gutemberg {
+    @include extend-container2(".wp-block-group__inner-container");
+}
+
+@mixin style-section-full-boxed-gutemberg {
+    @include extend-container2(".wp-block-group__inner-container", 0, $boxed: true);
+}
+
+@mixin style-section-full-content-halfboxed-leftboxed-gutemberg {
+    @include style-section-full-content-halfboxed(".wp-block-column:nth-child(odd)", ".wp-block-group__inner-container");
+    .wp-block-column:nth-child(even) {
+        //border: 10px solid red;
+        margin-left: 0
+    }
+
+    @media screen and(min-width:$tablet) {
+        .wp-block-group__inner-container {
+            >.wp-block-columns {
+                justify-content: flex-end;
+                >.wp-block-column:nth-child(even) {
+                    flex: 0 0 calc(50% + #{$grid-gutter-width/2});
+                    margin-right: calc(-#{$grid-gutter-width/2});
+                }
+            }
+        }
+    }
+}
+
+@mixin style-section-full-content-halfboxed-rightboxed-gutemberg {
+    @include style-section-full-content-halfboxed(".wp-block-column:nth-child(even)", ".wp-block-group__inner-container");
+
+    .wp-block-column:nth-child(odd) {
+        //border: 10px solid red;
+        margin-left: 0
+    }
+
+    @media screen and(min-width:$tablet) {
+        .wp-block-group__inner-container {
+            >.wp-block-columns {
+                justify-content: flex-start;
+
+                >.wp-block-column:nth-child(odd) {
+                    flex: 0 0 calc(50% + #{$grid-gutter-width/2});
+                    margin-left: calc(-#{$grid-gutter-width/2});
+                }
+
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@mixin button-figma-layout ($icon-pos-after: true, $icon: false, $content-image: false) {
+    // @debug button-figma-layout content-image #{$content-image};
+    //@debug button-figma-layout icon-pos-after #{$icon-pos-after};
+
+    display: inline-flex;
+    padding: 8px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: 1px solid #D2E3EB;
+    font-size: 12px;
+    text-decoration: none;
+
+    @if $icon {
+        @if $icon-pos-after {
+            // @debug button-figma-layout icon $icon;
+            @include after_block_icon($content-image: $content-image, $content: $icon);
+        }
+
+        @else {
+            @include before_block_icon($content-image: $content-image, $content: $icon );
+        }
+    }
+
+    &:after {
+        padding: 0;
+        text-align: center;
+    }
+
+    &:hover {
+        &:after {
+            transform: rotate(90deg);
+            transform-origin: center center;
+            padding: 0;
+        }
+    }
+
+    @content;
+}
+
+@mixin button-figma-layout-big ($icon-pos-after: true, $icon: false, $content-image: false) {
+    @include button-figma-layout ($icon-pos-after, $icon, $content-image);
+    padding: 12px 32px;
+    font-size: 16px;
+}
+
+@mixin button-figma-style-dark-small ($content-image: false, $icon-pos-after: true, $icon: false) {
+    // @debug button-figma-style-dark-small content-image #{$content-image};
+    // @debug button-figma-style-dark-small icon #{$icon};
+    @include button-figma-layout ($icon-pos-after, $icon, $content-image: $content-image);
+    background: $color-neutro2;
+
+    &:hover {
+        border-radius: 8px;
+        background: $color-main5;
+        color: $color-main1;
+    }
+}
+
+@mixin button-figma-style-light-small ($content-image: false, $icon-pos-after: true, $icon: false) {
+    // @debug button-figma-style-light-small content-image #{$content-image};
+    // @debug button-figma-style-light-small icon #{$icon};
+    @include button-figma-layout ($icon-pos-after, $icon, $content-image: $content-image);
+    border-color: $color-main2;
+    background: $color-main1;
+
+    &:hover {
+        background: $color-main2;
+        color: $color-main1;
+
+    }
+}
+
+@mixin button-figma-style-light-big ($content-image: false, $icon-pos-after: true, $icon: false) {
+    // @debug $content-image;
+    // @debug $icon;
+    @include button-figma-layout-big ($icon-pos-after, $icon, $content-image);
+    border: 1px solid $color-main2;
+    background: $color-main1;
+
+    &:hover {
+        background: $color-main2;
+        color: $color-main1;
+    }
+}
