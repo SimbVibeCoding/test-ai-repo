@@ -22,6 +22,7 @@
       "wpackagist-plugin/atomic-blocks":">=2.0",
       "wpackagist-plugin/worker": ">=4.8.1",
       "wpackagist-plugin/wp-mail-smtp":">=1.9.0",
+      "wpackagist-plugin/svg-support":">=2.5.8",
       "wpackagist-theme/wp-bootstrap-starter":">=3.1.0",
       "retina/wp-bootstrap-starter-child": "dev-master"
     },    "repositories": [      {
