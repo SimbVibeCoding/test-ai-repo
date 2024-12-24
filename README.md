@@ -75,6 +75,25 @@ git fetch origin
 git reset --hard origin/master
 ```
 
+composer richiede un file per autenticasi quando richiede dati da repo protette da apssword (ACF Pro)
+il file di utenticazione va nella caretella nomeutente/appData/Roaming/Composer
+
+```
+{
+    "github-oauth": {
+        "github.com": "4dc00a83e730db2762d8c36551a22c62c4bdd9d8"
+    },
+    "http-basic": {
+        "connect.advancedcustomfields.com": {
+            "username": "b3JkZXJfaWQ9OTkyMDR8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE3LTAyLTA4IDE2OjM3OjM2",
+            "password": "https://www.parcosimone.it"
+        }
+    }
+}
+```
+l'autenticazione fa rifrimento a parcosimone perchè è sufficiente uno qualsiasi dei siti autenticati sul loro sito
+
+
 - [x] importare mixin e variabili da un progetto finito
 - [x] sostituire storefront con versione standard da wpackagist
 - [ ] automatizzare git remote
