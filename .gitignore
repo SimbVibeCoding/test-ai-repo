@@ -1,2 +1,6 @@
 node_modules
 /vendor
+*/style.css
+wp/wp-content/uploads
+wp/wp-content/themes/wp-bootstrap-starter-child/*.css
+wp/wp-content/themes/wp-bootstrap-starter-child/*.css.map
