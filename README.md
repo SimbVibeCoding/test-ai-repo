@@ -23,7 +23,6 @@ pushare il contenuto nella nuova repository
 * da shell scaricare il core di wordpress itemi e i plugin (verr� installato nella cartella 'wp')
 ```composer install```
 > vengono installati i pacchetti indicati nel file composer.json. Per rimuovere:  ```composer remove johnpbloch/wordpress```
-* NOTE: la versione di ACF Pro è fissata alla 5.6.8 verificare manualmente aggiornamenti successivi
 * da shell, installiamo i pacchetti necessari a Gulp (ignorare i "WARN")
 ```npm install```
 > vengono installati i pacchetti indicati nel file package.json
