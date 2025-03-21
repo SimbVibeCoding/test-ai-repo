@@ -25,20 +25,21 @@ Images License: GNU General Public License v2 or later
  */
 // $enable-grid-classes: true; //attiva le proprietà bootstrap su .container e .row non è necessario se si parte da bootstrap starter
 
-// importo i file essenziali di bootstrap per utilizzarne il gridsystem
-  @import 'scss/vendors/bootstrap4/functions';
-  @import 'scss/vendors/bootstrap4/variables';
+// // importo i file essenziali di bootstrap per utilizzarne il gridsystem
+//   @import 'scss/vendors/bootstrap4/functions';
+//   @import 'scss/vendors/bootstrap4/variables';
 
 //uso il mio file _variables.css per sovrascrivere quello standard di bootstrap
   @import 'scss/partials/functions';
   @import 'scss/partials/variables';
 
-//carico i file di bootstrap che utilizzano le  variabili
-  @import 'scss/vendors/bootstrap4/mixins';
-  @import 'scss/vendors/bootstrap4/grid';
+// //carico i file di bootstrap che utilizzano le  variabili
+//   @import 'scss/vendors/bootstrap4/mixins';
+//   @import 'scss/vendors/bootstrap4/grid';
 
 
   @import 'scss/partials/mixins';
+  @import "scss/partials/mixin-aliases";
 
 // altri vendors
   @import 'scss/vendors/slick/slick';
@@ -46,23 +47,7 @@ Images License: GNU General Public License v2 or later
   @import 'scss/vendors/font-awesome/fontawesome';
 
 
-  @import 'scss/partials/styleguide';
   @import 'scss/partials/typography';
   @import 'scss/partials/layout';
   @import 'scss/partials/header';
 
-
-
-
-/*
-//framework di susy deprecato dal momento che utilizziamo bootstrap gid e flex
-  //@import '../node_modules/susy/sass/susy';
-
-
-$susy: (
-  columns: 24,  // The number of columns in your grid
-  gutters: 0.25, // The size of a gutter in relation to a single column
-  spread: narrow,
-  container-spread: narrow,
-);
-*/
