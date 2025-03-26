@@ -22,7 +22,7 @@
       "wpackagist-plugin/svg-support":">=2.5.8",
       "wpackagist-plugin/wp-hooks-finder":">=1.3.1",
       "wpackagist-theme/wp-bootstrap-starter":">=3.1.0",
-      "retina/wp-bootstrap-starter-child": "dev-master"
+      "retina/wp-bootstrap-starter-child": "dev-dev"
     },   
 	"repositories": [      
 		  {
