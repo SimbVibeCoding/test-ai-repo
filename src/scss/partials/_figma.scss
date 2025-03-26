@@ -1,0 +1,83 @@
+/* FIGMA */
+
+
+//pulsanti
+@mixin site-button-customization() {
+
+    
+    @include style-button( //parametri
+        $color: $color-neutro4,
+        $color-hover: $color-neutro1,
+        $bgcolor: $color-main1,
+        $bgcolor-hover: $color-main2) {
+        transition: background-color 0.3s ease-out;
+        border: 2px solid $color;
+        // font-size: $button-text;
+        // text-transform: uppercase;
+        //border-radius: 0;
+        // padding: 20px ;
+    }
+}
+
+/*effetti hover*/
+
+
+
+
+
+@mixin figma-filter-screen-multiply-color-normal($color: $color-main1, $url: "") {
+    background-blend-mode: screen, multiply, color;
+    background: linear-gradient(0deg, $color 0%, $color 100%),
+        linear-gradient(0deg, rgba(95, 95, 95, 0.50) 0%, rgba(95, 95, 95, 0.50) 100%),
+        linear-gradient(0deg, #5F5F5F 0%, #5F5F5F 100%);
+}
+
+@mixin figma-background-gradient1($url:null,$background: linear-gradient(84deg,#B2D1DE 34.74%, #D2E3EB 78.48%)) {
+    background: $url, $background;
+}
+
+@mixin figma-background-gradient2() {
+    background: linear-gradient(180deg,
+            #E5EFF4 0%,
+            #FFF 100%);
+}
+
+@mixin figma-background-gradient3() {
+    background: linear-gradient(301deg,
+    $color-main2 44.28%,
+     $color-main4 100%);
+}
+
+
+@mixin figma-background-gradient4($url:var(--bg-image),$background:transparent) {
+    background: $url,$background,linear-gradient(111deg,
+    $color-main2 25.03%,
+    $color-main4 98.67%),
+}
+
+@mixin figma-background-gradient5($url:var(--bg-image)) {
+    background: $url,linear-gradient(13deg,
+    $color-main1 9.27%,
+    $color-main2 112.64%);
+
+}
+
+@mixin figma-background-gradient(    $url:var(--bg-image),    $background:transparent , $size:cover) {
+         background: $url, #{$background};
+         background-size: $size;
+         background-repeat: no-repeat;
+         background-position: center;
+        //  @content;
+}
+@mixin figma-background-image( $url:var(--bg-image), $size:cover) {
+         background: $url;
+         background-size: $size;
+         background-repeat: no-repeat;
+         background-position: center;
+         @content;
+}
+
+
+@mixin figma-innerShadow2() {
+    box-shadow: 0px 4px 44px 0px rgba(0, 0, 0, 0.15) inset;
+}

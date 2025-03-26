@@ -13,6 +13,7 @@
   }
 }
 
+
 @mixin elenco-categorie() {
   width: 100%;
   max-width: $desktop;
@@ -246,14 +247,13 @@
   justify-content: $justify-content;
   align-items: $align-items;
 }
-@mixin flex-columns($columns: 1, $gap: 1rem) {
+@mixin flex-columns($columns: 1, $gap: 1rem,$item:".item-list") {
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
-
-  & > * {
-    flex: 1 1 calc(100% / $columns - #{$gap});
-    max-width: calc(100% / $columns - #{$gap});
+  & > #{$item} {
+    flex: 1 1 calc(100% / #{$columns} );
+    max-width: calc(100% / #{$columns});
   }
 }
 
@@ -328,54 +328,53 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
   bottom: 0;
   opacity: $opacity;
   display: block;
-
+  content:"";
+  @content;
 }
 
 @mixin pseudoelement_block_content($content: " ", $display: inline-block, $content-image: false) {
   //@debug pseudoelement_block_content content #{ $content};
-
+  
+  // @debug aaa pseudoelement_block_content content-image #{ $content-image};
+  // @debug aaa pseudoelement_block_content content  $content;
   @if $content-image {
     content: url("#{$content}");
+  }  @else {
+    content: "#{$content}";
   }
-
-  @else {
-    content: $content;
-  }
-
   width: auto;
   display: $display;
 }
 
-@mixin before_block_icon($content-image: false, $content: $var-icon-arrowleft, $padding: 10px, $font-size: $font-size-testo, $clear: true) {
+@mixin before_block_icon($content-image: false, $content: $var-icon-arrowleft, $padding: 10px, $font-size: $font-size-testo, $clear: true,$initiator:null) {
   @if #{$clear} {
     &:after {
       content: "";
     }
   }
 
-  // @debug before_block_icon content-image $content-image;
-  // @debug before_block_icon content  #{$content};
+   //@debug $initiator;
+  // @debug before_block_icon content  $content;
+  // @debug before_block_icon content-image  $content-image;
   &:before {
-    @include pseudoelement_block_content($content, $content-image: $content-image);
+    @include pseudoelement_block_content($content:$content, $content-image: $content-image);
     font-family: $var-iconsfamily;
-    font-size: $font-size;
     padding: 0 $padding 0 0;
   }
 }
 
-@mixin after_block_icon($content-image: false, $content: $var-icon-arrowright, $padding: 10px, $font-size: $font-size-testo, $clear: true) {
+@mixin after_block_icon($content-image: false, $content: $var-icon-arrowright, $padding: 10px, $font-size: $font-size-testo, $clear: true,$initiator:null) {
   @if $clear ==true {
     &:before {
       content: "";
     }
   }
-
+  //@debug $content;
   // @debug aaaafter_block_icon content-image #{$content-image};
   //@debug aaaafter_block_icon content-image  #{$content-image};
   &:after {
-    @include pseudoelement_block_content($content, $content-image: $content-image);
+    @include pseudoelement_block_content($content:$content, $content-image: $content-image);
     font-family: $var-iconsfamily;
-    font-size: $font-size;
     padding: 0 0 0 $padding;
   }
 }
@@ -418,13 +417,20 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
   background-image: linear-gradient(to bottom, $color1, $color2);
 }
 
-@mixin button($bgcolor: $color-main1, $color: $color-neutro1, $padding-button: 20px) {
+@mixin button($bgcolor: transparent, $color: $color-neutro1, $hovercolor: $color-neutro1, $hoverbgcolor: $color-neutro2, $border-color: $color-neutro1) {
   background-color: $bgcolor;
-  padding: $padding-button;
+  padding: 16px 32px;
   color: $color;
-  border-radius: 0;
-  border-color: transparent;
-  border: none;
+  border-radius: 0;  
+  border: 1px solid $border-color;
+  transition: all 0.5s;  
+  font-size: 12px;
+  line-height: 12px;
+    &:hover {
+      background-color: $hoverbgcolor;   
+      color: $hovercolor!important;
+      transition: all 0.5s;
+    }  
 }
 
 @mixin embed-responsive ($container: '.wp-block-embed__wrapper') {
@@ -485,30 +491,7 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
 }
 
 // stili
-@mixin style-form($color: $color-neutro2, $font-family: $font-family2, $inputBackground: $color-neutro3-chiaro, $submitBackground: $color-main1, $submitColor: $color-neutro4, $submitBackgroundHover: $color-main2) {
-  label {
-    color: $color;
-    font-family: $font-family;
-    width: 100%;
-  }
 
-  input {
-    width: 100%;
-    border: 1px solid $color-neutro3;
-    background: $inputBackground;
-    padding: 10px;
-
-    &[type="submit"] {
-      background: $submitBackground;
-      padding: 20px;
-      color: $submitColor;
-
-      &:hover {
-        background: $submitBackgroundHover;
-      }
-    }
-  }
-}
 
 @mixin stile-titoli($font-size: $titoli-secondari) {
   font-size: $font-size;
@@ -703,42 +686,32 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
 
 
 
-@mixin extend-container2($content: '.content-widget', $padding: 0, $boxed: false) {
+@mixin extend-container2($content: '.content-widget', $boxed: false) {
   //compenso la differenza tra la width del container e quella della finestra considerando i padding laterali
-    margin-left: calc(-#{(( (100 - (map-get($container-max-widths, "md")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-    margin-right: calc(-#{(( (100 - (map-get($container-max-widths, "md")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
+  // width: calc(100vw - #{$grid-gutter-width}/2); /* Larghezza pari a quella della viewport */
+  width: calc(100vw ); /* Larghezza pari a quella della viewport */
+  margin-left: calc(-50vw + 50%); /* Centra l'elemento */
   #{$content} {
-    padding-left: $grid-gutter-width;
-    padding-right: $grid-gutter-width;
+    padding-left: 20px;
+    padding-right: 20px;
+    @media screen and(max-width:$tablet){
+    }
     .wp-block-columns {
       .wp-block-column{
 
       }
     }
   }
-  @media screen and (min-width:$bootstrap-grid-breakpoint-xs) {
-    margin-left: calc(-#{(( (100 - (map-get($container-max-widths, "xs")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-    margin-right: calc(-#{(( (100 - (map-get($container-max-widths, "xs")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-  }
-  @media screen and (min-width:$bootstrap-grid-breakpoint-sm) {
-    margin-left: calc(-#{(( (100 - (map-get($container-max-widths, "sm")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-    margin-right: calc(-#{(( (100 - (map-get($container-max-widths, "sm")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-  }
-  @media screen and (min-width:$bootstrap-grid-breakpoint-md) {
-    margin-left: calc(-#{(( (100 - (map-get($container-max-widths, "md")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-    margin-right: calc(-#{(( (100 - (map-get($container-max-widths, "md")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-  }
-  
-  @media screen and (min-width:$bootstrap-grid-breakpoint-lg) {
-    margin-left: calc(-#{(( (100 - (map-get($container-max-widths, "lg")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-    margin-right: calc(-#{(( (100 - (map-get($container-max-widths, "lg")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-  }
-  @media screen and (min-width:$bootstrap-grid-breakpoint-xl) {
-    margin-left: calc(-#{(( (100 - (map-get($container-max-widths, "xl")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-    margin-right: calc(-#{(( (100 - (map-get($container-max-widths, "xl")/1%))/2 )* 1vw  - #{$grid-gutter-width/2} )});
-  }
-
-
+  // @media screen and (min-width:$bootstrap-grid-breakpoint-xs) {
+  // }
+  // @media screen and (min-width:$bootstrap-grid-breakpoint-sm) {
+  // }
+  // @media screen and (min-width:$bootstrap-grid-breakpoint-md) {
+  // }
+  // @media screen and (min-width:$bootstrap-grid-breakpoint-lg) {
+  // }
+  // @media screen and (min-width:$bootstrap-grid-breakpoint-xl) {
+  // }
 
   @if($boxed) {
     #{$content} {
@@ -748,23 +721,26 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
   }
 }
 
-@mixin style-section-full-content-halfboxed($target-boxed: ".loop-item-content-wrapper", $content: '.section-content') {
+@mixin style-section-full-content-halfboxed($target-boxed: ".loop-item-content-wrapper",  $content: '.section-content') {
   @include extend-container2($content);
 
   #{$content} {
     //margin: 0 auto;
-   
+
     #{$target-boxed} {
       @include half-width;
+      // align-self: center;
       padding-left: $grid-gutter-width;
       padding-right: $grid-gutter-width;
+      padding-top: $default-wp-group-padding-vertical;
+      padding-bottom: $default-wp-group-padding-vertical;
     }
   }
 }
 
 
 @mixin half-width {
-  max-width:calc(#{$site-width}/2);
+  max-width:calc(1400px/2);
 }
 
 @mixin gutemberg-block-copertina-testo-maxheight() {
@@ -835,3 +811,5 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
     }
   }
 }
+
+@import "mixin-aliases";

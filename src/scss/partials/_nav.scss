@@ -1,0 +1,34 @@
+
+.navbar-collapse{
+	@include menu-social-icons($content-image: true, $icon-pack: $icon-pack-images);
+	
+	}
+
+#main-nav.collapse {
+	
+	ul.navbar-nav {
+		li.menu-item {
+
+			a.dropdown-toggle {
+
+			}
+
+			ul.dropdown-menu {
+
+				li.menu-item {
+
+					a.dropdown-item {
+
+					}
+				}
+			}
+		}
+		&.menu-works{
+			li{
+				a{
+					font-size: 10px
+				}
+			}
+		}
+	}
+}

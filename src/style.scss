@@ -25,29 +25,49 @@ Images License: GNU General Public License v2 or later
  */
 // $enable-grid-classes: true; //attiva le proprietà bootstrap su .container e .row non è necessario se si parte da bootstrap starter
 
-// // importo i file essenziali di bootstrap per utilizzarne il gridsystem
-//   @import 'scss/vendors/bootstrap4/functions';
-//   @import 'scss/vendors/bootstrap4/variables';
+
+
+// importo i file essenziali di bootstrap per utilizzarne il gridsystem
+@import 'scss/vendors/bootstrap4/functions';
+@import 'scss/vendors/bootstrap4/variables';
 
 //uso il mio file _variables.css per sovrascrivere quello standard di bootstrap
-  @import 'scss/partials/functions';
-  @import 'scss/partials/variables';
+@import 'scss/partials/functions';
+@import 'scss/partials/variables';
 
-// //carico i file di bootstrap che utilizzano le  variabili
-//   @import 'scss/vendors/bootstrap4/mixins';
-//   @import 'scss/vendors/bootstrap4/grid';
+//carico i file di bootstrap che utilizzano le  variabili
+@import 'scss/vendors/bootstrap4/mixins';
+@import 'scss/vendors/bootstrap4/grid';
 
-
-  @import 'scss/partials/mixins';
-  @import "scss/partials/mixin-aliases";
+//carico i file di configurazione del tema;
+@import 'scss/partials/mixins';
+@import 'scss/partials/styles';
+@import 'scss/partials/shortcodes';
+@import 'scss/partials/layout';
+@import 'scss/partials/typography';
+@import 'scss/partials/figma';
+@import 'scss/partials/gutemberg';
+// @import 'scss/partials/gutemberg2';
+@import 'scss/partials/hamburger-animation';
+@import 'scss/partials/elements';
 
 // altri vendors
-  @import 'scss/vendors/slick/slick';
-  @import 'scss/vendors/slick/slick-theme';
-  @import 'scss/vendors/font-awesome/fontawesome';
+@import 'scss/vendors/slick/slick';
+@import 'scss/vendors/slick/slick-theme';
+@import 'scss/vendors/font-awesome/fontawesome';
 
 
-  @import 'scss/partials/typography';
-  @import 'scss/partials/layout';
-  @import 'scss/partials/header';
+// Elementi di sviluppo del sito
+@import 'scss/partials/header';
+@import 'scss/partials/page';
+@import 'scss/partials/footer';
+
+@import 'scss/partials/contact-form';
+
+
+// Mixin per media query ed elementi responsive
+@import 'scss/partials/desktop';
+@import 'scss/partials/tablet';
+@import 'scss/partials/mobile';
+
 

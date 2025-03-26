@@ -12,18 +12,19 @@
 }
 
 //gutemberg customization
-.wp-block {
-  max-width: 80%;
-
-  &.full,
-  &.full-boxed {
-    max-width: 100%;
-  }
-}
 
 .block-editor-block-list__layout {
   &.is-root-container {
-    border: 1px solid blue;
+    border: 5px solid blue;
+    >.wp-block {
+      max-width: 80%;
+    
+      &.full,
+      &.full-boxed,
+      &.half-boxed {
+        max-width: 100%;
+      }
+    }
 
     .wp-block-group {
       border: 10px solid #afafaf;
@@ -34,6 +35,10 @@
 
       &.full {
         background-color: #ffafaf;
+        .wp-block-columns {
+          max-width: 100%;
+          border: 10px solid #00afaf;
+        }
       }
 
       &.full-boxed {
@@ -44,6 +49,9 @@
           max-width: 80%;
           border: 10px solid #00afaf;
         }
+      }
+      &.half-boxed {
+        background-color: #78ff7f;
       }
     }
 

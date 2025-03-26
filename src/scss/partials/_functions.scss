@@ -1,0 +1,29 @@
+// i rem sono relativi alla root
+@function pixel2rem($pixel){
+  @return ($pixel/$baseFontSize)*1rem;
+}
+// gli em sono relativi al genitore diretto
+@function pixel2em($pixel){
+  @return ($pixel/$baseFontSize)*1em;
+}
+@function abs2pixel($pixel){
+  @return ($pixel)*1px;
+}
+
+@function is-map($var){
+  @return type-of($var) == 'map';
+}
+
+@function random_color($val:255) {
+  @return rgb(random($val),random($val),random($val));
+}
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

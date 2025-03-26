@@ -1,11 +1,69 @@
-@mixin style-testo-overlay($top:50%, $left: 50%, $translateTop: -50%,$translateLeft:-50%) {
-  color: black;
-  z-index: 999;
-  @include absolute_center($top,$left,$translateTop, $translateLeft);
+// formatta il "Column" singolo all'interno di un gruppo grid
+@mixin style-path-grid-single-group() {
+  .wp-block-group {
+    .wp-block-group__inner-container {
+      &.is-layout-grid {
+        .wp-block-group {
+          @content;
+        }
+      }
+    }
+  }
 }
 
-@mixin style-style-testo-overlay-realizzazioni($top:50%, $left: 0, $translateTop: -50%,$translateLeft: 0) {
-  @include style-testo-overlay(auto, 0 ,0, 0);
+// formatta la "Column" piu interna di una gruppo grid
+@mixin style-path-grid-inner-column() {
+  .wp-block-group {
+    .wp-block-group__inner-container {
+      &.is-layout-grid {
+        .wp-block-group {
+          .wp-block-columns {
+            .wp-block-column {
+              @content;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//formatta la "Column" di un gruppo
+@mixin style-path-group-column() {
+  .wp-block-group__inner-container {
+    .wp-block-columns {
+      .wp-block-column {
+        @content;
+      }
+    }
+  }
+}
+//formatta le "Columns" di un gruppo
+@mixin style-path-columns() {
+  .wp-block-group__inner-container {
+    .wp-block-columns {
+      @content;
+    }
+  }
+}
+//formatta il primo elemento "Columns" all'interno di un gruppo
+@mixin style-path-columns-first-child() {
+  .wp-block-group__inner-container {
+    .wp-block-columns:first-child {
+      @content;
+    }
+  }
+}
+
+@mixin style-testo-overlay($top: 50%, $left: 50%, $translateTop: -50%, $translateLeft: -50%) {
+  color: black;
+  z-index: 999;
+  @include absolute_center($top, $left, $translateTop, $translateLeft);
+}
+
+@mixin style-style-testo-overlay-realizzazioni($top: 50%, $left: 0, $translateTop: -50%, $translateLeft: 0) {
+  @include style-testo-overlay(auto, 0, 0, 0);
   padding: calc(2vw) calc(2vw) calc(2vw) 40px;
   margin: 0;
   bottom: 20px;
@@ -17,14 +75,16 @@
   }
 
   p {
-    @include style-testo(18px) line-height: 1;
+    @include style-testo(18px);
+    line-height: 1;
 
     strong {
       font-family: $font-family1;
     }
   }
 }
-@mixin style-titolo($font-size:$titoli-principali, $font-family:$font-family2) {
+
+@mixin style-titolo($font-size: $titoli-principali, $font-family: $font-family2) {
   font-family: $font-family;
   font-size: $font-size;
   line-height: 1;
@@ -32,24 +92,25 @@
   padding-bottom: 15px;
   margin-bottom: 0;
 }
-@mixin style-testo($font-size:$font-size-testo, $font-family:$font-family1) {
+
+@mixin style-testo($font-size: $font-size-testo, $font-family: $font-family1) {
   font-family: $font-family;
   font-size: $font-size;
   color: $color-neutro1;
   line-height: 1.5;
 }
-@mixin style-link($font-size:$font-size-testo, $font-family:$font-family1, $hoverColor:$color-main1) {
+
+@mixin style-link($font-size: $font-size-testo, $font-family: $font-family1, $hoverColor: $color-main1) {
   @include style-testo($font-size, $font-family);
 
   &:hover {
     color: $hoverColor;
   }
 }
-@mixin style-button-calltoaction($font-size:$font-size-testo, $font-family:$font-family1,$icon:$var-icon-download) {
 
+@mixin style-button-calltoaction($font-size: $font-size-testo, $font-family: $font-family1, $icon: $var-icon-download) {}
 
-}
-@mixin style-readmore($font-size:$font-size-testo, $font-family:$font-family1) {
+@mixin style-readmore($font-size: $font-size-testo, $font-family: $font-family1) {
   @include flex-default;
   align-items: center;
   justify-content: flex-start;
@@ -65,20 +126,24 @@
 
   i {
     padding-right: 5px;
-    @include before_block_icon(url("assets/images/sunroom-arrow-right.svg"),0);
+    @include before_block_icon(url("assets/images/sunroom-arrow-right.svg"), 0);
   }
 }
+
 @mixin style-label-hide-on-over() {
   overflow: hidden;
+
   .entry-header {
     transition: transform 0.3s ease-out;
   }
+
   &:hover {
     .entry-header {
       transform: translate(-100%, 0);
     }
   }
 }
+
 @mixin style-image-zoom-on-over() {
   overflow: hidden;
 
@@ -87,92 +152,205 @@
   }
 
   &:hover {
+
     img {
       transform: scale(1.1);
     }
   }
 }
-@mixin style-menu-item() {
-  font-family: $font-family1;
-  font-size: $voci-menu;
-  text-transform: uppercase;
-  &:hover,&.active {
-    >a{
+
+@mixin style-menu-item($font-family: $font-family1, $font-size: 12px, $color: $color-main1) {
+  font-family: $font-family;
+  font-size: $font-size;
+
+  &:hover,
+  &.active {
+    >a {
       font-weight: 600;
       color: $color-neutro1;
     }
   }
-  a{
-    color: $color-neutro1;
+
+  a {
+    color: $color;
   }
+
+  @content;
 }
 
-@mixin style-button_rounded($color:$color-neutro4,$color-hover:$color-neutro1,$bgcolor:$color-main1,$bgcolor-hover:$color-main2){
-  @include style-button($color,$color-hover,$bgcolor,$bgcolor-hover);
-  border-radius:8px;
+@mixin style-button_rounded($color: $color-neutro4, $color-hover: $color-neutro1, $bgcolor: $color-main1, $bgcolor-hover: $color-main2) {
+  @include style-button($color, $color-hover, $bgcolor, $bgcolor-hover);
+  border-radius: 8px;
 }
-@mixin style-button(
-  //parametri
-  $color:$color-neutro4,
-  $color-hover:$color-neutro1,
-  $bgcolor:$color-main1,
-  $bgcolor-hover:$color-main2)
-  //
-    {
-      color: $color;
-      font-family: $font-family1;
-      background: transparent;
-      @if($bgcolor) {
-        background: $bgcolor;
-      }
-      &:hover {
-        color: $color-hover;
-        background-color: $bgcolor-hover;
-        border-color: $color-hover;
-      }
-      //quando si implementa il mixin è possibile utilizare istruzioni aggiuntive
-      @content;
+
+@mixin style-button( //parametri
+  $color: $color-neutro4,
+  $color-hover: $color-neutro1,
+  $bgcolor: $color-main1,
+  $bgcolor-hover: $color-main2) //
+
+  {
+  color: $color;
+  font-family: $font-family1;
+  background: transparent;
+
+  @if($bgcolor) {
+    background: $bgcolor;
+  }
+
+  &:hover {
+    color: $color-hover;
+    background-color: $bgcolor-hover;
+    border-color: $color-hover;
+  }
+
+  //quando si implementa il mixin è possibile utilizare istruzioni aggiuntive
+  @content;
 
 }
+
 @mixin style-button-sticky() {
   background-color: $color-neutro1;
   color: $color-neutro4;
-  border:  1px solid $color-neutro4;
-  &:hover{
+  border: 1px solid $color-neutro4;
+
+  &:hover {
     background-color: $color-neutro4;
     color: $color-neutro1;
-    border:  1px solid $color-neutro1;
+    border: 1px solid $color-neutro1;
   }
 }
-@mixin style-entry-header(){
-  //border: 5px solid red;
-  max-width:560px;
+
+@mixin style-entry-header() {
+  max-width: 560px;
   margin: 0 auto;
   text-align: center;
 
 }
-@mixin menu-social{
-  ul{
-    flex-direction: row!important;
-    li{
-      a{
-        font-size:0;
-        &:before{
-          font-size: 12px;
-          line-height: 24px;
-          font-family:$var-fontellofamily;
-          content:$var-icon-phone;
-          padding-right: 12px;
 
-        }
-        &:hover{
-          background-color: transparent;
+@mixin menu-social-icons ($container: ".navbar-nav", $content-image: false, $icon-pack: $icon-pack-images, $padding: 2px) {
+  #{$container} {
+    li.social {
+      a {
+        font-size: 0 !important;
+        background-color: transparent;
+        border-radius: 2px;
+        overflow: hidden;
+        padding: $padding;
+        text-align: center;
+
+        &:before {
+          color: $color-main1;
+          padding: 0px !important;
+          font-size: 30px !important;
+          line-height: 1;
         }
       }
-      &.icon-email{
-        a{
-          &:before{
-            content:$var-icon-mail;
+
+      &.icon-facebook {
+        a {
+          @include before_block_icon($content-image: $content-image, $content: #{map-get($icon-pack,"path")+map-get($icon-pack,"facebook")}, $padding: 0, $font-size: 10px, $clear: true, $initiator: null);
+        }
+      }
+
+      &.icon-instagram {
+        a {
+          @include before_block_icon($content-image: $content-image, $content: #{map-get($icon-pack,"path")+map-get($icon-pack,"instagram")}, $padding: 0, $font-size: 10px, $clear: true, $initiator: null);
+
+          &:before {}
+        }
+      }
+
+      &.icon-linkedin {
+        a {
+          @include before_block_icon($content-image: $content-image, $content: #{map-get($icon-pack,"path")+map-get($icon-pack,"linkedin")}, $padding: 0, $font-size: 10px, $clear: true, $initiator: null);
+
+          &:before {}
+        }
+      }
+    }
+  }
+}
+
+@mixin style-social-gutemberg($icon-fill: $color-neutro4, $icon-bg-color: $color-neutro1, $border-radius: 5px) {
+  .wp-block-social-links {
+    li.wp-social-link {
+      background-color: $icon-bg-color !important;
+      border-radius: $border-radius !important;
+
+      .wp-block-social-link-anchor {
+
+        .wp-block-social-link-label {}
+      }
+    }
+  }
+}
+
+@mixin style-wpml-language-select() {
+  * {
+    min-height: 0;
+  }
+
+  font-size: 10px !important;
+  // border: 3px solid white;
+  display:inline;
+  width: 50px;
+
+  .wp-block-navigation__container {
+    justify-content: flex-end;
+
+    // border: 3px solid yellow;
+    .wp-block-navigation-item {
+      // border: 3px solid rebeccapurple;
+      text-transform: uppercase;
+
+      >.wp-block-navigation-item__content {
+
+        .current-language-item {
+          padding: 5px 20px;
+          border: 1px solid white;
+          border-radius: 15px;
+
+          .wp-block-navigation-item__content {
+            // border: 3px solid red;
+            width: 100%;
+
+            div {
+              .wpml-ls-flag {}
+
+              .wp-block-navigation-item__label {}
+            }
+          }
+
+          .wp-block-navigation__submenu-icon {
+            // border: 3px solid gold;
+            width: 15px;
+            height: 15px;
+
+            svg {
+              path {}
+            }
+          }
+        }
+      }
+
+      .wp-block-navigation__submenu-container {
+        padding: 5px 20px;
+        // border: 3px solid orange!important;
+        width: 100%;
+
+        .wp-block-navigation-item {
+          background: $color-main2;
+          padding: 5px 20px;
+
+          div {
+
+            .wp-block-navigation-item__content {
+
+              .wpml-ls-flag {}
+
+              .wp-block-navigation-item__label {}
+            }
           }
         }
       }
@@ -180,3 +358,221 @@
   }
 }
 
+@mixin hilight($selector: id, $content: true) {
+  $color: random_color();
+  background-color: $color;
+  position: relative;
+
+  * {
+    @include text-contrast($color)
+  }
+
+  &:before {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+    //width:  25px;
+    //position: absolute;
+    white-space: nowrap;
+    top: 0;
+    left: 0;
+    padding-right: 25px;
+    display: inline-block;
+
+    @if($content) {
+      content: attr($selector);
+      background-color: red;
+      @include text-contrast(red);
+      font-size: pixel2rem(12);
+      text-align: right;
+    }
+  }
+
+  &:hover:before {
+    background-color: black;
+    @include text-contrast(red)
+  }
+}
+
+@mixin style-form($color: $color-neutro2, $font-family: $font-family2, $inputBackground: $color-neutro3-chiaro, $submitBackground: $color-main1, $submitColor: $color-neutro4, $submitBackgroundHover: $color-main2) {
+  label {
+    color: $color;
+    font-family: $font-family;
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid $color-neutro3;
+    background: $inputBackground;
+    padding: 10px;
+
+    &[type="submit"] {
+      background: $submitBackground;
+      padding: 20px;
+      color: $submitColor;
+
+      &:hover {
+        background: $submitBackgroundHover;
+      }
+    }
+  }
+}
+
+@mixin style-form-figma($inputs-container: ".wpcf7-form", $inputBackground: $color-neutro4) {
+  .input-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    label {
+      @media screen and (min-width: $tablet) {
+        flex: 0 0 48%;
+      }
+    }
+
+    .wpcf7-form-control-wrap {
+      background: $inputBackground ;
+      display: flex;
+      align-items: center;
+      //border: 1px solid $color-main2;
+
+
+      &:focus-within {
+        //box-shadow: 0 3px 10px $color-main1;
+        //border: 1px solid #B2D1DE;
+      }
+
+      &:after {
+        font-family: $var-iconsfamily;
+      }
+
+
+      input {
+        border: none;
+        background: transparent;
+
+        &:focus {
+          outline: none;
+          border: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+  }
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+  .wpcf7-form-control {
+    label {
+      color: $color-main1;
+      ;
+      // @include flex-default;
+      // flex-direction: row;
+      // flex-wrap: nowrap;
+      // align-items: flex-start;
+      display: grid;
+      grid-template-columns: 1em auto;
+      gap: 24px;
+
+      input[type="checkbox"] {
+        /* Add if not using autoprefixer */
+        // -webkit-appearance: none;
+        // appearance: none;
+        /* For iOS < 15 to remove gradient background */
+        background-color: transparent;
+        /* Not removed via appearance */
+        margin: 0;
+        margin-top: 6px;
+        font: inherit;
+        color: currentColor;
+        width: 20px;
+        height: 20px;
+        border: 0.15em solid currentColor;
+        border-radius: 0.15em;
+        transform: translateY(-0.075em);
+        display: grid;
+        place-content: center;
+        accent-color: #EFEFEF;
+        padding: 2px;
+      }
+
+      input[type="checkbox"]::before {
+        content: "";
+        border: 0.15em solid currentColor;
+        width: 22px;
+        height: 22px;
+        display: block;
+        transform: scale(1);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1em 1em var(--form-control-color);
+      }
+
+      // input[type="checkbox"]:checked::before {
+      //   transform: scale(1);
+      // }
+
+      .wpcf7-list-item-label {
+        // padding-left: 24px;
+        // display: block;
+      }
+    }
+  }
+
+  .wpcf7-acceptance {
+    display: block;
+    // border: 1px solid red;
+    margin-top: 32px;
+
+    .wpcf7-list-item {
+      margin: 0;
+    }
+  }
+
+  label {
+    width: 100%;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 3em;
+    height: 3rem;
+    accent-color: green;
+  }
+
+  textarea {}
+
+  @content;
+}
+
+@mixin shadow() {
+  // box-shadow: 0 0 1px 0px $color-main2;
+  border-radius: 20px;
+  /* cards */
+  box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.20);
+}
+
+@mixin style-icon-title($font-size: 60px) {
+  @include before_block_icon($content-image: true, $content: "/wp-content/uploads/2024/11/header-elettrico.png");
+  line-height: 1;
+  display: flex;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-size: $font-size;
+  font-style: normal;
+  line-height: 52px;
+  /* 86.667% */
+  padding-left: 40px;
+
+  &:before {}
+}

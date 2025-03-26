@@ -1,13 +1,13 @@
 @mixin style-section-full-gutemberg {
-    @include extend-container2(".wp-block-group__inner-container");
+    @include extend-container2($content:".wp-block-group__inner-container", $boxed: false);
 }
 
 @mixin style-section-full-boxed-gutemberg {
-    @include extend-container2(".wp-block-group__inner-container", 0, $boxed: true);
+    @include extend-container2($content:".wp-block-group__inner-container", $boxed: true);
 }
 
 @mixin style-section-full-content-halfboxed-leftboxed-gutemberg {
-    @include style-section-full-content-halfboxed(".wp-block-column:nth-child(odd)", ".wp-block-group__inner-container");
+    @include style-section-full-content-halfboxed($target-boxed:".wp-block-column:nth-child(odd)", $content:".wp-block-group__inner-container");
     .wp-block-column:nth-child(even) {
         //border: 10px solid red;
         margin-left: 0
@@ -20,6 +20,9 @@
                 >.wp-block-column:nth-child(even) {
                     flex: 0 0 calc(50% + #{$grid-gutter-width/2});
                     margin-right: calc(-#{$grid-gutter-width/2});
+                    @media screen and (max-width:$tablet) {
+                        padding-left: 0;
+                    }
                 }
             }
         }
@@ -30,8 +33,8 @@
     @include style-section-full-content-halfboxed(".wp-block-column:nth-child(even)", ".wp-block-group__inner-container");
 
     .wp-block-column:nth-child(odd) {
-        //border: 10px solid red;
-        margin-left: 0
+        margin-left: 0;
+
     }
 
     @media screen and(min-width:$tablet) {
@@ -41,7 +44,7 @@
 
                 >.wp-block-column:nth-child(odd) {
                     flex: 0 0 calc(50% + #{$grid-gutter-width/2});
-                    margin-left: calc(-#{$grid-gutter-width/2});
+                    margin-left: 0;
                 }
 
 
@@ -51,15 +54,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-@mixin button-figma-layout ($icon-pos-after: true, $icon: false, $content-image: false) {
+@mixin button-figma-layout ($icon-pos-after: true, $icon: null, $content-image: false) {
     // @debug button-figma-layout content-image #{$content-image};
     //@debug button-figma-layout icon-pos-after #{$icon-pos-after};
 
@@ -72,14 +67,15 @@
     border: 1px solid #D2E3EB;
     font-size: 12px;
     text-decoration: none;
-
+   
     @if $icon {
         @if $icon-pos-after {
-            // @debug button-figma-layout icon $icon;
+             //@debug button-figma-layout icon $icon;
             @include after_block_icon($content-image: $content-image, $content: $icon);
         }
 
         @else {
+            //@debug button-figma-layout content-image $content-image;
             @include before_block_icon($content-image: $content-image, $content: $icon );
         }
     }
@@ -100,26 +96,27 @@
     @content;
 }
 
-@mixin button-figma-layout-big ($icon-pos-after: true, $icon: false, $content-image: false) {
+@mixin button-figma-layout-big ($icon-pos-after: true, $icon: null, $content-image: false) {
     @include button-figma-layout ($icon-pos-after, $icon, $content-image);
     padding: 12px 32px;
     font-size: 16px;
 }
+@mixin button-figma-style-dark-big ($icon-pos-after: true, $icon: null, $content-image: false) {
+    @include button-figma-layout-big ($icon-pos-after, $icon, $content-image);
+    border: 1px solid #D2E3EB;
+    background: rgba(210, 227, 235, 0.40);
+    backdrop-filter: blur(15px);
+}
 
-@mixin button-figma-style-dark-small ($content-image: false, $icon-pos-after: true, $icon: false) {
-    // @debug button-figma-style-dark-small content-image #{$content-image};
-    // @debug button-figma-style-dark-small icon #{$icon};
+@mixin button-figma-style-dark-small ($content-image: false, $icon-pos-after: true, $icon: null) {
+     //@debug button-figma-style-dark-small content-image #{$content-image};
+     //@debug button-figma-style-dark-small icon #{$icon};
     @include button-figma-layout ($icon-pos-after, $icon, $content-image: $content-image);
     background: $color-neutro2;
 
-    &:hover {
-        border-radius: 8px;
-        background: $color-main5;
-        color: $color-main1;
-    }
 }
 
-@mixin button-figma-style-light-small ($content-image: false, $icon-pos-after: true, $icon: false) {
+@mixin button-figma-style-light-small ($content-image: false, $icon-pos-after: true, $icon: null) {
     // @debug button-figma-style-light-small content-image #{$content-image};
     // @debug button-figma-style-light-small icon #{$icon};
     @include button-figma-layout ($icon-pos-after, $icon, $content-image: $content-image);
@@ -133,15 +130,40 @@
     }
 }
 
-@mixin button-figma-style-light-big ($content-image: false, $icon-pos-after: true, $icon: false) {
+@mixin button-figma-style-light-big ($content-image: false, $icon-pos-after: true, $icon: null, $bordercolor: $color-main1) {
     // @debug $content-image;
     // @debug $icon;
     @include button-figma-layout-big ($icon-pos-after, $icon, $content-image);
-    border: 1px solid $color-main2;
+    border: 1px solid $bordercolor;
     background: $color-main1;
 
     &:hover {
         background: $color-main2;
         color: $color-main1;
     }
+}
+// display: inline-flex;
+// padding: 12px 20px;
+// justify-content: center;
+// align-items: center;
+// gap: 12px;
+@mixin button-figma-style-linea ($content-image: true, $icon-pos-after: false, $icon: null) {
+    @include button-figma-layout ($icon-pos-after, $icon, $content-image);
+    padding: 12px 20px;
+    border-radius: 8px;   
+    background: rgba($color-neutro4, 0.60); 
+    backdrop-filter: blur(15px);
+    color: $color-main1;
+    
+    &:hover {
+        background: $color-main2;
+        color: $color-neutro4;
+    }
+
+}
+
+@mixin style-form-figma-alias(){
+    //@include style-form($color: $color-main1, $font-family: $font-family1, $inputBackground: $color-neutro4, $submitBackground: $color-main1, $submitColor: $color-neutro4, $submitBackgroundHover: $color-main2)
+    $inputs-container:".inputs";
+  
 }

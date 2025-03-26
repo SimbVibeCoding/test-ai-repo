@@ -1,0 +1,17 @@
+.entry-content .wp-block-buttons:not(.btn-testo-icona) {
+    .button-bianco a {
+        @include button($bgcolor: transparent, $color: #fff, $hovercolor: $color-main1, $hoverbgcolor: #fff, $border-color: #fff);
+    }
+    .button-giallo-pieno a {
+        @include button($bgcolor: $color-main2, $color: #fff, $hovercolor: $color-main2, $hoverbgcolor: #fff, $border-color: #fff);
+    }
+    .button-giallo a {
+        @include button($bgcolor: transparent, $color: #fff, $hovercolor: #fff, $hoverbgcolor: $color-main2, $border-color: $color-main2);
+    }
+    .button-blu a {
+        @include button($bgcolor: transparent, $color: $color-main1, $hovercolor: #fff, $hoverbgcolor: $color-main1, $border-color: $color-main1);
+    }
+    .button-blu-pieno a {
+        @include button($bgcolor: $color-main1, $color: #fff, $hovercolor: $color-main2, $hoverbgcolor: #fff, $border-color: $color-main1);
+    }
+}
