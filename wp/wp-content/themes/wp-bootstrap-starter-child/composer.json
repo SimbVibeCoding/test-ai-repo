@@ -1,0 +1,20 @@
+{
+    "name": "retina/wp-bootstrap-starter-child",
+    "description": "Tema Child Boostrap con gutemberg",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "Davide Forcina",
+            "email": "forcina@grupporetina.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.5.0",
+        "johnpbloch/wordpress": ">=4.2"
+        
+      },
+       "extra": {
+      "wordpress-install-dir": "wp"
+     
+    }
+}
