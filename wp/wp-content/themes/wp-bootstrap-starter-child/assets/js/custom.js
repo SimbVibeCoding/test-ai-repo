@@ -8,47 +8,33 @@ jQuery(document).ready(function(){
 		autoplay: true,
 	});
 
-	jQuery('#carousel').on('init', function(event, slick, direction){
- 			jQuery( "#carousel .slick-slide > div" ).addClass( "image-box" );
-	});
 
 
-  jQuery('#carousel-home .row .container').slick({
-  speed: 300,
-  slidesToShow:5,
-  slidesToScroll: 1,
-	infinite: true,
-	autoplay: true,
-	responsive: [
-    {
-      breakpoint: 1240,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
+
+
+    function updateStickyState() {
+      // Se siamo sulla pagina con body.page-id-808
+      if (jQuery('body').hasClass('always-sticky')) {
+          jQuery('#header').addClass('sticky');
+          // Disattiva il controllo scroll
+          return;
       }
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
+  
+      // Comportamento dinamico per tutte le altre pagine
+      if (jQuery(window).scrollTop() > 0) {
+          jQuery('#header').addClass('sticky');
+      } else {
+          jQuery('#header').removeClass('sticky');
       }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
+  }
+  
+  // Inizializza sempre al load
+  jQuery(window).on('load scroll resize', updateStickyState);  
+ 
+
+
 	});
-});
+
 
 
 // Open when someone clicks on the span element

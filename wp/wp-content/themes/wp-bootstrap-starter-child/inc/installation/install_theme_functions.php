@@ -144,7 +144,7 @@ function display_block_pattern( $pattern_title ) {
     
     if ( $query->have_posts() ) {
         $query->the_post();
-        echo do_blocks( get_the_content() );
+        echo do_blocks(the_content() );
         wp_reset_postdata();
     } else {
         echo '<p>Il pattern "' . esc_html( $pattern_title ) . '" non è stato trovato.</p>';
