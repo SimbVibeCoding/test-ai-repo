@@ -1,6 +1,7 @@
 jQuery(document).ready(function(){
 	jQuery('#slider-home').slick({
-		dots: false,
+		dots: true,
+        arrows: false,
 		infinite: true,
 		speed: 500,
 		fade: true,

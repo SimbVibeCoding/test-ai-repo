@@ -1,0 +1,66 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    #header {
+        background-color: transparent;
+        transition: background-color 0.5s;
+        .wpml-language-switcher-block {
+            width: auto!important;
+        }
+        .logo-nosticky {
+            display: block;
+        }
+        .logo-sticky {
+            display: none;
+        }
+        .menu-principale {
+            gap: 12px;
+
+            a {
+                color: #fff;
+                padding: 10px;
+                font-size: 16px;
+                font-style: normal;
+                line-height: 20px;
+                /* 125% */
+                letter-spacing: 0.16px;
+            }
+        }
+        .secondmenu {
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            gap: 16px;
+        }
+
+        &.sticky {
+            background-color: #fff;
+            transition: background-color 0.5s;
+            .logo-nosticky {
+                display: none;
+
+            }
+            .logo-sticky {
+                display: block;
+            }
+            .menu-principale a {
+                color: $nero;
+            }
+            .secondmenu figure img {
+                filter: brightness(0.3);
+            }
+        }
+    }
+}
+#header.full .wp-block-group__inner-container {
+    padding: 24px 120px;
+}
+
+header.entry-header {
+    display: none;
+}

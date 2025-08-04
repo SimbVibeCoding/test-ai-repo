@@ -1,0 +1,73 @@
+html {
+    scroll-behavior: smooth;
+    margin-top: 0!important;
+    overflow-x: hidden;
+}
+figure {
+    margin: 0;
+}
+
+#testata-home {
+    padding-top: 0;
+    #slider-home {
+        figure {
+            height: 90vh;
+            border-radius: 0 0 24px 24px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }  
+     .slick-dots {
+                bottom: 75px;
+                left: calc(50vw - 840px);
+                max-width: $site-width;
+                text-align: left;
+                li {
+                    width: auto;
+                    button {           
+                        background: #ffffff;
+                        opacity: 0.4;           
+                        height: 4px;
+                        width: 20px;           
+                        padding: 1px;
+                        border-radius: 30px;   
+                        &::before {
+                            display: none;
+                        }        
+                    }
+                    &.slick-active button {
+                        width: 60px;
+                        opacity: 1;
+                    }
+                }
+              } 
+}
+#testata-hero {    
+        position: absolute;
+        top: 0px;
+        padding-top: 0;
+        padding-bottom: 0;   
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 6.15%, rgba(0, 0, 0, 0.00) 45.1%, rgba(0, 0, 0, 0.00) 81.59%, rgba(0, 0, 0, 0.40) 100%);
+        margin: 0px 3px;
+        max-width: calc(100vw - 40px);
+         border-radius: 0 0 24px 24px;
+        &>div {
+            margin-bottom: 140px;
+            width: 100%;
+            max-width: $site-width;
+            h1 {
+                color: #fff;
+                margin-bottom: 32px;
+            }           
+        }
+        
+}
