@@ -2,10 +2,10 @@
     .button-bianco a {
         @include button($bgcolor: rgba(251, 251, 251, 0.20), $color: #fff, $hovercolor: #fff, $hoverbgcolor: #3C3C3B, $border-color: #fff);
     }
-    .button-trasparente a {
-        @include button($bgcolor: $color-main1, $color: #fff, $hovercolor: #fff, $hoverbgcolor: rgba(251, 251, 251, 0.20), $border-color: #fff);
-    }
     .button-azzurro a {
+        @include button($bgcolor: $color-main1, $color: #fff, $hovercolor: #fff, $hoverbgcolor: #103655, $border-color: #fff);
+    }
+    .button-trasparente a {
         @include button($bgcolor: transparent, $color: #fff, $hovercolor: #3C3C3B, $hoverbgcolor: #fff, $border-color: $color-main1);
     }
     .button-blu a {
@@ -14,4 +14,8 @@
     .button-nero a {
         @include button($bgcolor: #000, $color: #fff, $hovercolor: #fff, $hoverbgcolor: #000, $border-color: #fff);
     }
+}
+
+p.label {
+    text-transform: uppercase;
 }

@@ -813,4 +813,12 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
   }
 }
 
+
+@mixin deep-gap($space) {
+  & > div > div {
+    gap: $space;
+  }
+}
+
+
 @import "mixin-aliases";
