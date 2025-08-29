@@ -3142,3 +3142,73 @@
 [06-Aug-2025 17:03:00 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
 [06-Aug-2025 17:03:00 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
 [06-Aug-2025 17:03:00 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:12 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:12 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:12 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:12 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:13 UTC] Automatic updates starting...
+[29-Aug-2025 07:26:14 UTC]   Automatic plugin updates starting...
+[29-Aug-2025 07:26:14 UTC]   Automatic plugin updates complete.
+[29-Aug-2025 07:26:15 UTC] Automatic updates complete.
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:18 UTC] PHP Deprecated:  strtotime(): Passing null to parameter #1 ($datetime) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-content\plugins\sitepress-multilingual-cms\classes\emails\notification\summary\class-wpml-tm-jobs-summary-report.php on line 46
+[29-Aug-2025 07:26:19 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ORDER BY date_created_gmt) AS order_rank,
+					date_created_gmt AS order_creat' at line 3 for query SELECT
+					id,
+					row_number() OVER (ORDER BY date_created_gmt) AS order_rank,
+					date_created_gmt AS order_created_at,
+					date_updated_gmt AS order_updated_at,
+					currency,
+					total_amount,
+					payment_method,
+					payment_method_title
+				FROM wp_wc_orders
+				WHERE
+					type = 'shop_order'
+					AND status IN ('wc-completed', 'wc-refunded')
+				ORDER BY date_created_gmt ASC
+				LIMIT 20; made by do_action_ref_array('woocommerce_tracker_send_event'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Tracker::send_tracking_data, WC_Tracker::get_tracking_data, WC_Tracker::get_order_snapshot, WC_Tracker::get_order_data
+[29-Aug-2025 07:26:19 UTC] WordPress database error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(ORDER BY date_created_gmt) AS order_rank,
+					date_created_gmt AS order_creat' at line 3 for query SELECT
+					id,
+					row_number() OVER (ORDER BY date_created_gmt) AS order_rank,
+					date_created_gmt AS order_created_at,
+					date_updated_gmt AS order_updated_at,
+					currency,
+					total_amount,
+					payment_method,
+					payment_method_title
+				FROM wp_wc_orders
+				WHERE
+					type = 'shop_order'
+					AND status IN ('wc-completed', 'wc-refunded')
+				ORDER BY date_created_gmt DESC
+				LIMIT 20; made by do_action_ref_array('woocommerce_tracker_send_event'), WP_Hook->do_action, WP_Hook->apply_filters, WC_Tracker::send_tracking_data, WC_Tracker::get_tracking_data, WC_Tracker::get_order_snapshot, WC_Tracker::get_order_data
+[29-Aug-2025 07:26:23 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:23 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:23 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:23 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:24 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:24 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:24 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:24 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:25 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:25 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:25 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:25 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:26 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:26 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:26:26 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:26:26 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:27:37 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:27:37 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
+[29-Aug-2025 07:27:37 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 247
+[29-Aug-2025 07:27:37 UTC] PHP Deprecated:  strlen(): Passing null to parameter #1 ($string) of type string is deprecated in F:\CLIENTI\Simbiosi\Macplast\sito_online\wp\wp-includes\class-wp-block-parser.php on line 324
