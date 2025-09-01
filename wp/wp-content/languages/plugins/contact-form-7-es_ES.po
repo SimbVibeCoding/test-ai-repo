@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-06-26 10:54:55+0000\n"
+"PO-Revision-Date: 2025-08-05 09:20:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,11 +11,16 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: Plugins - Contact Form 7 - Stable (latest release)\n"
 
-#: modules/turnstile/turnstile.php:171
+#. translators: %s: Search query.
+#: admin/admin.php:467
+msgid "Search results for: <strong>%s</strong>"
+msgstr "Resultados de búsqueda para <strong>%s</strong>"
+
+#: modules/turnstile/turnstile.php:174
 msgid "Turnstile validation failed."
 msgstr "Falló la validación de Turnstile."
 
-#: modules/turnstile/turnstile.php:166
+#: modules/turnstile/turnstile.php:169
 msgid "Turnstile token is empty."
 msgstr "El token de Turnstile está vacío."
 
@@ -31,6 +36,7 @@ msgstr "Integración con Cloudflare Turnstile"
 msgid "Turnstile is Cloudflare&#8217;s smart CAPTCHA alternative, which confirms web visitors are real and blocks unwanted bots without slowing down web experiences for real users."
 msgstr "Turnstile es la alternativa CAPTCHA inteligente de Cloudflare, que confirma que los visitantes de la web sean reales y bloquea bots indeseados sin ralentizar la experiencia web a los usuarios reales."
 
+#: modules/recaptcha/service.php:262 modules/stripe/service.php:146
 #: modules/turnstile/service.php:239
 msgid "<strong>Error:</strong> Invalid key values."
 msgstr "<strong>Error:</strong> valores de clave no válidos."
@@ -511,7 +517,7 @@ msgid "The request payload format is not supported."
 msgstr "El formato de la carga útil de la solicitud no es compatible."
 
 #. translators: 1: WordPress hook name, 2: version number
-#: includes/functions.php:536
+#: includes/functions.php:537
 msgid "Hook %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s with no alternative available."
 msgstr "El gancho %1$s está <strong>obsoleto</strong> desde la versión %2$s de Contact Form 7 sin ninguna alternativa disponible."
 
@@ -533,7 +539,7 @@ msgstr "Por favor, rellena este campo."
 
 #. translators: 1: PHP function name, 2: version number, 3: alternative
 #. function name
-#: includes/functions.php:492
+#: includes/functions.php:493
 msgid "Function %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
 msgstr "¡La función %1$s está <strong>obsoleta</strong> desde la versión %2$s de Contact Form 7 ! Usa %3$s en su lugar."
 
@@ -543,7 +549,7 @@ msgstr "Protección contra spam"
 
 #. translators: Developer debugging message. 1: PHP function name, 2:
 #. Explanatory message, 3: Contact Form 7 version number.
-#: includes/functions.php:576
+#: includes/functions.php:577
 msgid "Function %1$s was called incorrectly. %2$s %3$s"
 msgstr "Se ha llamado a la función %1$s incorrectamente. %2$s %3$s"
 
@@ -597,23 +603,23 @@ msgstr "El pago es obligatorio. Por favor, paga con tarjeta de crédito."
 msgid "Payments"
 msgstr "Pagos"
 
-#: modules/stripe/service.php:256
+#: modules/stripe/service.php:252
 msgid "Publishable Key"
 msgstr "Clave publicable"
 
-#: modules/stripe/service.php:229
+#: modules/stripe/service.php:225
 msgid "Stripe is not available on this site. It requires an HTTPS-enabled site."
 msgstr "Stripe no está disponible en este sitio. Necesita un sitio con HTTPS activado."
 
-#: modules/stripe/service.php:200
+#: modules/stripe/service.php:196
 msgid "Stripe is active on this site."
 msgstr "Stripe está activo en este sitio."
 
-#: modules/stripe/service.php:188
+#: modules/stripe/service.php:184
 msgid "Stripe integration"
 msgstr "Integración de Stripe"
 
-#: modules/stripe/service.php:177
+#: modules/stripe/service.php:173
 msgid "Stripe is a simple and powerful way to accept payments online. Stripe has no setup fees, no monthly fees, and no hidden costs. Millions of businesses rely on Stripe&#8217;s software tools to accept payments securely and expand globally."
 msgstr "Stripe es una forma sencilla y potente para aceptar pagos online. Stripe no tiene cuotas de configuración, ni cuotas mensuales, ni costes ocultos. Millones de negocios confían en las herramientas de software de Stripe para aceptar pagos de forma segura y expandirse globalmente."
 
@@ -643,7 +649,7 @@ msgstr "Panel de bienvenida"
 msgid "Stripe"
 msgstr "Stripe"
 
-#: admin/includes/welcome-panel.php:168 modules/stripe/service.php:187
+#: admin/includes/welcome-panel.php:168 modules/stripe/service.php:183
 msgid "https://contactform7.com/stripe-integration/"
 msgstr "https://contactform7.com/stripe-integration/"
 
@@ -748,8 +754,8 @@ msgstr "Eliminar la clave"
 msgid "API key"
 msgstr "Clave de la API"
 
-#: modules/recaptcha/service.php:335 modules/sendinblue/service.php:208
-#: modules/turnstile/service.php:311
+#: modules/recaptcha/service.php:331 modules/sendinblue/service.php:208
+#: modules/stripe/service.php:215 modules/turnstile/service.php:311
 msgid "Setup integration"
 msgstr "Configurar la integración"
 
@@ -803,13 +809,13 @@ msgid "Disallowed words are used."
 msgstr "Se están usando palabras no permitidas."
 
 #. translators: %s: Contact Form 7 version number.
-#: includes/functions.php:567
+#: includes/functions.php:568
 msgid "(This message was added in Contact Form 7 version %s.)"
 msgstr "(Este mensaje se ha añadido en Contact Form 7 versión %s.)"
 
 #: includes/special-mail-tags.php:22 includes/special-mail-tags.php:104
 #: includes/special-mail-tags.php:170 includes/special-mail-tags.php:239
-#: modules/flamingo.php:304
+#: modules/flamingo.php:310
 msgid "The fourth parameter ($mail_tag) must be an instance of the WPCF7_MailTag class."
 msgstr "El cuarto parámetro ($mail_tag) debe ser una instancia de la clase WPCF7_MailTag."
 
@@ -836,8 +842,7 @@ msgstr "%1$s y %2$s"
 msgid "Additional settings"
 msgstr "Ajustes adicionales"
 
-#: modules/recaptcha/service.php:264 modules/sendinblue/service.php:127
-#: modules/sendinblue/service.php:138 modules/stripe/service.php:148
+#: modules/sendinblue/service.php:127 modules/sendinblue/service.php:138
 msgid "Error"
 msgstr "Error"
 
@@ -849,7 +854,7 @@ msgstr "El tamaño total de los archivos adjuntos es demasiado grande."
 msgid "Unavailable HTML elements are used in the form template."
 msgstr "Se están usando elementos HTML no disponibles en la plantilla del formulario."
 
-#: modules/recaptcha/service.php:316
+#: modules/recaptcha/service.php:312
 msgid "reCAPTCHA is active on this site."
 msgstr "reCAPTCHA está activo en este sitio."
 
@@ -875,20 +880,20 @@ msgid "Akismet returns a spam response."
 msgstr "Akismet devuelve una respuesta de spam."
 
 #. translators: 1: response code, 2: message, 3: body, 4: URL
-#: includes/functions.php:620
+#: includes/functions.php:621
 msgid "HTTP Response: %1$s %2$s %3$s from %4$s"
 msgstr "Respuesta HTTP: %1$s %2$s %3$s desde %4$s"
 
-#: modules/recaptcha/service.php:401 modules/stripe/service.php:298
+#: modules/recaptcha/service.php:397 modules/stripe/service.php:294
 #: modules/turnstile/service.php:376
 msgid "Save Changes"
 msgstr "Guardar los cambios"
 
-#: modules/recaptcha/service.php:293
+#: modules/recaptcha/service.php:289
 msgid "reCAPTCHA protects you against spam and other types of automated abuse. With Contact Form 7&#8217;s reCAPTCHA integration module, you can block abusive form submissions by spam bots."
 msgstr "reCapTCHA protege contra el spam y otros tipos de abuso automatizados. Con el módulo de integración de reCAPTCHA, puedes bloquear envíos de forma abusiva por bots de spam."
 
-#: modules/recaptcha/recaptcha.php:255 modules/recaptcha/service.php:304
+#: modules/recaptcha/recaptcha.php:255 modules/recaptcha/service.php:300
 msgid "reCAPTCHA (v3)"
 msgstr "reCAPTCHA (v3)"
 
@@ -898,7 +903,7 @@ msgid "API keys for reCAPTCHA v3 are different from those for v2; keys for v2 do
 msgstr "Las claves para la API de reCAPTCHA v3 son diferentes a las de la v2; las claves para la v2 no funcionan con la API de la v3. Tienes que registrar tus sitios nuevamente para obtener nuevas claves para la v3. Para más detalles, consulta %s."
 
 #: modules/constant-contact/constant-contact.php:206
-#: modules/recaptcha/service.php:396 modules/stripe/service.php:294
+#: modules/recaptcha/service.php:392 modules/stripe/service.php:290
 #: modules/turnstile/service.php:372
 msgctxt "API keys"
 msgid "Remove Keys"
@@ -911,10 +916,6 @@ msgstr "Clave secreta de la aplicación"
 #: modules/constant-contact/constant-contact.php:169
 msgid "API Key"
 msgstr "Clave de la API"
-
-#: modules/stripe/service.php:219
-msgid "Setup Integration"
-msgstr "Configurar la integración"
 
 #: modules/constant-contact/constant-contact.php:56
 msgid "Constant Contact"
@@ -1092,7 +1093,7 @@ msgstr "Ha ocurrido un error al guardar el formulario de contacto."
 
 #. translators: 1: WordPress hook name, 2: version number, 3: alternative hook
 #. name
-#: includes/functions.php:524
+#: includes/functions.php:525
 msgid "Hook %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
 msgstr "¡El gancho %1$s está <strong>obsoleto</strong> desde la versión %2$s de Contact Form 7! Usa %3$s en su lugar."
 
@@ -1182,11 +1183,11 @@ msgctxt "mail subject"
 msgid "%1$s \"%2$s\""
 msgstr "%1$s «%2$s»"
 
-#: admin/includes/config-validator.php:48
+#: admin/includes/config-validator.php:47
 msgid "Misconfiguration leads to mail delivery failure or other troubles. Validate your contact forms now."
 msgstr "Una configuración errónea provoca fallos en el envío de los mensajes u otros problemas. Valida ahora tus formularios de contacto."
 
-#: admin/includes/config-validator.php:45
+#: admin/includes/config-validator.php:53
 msgid "Validate Contact Form 7 Configuration"
 msgstr "Validar la configuración de Contact Form 7"
 
@@ -1220,26 +1221,25 @@ msgstr[1] "Validar ahora %s formularios de contacto"
 msgid "You are not allowed to validate configuration."
 msgstr "No tienes permiso para validar la configuración."
 
-#: modules/recaptcha/recaptcha.php:254 modules/recaptcha/service.php:303
+#: modules/recaptcha/recaptcha.php:254 modules/recaptcha/service.php:299
 msgid "https://contactform7.com/recaptcha/"
 msgstr "https://contactform7.com/recaptcha/"
 
-#: modules/recaptcha/service.php:372 modules/stripe/service.php:273
+#: modules/recaptcha/service.php:368 modules/stripe/service.php:269
 #: modules/turnstile/service.php:351
 msgid "Secret Key"
 msgstr "Clave secreta"
 
-#: modules/recaptcha/service.php:355 modules/turnstile/service.php:334
+#: modules/recaptcha/service.php:351 modules/turnstile/service.php:334
 msgid "Site Key"
 msgstr "Clave del sitio"
 
-#: modules/recaptcha/service.php:273 modules/sendinblue/service.php:147
-#: modules/stripe/service.php:157 modules/turnstile/service.php:246
+#: modules/recaptcha/service.php:269 modules/sendinblue/service.php:147
+#: modules/stripe/service.php:153 modules/turnstile/service.php:246
 msgid "Settings saved."
 msgstr "Ajustes guardados."
 
-#: modules/recaptcha/service.php:265 modules/sendinblue/service.php:139
-#: modules/stripe/service.php:149
+#: modules/sendinblue/service.php:139
 msgid "Invalid key values."
 msgstr "Valores de clave no válidos."
 
@@ -1373,7 +1373,7 @@ msgid "Number format that the sender entered is invalid"
 msgstr "El formato de número que ha introducido el remitente no es válido"
 
 #. translators: %s: the path of the temporary folder
-#: includes/file.php:426
+#: includes/file.php:434
 msgid "This contact form has file uploading fields, but the temporary folder for the files (%s) does not exist or is not writable. You can create the folder or change its permission manually."
 msgstr "Este formulario de contacto tiene campos para subida de archivos, pero la carpeta temporal para los archivos (%s) no existe o no tiene permisos de escritura. Puedes crear la carpeta o cambiar sus permisos manualmente."
 
@@ -1453,12 +1453,12 @@ msgstr "botones de selección"
 msgid "checkboxes"
 msgstr "casillas de verificación"
 
-#: modules/really-simple-captcha.php:293
+#: modules/really-simple-captcha.php:295
 msgid "This contact form contains CAPTCHA fields, but the necessary libraries (GD and FreeType) are not available on your server."
 msgstr "Este formulario de contacto tiene campos CAPTCHA, pero las bibliotecas necesarias (GD y FreeType) no están disponibles en tu servidor."
 
 #. translators: %s: Path to the temporary folder
-#: modules/really-simple-captcha.php:282
+#: modules/really-simple-captcha.php:283
 msgid "This contact form contains CAPTCHA fields, but the temporary folder for the files (%s) does not exist or is not writable. You can create the folder or change its permission manually."
 msgstr "Este formulario de contacto tiene campos CAPTCHA, pero la carpeta temporal para los archivos (%s) no existe o no tiene permisos de escritura. Puedes crear la carpeta o cambiar sus permisos manualmente."
 
@@ -1879,11 +1879,6 @@ msgstr "Formulario de contacto creado."
 msgid "Search Contact Forms"
 msgstr "Buscar formularios de contacto"
 
-#. translators: %s: search keywords
-#: admin/admin.php:467
-msgid "Search results for &#8220;%s&#8221;"
-msgstr "Resultados de búsqueda para &#8220;%s&#8221;"
-
 #: admin/admin.php:349
 msgid "Error in deleting."
 msgstr "Error al eliminar."
@@ -1913,6 +1908,6 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. Plugin Name of the plugin
-#: wp-contact-form-7.php admin/admin.php:29 modules/flamingo.php:215
+#: wp-contact-form-7.php admin/admin.php:29 modules/flamingo.php:219
 msgid "Contact Form 7"
 msgstr "Contact Form 7"

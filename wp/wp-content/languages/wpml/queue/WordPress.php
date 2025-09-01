@@ -1,0 +1,2 @@
+<?php
+return ['items'=>['pressione'=>['urls'=>[],'names'=>['taxonomy singular name: pressione'],'cmp'=>['WordPress',3]],'Product pressione'=>['urls'=>[],'names'=>['taxonomy general name: Product pressione'],'cmp'=>['WordPress',3]],'sdr'=>['urls'=>[],'names'=>['taxonomy singular name: sdr'],'cmp'=>['WordPress',3]],'Product sdr'=>['urls'=>[],'names'=>['taxonomy general name: Product sdr'],'cmp'=>['WordPress',3]]]];

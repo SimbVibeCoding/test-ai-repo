@@ -1,0 +1,2 @@
+<?php
+return ['items'=>['SimpleXML'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]],'MultiByte String'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]],'GD Library'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]],'Iconv Module'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]],'OPCache Save Comments'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]],'URL FOpen'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]],'YITH Plugins\\4Privacy Policy Guide Title'=>['urls'=>[],'names'=>[],'cmp'=>['yith-plugin-fw',1]]]];
