@@ -33,10 +33,10 @@
 
 
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'admin_macplast' );
+define( 'DB_NAME', 'macplastsrl_db' );
 
 /** Database username */
-define( 'DB_USER', 'admin_macpla' );
+define( 'DB_USER', 'macplastsrl_admin' );
 
 /** Database password */
 define( 'DB_PASSWORD', ';h6Ub{D=eh[NL@d&' );
