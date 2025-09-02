@@ -1,2 +1,2 @@
 <?php
-return ['items'=>['Tags:'=>['saveStringInDb'=>true,'cmp'=>['woocommerce',1],'names'=>[],'urls'=>[]],'%s: '=>['saveStringInDb'=>true,'cmp'=>['woocommerce',1],'names'=>[],'urls'=>[]]]];
+return ['items'=>['Tags:'=>['saveStringInDb'=>true,'cmp'=>['woocommerce',1],'names'=>[],'urls'=>[]],'%s: '=>['saveStringInDb'=>true,'cmp'=>['woocommerce',1],'names'=>[],'urls'=>[]],'Showing %1$d&ndash;%2$d of %3$d results\\4with first and last result'=>['saveStringInDb'=>true,'cmp'=>['woocommerce',1],'names'=>[],'urls'=>[]],'Categories:'=>['saveStringInDb'=>true,'cmp'=>['woocommerce',1],'names'=>[],'urls'=>[]]]];

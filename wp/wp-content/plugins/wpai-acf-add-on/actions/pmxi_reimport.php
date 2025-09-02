@@ -6,26 +6,37 @@
 function pmai_pmxi_reimport($entry, $post){
 	global $acf;
 	if ($acf and version_compare($acf->settings['version'], '5.0.0') >= 0) {
-		$acfs = get_posts(array('posts_per_page' => -1, 'post_type' => 'acf-field'));
-		$all_existing_acf = array();
-		if ( ! empty($acfs) ){
-			foreach ($acfs as $key => $acf_entry) {
-				$all_existing_acf[] = '[' . $acf_entry->post_excerpt . '] ' . $acf_entry->post_title;
+        // Only list ACF fields for the imported post type when possible.
+        if( !in_array($entry, ['taxonomies','shop_customer','import_users'])) {
+	        $groups = acf_get_field_groups( [ 'post_type' => $entry ] );
+        }
+
+        // Fallback to including all groups if nothing is found to account for non-post-type display logic.
+        if( empty($groups) ) {
+	        $groups = acf_get_field_groups();
+        }
+
+		if ( ! empty($groups) ) {
+			foreach ($groups as $group) {
+				$fields = acf_get_fields($group);
+				if (!empty($fields)) {
+					foreach ($fields as $key => $field) {
+						if ( ! empty($field['name']) ) {
+							$all_existing_acf[] = '[' . $field['name'] . '] ' . $field['label'];
+							// Include subfields.
+							if( isset($field['sub_fields']) && !in_array($field['type'], ['repeater', 'flexible_content']) && is_array($field['sub_fields']) && !empty($field['sub_fields'])){
+								foreach($field['sub_fields'] as $sub_field){
+									if( ! empty($sub_field['name'])){
+										$all_existing_acf[] = '[' . $field['name'] . '_' . $sub_field['name'] . '] ' . $sub_field['label'];
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
-        if (function_exists('acf_local')) {
-            $fields = acf_local()->fields;
-        }
-        if (empty($fields) && function_exists('acf_get_local_fields')) {
-            $fields = acf_get_local_fields();
-        }
-		if ( ! empty($fields) ) {
-			foreach ($fields as $key => $field) {
-				$all_existing_acf[] = '[' . $field['name'] . '] ' . $field['label'];
-			}
-		}
-	}
-	else {
+	} else {
 		$acfs = get_posts(array('posts_per_page' => -1, 'post_type' => 'acf'));
 		$all_existing_acf = array();
 		if (!empty($acfs)) {
