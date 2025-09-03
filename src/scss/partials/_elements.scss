@@ -19,3 +19,16 @@
 p.label {
     text-transform: uppercase;
 }
+
+.box-centrato {
+    max-width: 480px;
+    margin: auto!important;
+}
+.box-centrato-full {
+    max-width: 960px;
+    margin: auto!important;
+}
+.spazietto {
+    color: $color-main2;
+    width: 40px;
+}
