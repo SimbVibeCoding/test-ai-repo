@@ -1,0 +1,2 @@
+<?php
+return ['items'=>['dettagli prodotto'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>['group-388-title-e662feb13394a517cb7780cbb1a9da51'],'urls'=>[]],'Scheda dati'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>['field-389-label-c3a318b687eb490076af95fffecd1bcf'],'urls'=>[]],'Info Tecniche'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>['field-390-label-569e701d4921ab4d0fd6b807ab35a319'],'urls'=>[]],'Tabelle Dati'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>['field-2010-label-c4e0ee5350ba59b9e1ec604e5557f0c3'],'urls'=>[]]]];
