@@ -45,12 +45,12 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('product product-custom', $product); ?>>
   <!-- Full-width breadcrumbs row -->
-  <div class="product-breadcrumbs">
+  <div class="product-breadcrumbs wp-block-group full">
     <div class="container">
       <?php if (function_exists('woocommerce_breadcrumb')) : ?>
         <?php woocommerce_breadcrumb([
           'delimiter'   => ' / ',
-          'wrap_before' => '<nav class="woocommerce-breadcrumb" aria-label="Breadcrumbs">',
+          'wrap_before' => sprintf('<nav class="woocommerce-breadcrumb" aria-label="%s">', esc_attr__( 'Breadcrumbs', 'storefront-child' )),
           'wrap_after'  => '</nav>',
           'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
         ]); ?>
@@ -58,9 +58,10 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
     </div>
   </div>
   <div class="container">
-    <div class="row align-items-start">
+    <div class="wp-block-group full">
       <!-- Gallery left (default Woo output) -->
-      <div class="col-12 col-md-6 order-md-1 product-gallery">
+       <div class="prodotto-main">
+      <div class="product-gallery">
         <?php
         /**
          * This action includes the default WooCommerce product images/gallery
@@ -72,7 +73,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
       </div>
 
       <!-- Summary right -->
-      <div class="col-12 col-md-6 order-md-2 product-summary">
+      <div class="product-summary">
         <div class="product-summary__inner">
           <?php if (!empty($top_level_terms)) : ?>
             <div class="product-top-categories">
@@ -94,10 +95,10 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
             </div>
           <?php endif; ?>
 
-          <h1 class="product_title entry-title"><?php the_title(); ?></h1>
+          <h2 class="product_title entry-title"><?php the_title(); ?></h2>
 
           <?php if ($product->get_sku()) : ?>
-            <div class="product-sku">SKU: <span><?php echo esc_html($product->get_sku()); ?></span></div>
+            <div class="product-sku"><?php echo esc_html__( 'Articolo', 'storefront-child' ); ?>: <span><?php echo esc_html($product->get_sku()); ?></span></div>
           <?php endif; ?>
 
           <?php
@@ -134,35 +135,53 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
             </div>
           <?php endif; ?>
 
-          <div class="product-cta">
-            <a href="#" class="btn btn-primary select-material">Seleziona materiale</a>
+          <div class="product-cta button-azzurro">
+            <a href="#" class="select-material"><?php echo esc_html__( 'Visualizza materiale', 'storefront-child' ); ?></a>
           </div>
         </div>
+      </div>
       </div>
     </div>
 
     <!-- ACF Blocks -->
-    <div class="product-acf-blocks">
+    <div class="product-acf-blocks wp-block-group full">
+      <div class="centra-prd">
+      <h3><?php echo esc_html__( 'Informazioni tecniche', 'storefront-child' ); ?></h3>
+      <hr class="wp-block-separator has-alpha-channel-opacity spazietto">
       <?php if (function_exists('get_field')) : ?>
         <?php $scheda = get_field('scheda_dati'); if (!empty($scheda)) : ?>
           <div class="product-block product-block--scheda-dati">
+            <span class="label-prd"><?php echo esc_html__( 'Scheda dati', 'storefront-child' ); ?></span>
+            <div class="dati-pdr">
             <?php echo apply_filters('the_content', $scheda); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </div>
           </div>
         <?php endif; ?>
-
+        <?php endif; ?>
+        <?php if (function_exists('get_field')) : ?>
         <?php $info = get_field('info_tecniche'); if (!empty($info)) : ?>
           <div class="product-block product-block--info-tecniche">
+          <span class="label-prd"><?php echo esc_html__( 'Informazioni tecniche', 'storefront-child' ); ?></span>
+          <div class="dati-pdr">
             <?php echo apply_filters('the_content', $info); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
           </div>
-        <?php endif; ?>
-
-        <?php $tablepress = get_field('tablepress'); if (!empty($tablepress)) : ?>
-          <div class="product-block product-block--tablepress">
-            <?php echo apply_filters('the_content', $tablepress); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-          </div>
-        <?php endif; ?>
+        <?php endif; ?>  
       <?php endif; ?>
+      </div>
+      </div>
     </div>
+
+    <?php if (function_exists('get_field')) : ?>     
+      <?php $tablepress = get_field('tablepress'); if (!empty($tablepress)) : ?>
+      <div class="product-tablepress-blocks">
+        <h3><?php echo esc_html__( 'Dimensionali', 'storefront-child' ); ?></h3>
+        <hr class="wp-block-separator has-alpha-channel-opacity spazietto">    
+            <div class="product-block product-block--tablepress">
+              <?php echo apply_filters('the_content', $tablepress); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </div>      
+      </div>
+      <?php endif; ?>
+    <?php endif; ?>
 
     <!-- Products from same category -->
     <?php
@@ -177,7 +196,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
     if (!empty($cat_ids)) {
         $args = [
             'post_type'           => 'product',
-            'posts_per_page'      => 12,
+            'posts_per_page'      => 4,
             'post__not_in'        => [get_the_ID()],
             'ignore_sticky_posts' => 1,
             'tax_query'           => [
@@ -190,14 +209,16 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
         ];
         $related = new WP_Query($args);
         if ($related->have_posts()) : ?>
-          <section class="related-by-category">
-            <h2 class="section-title">Prodotti nella stessa categoria</h2>
+          <section class="related-by-category full wp-block-group"> 
+            <div class="centra-prd">
+          <h3><?php echo esc_html__( 'Prodotti nella stessa categoria', 'storefront-child' ); ?></h3>
+          <hr class="wp-block-separator has-alpha-channel-opacity spazietto">
             <?php woocommerce_product_loop_start(); ?>
             <?php while ($related->have_posts()) : $related->the_post(); ?>
               <?php wc_get_template_part('content', 'product'); ?>
             <?php endwhile; ?>
             <?php woocommerce_product_loop_end(); ?>
-          </section>
+          </div></section>
         <?php endif; wp_reset_postdata();
     }
     ?>

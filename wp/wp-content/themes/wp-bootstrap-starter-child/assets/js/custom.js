@@ -14,8 +14,8 @@ jQuery(document).ready(function(){
 
 
     function updateStickyState() {
-      // Se siamo sulla pagina con body.page-id-808
-      if (jQuery('body').hasClass('always-sticky')) {
+      // Forza sticky su pagine prodotto WooCommerce o dove indicato da classe
+      if (jQuery('body').hasClass('always-sticky') || jQuery('body').hasClass('single-product')) {
           jQuery('#header').addClass('sticky');
           // Disattiva il controllo scroll
           return;

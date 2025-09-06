@@ -1,6 +1,16 @@
 @media screen and (max-width:$tablet-wide) {
-
+  // no-op placeholder for now
 }
 
+// Tablet: always 2 columns for product lists
 @media screen and (max-width:$tablet) {
+  .woocommerce,
+  .woocommerce-page {
+    ul.products {
+      gap: $products-grid-gap;
+      li.product {
+        width: calc((100% - (1 * #{$products-grid-gap})) / 2);
+      }
     }
+  }
+}

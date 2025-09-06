@@ -1,4 +1,4 @@
-.entry-content .wp-block-buttons:not(.btn-testo-icona) {
+
     .button-bianco a {
         @include button($bgcolor: rgba(251, 251, 251, 0.20), $color: #fff, $hovercolor: #fff, $hoverbgcolor: #3C3C3B, $border-color: #fff);
     }
@@ -14,7 +14,7 @@
     .button-nero a {
         @include button($bgcolor: #000, $color: #fff, $hovercolor: #fff, $hoverbgcolor: #000, $border-color: #fff);
     }
-}
+
 
 p.label {
     text-transform: uppercase;

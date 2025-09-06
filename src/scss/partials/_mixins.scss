@@ -421,6 +421,7 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
   background-color: $bgcolor;
   padding: 16px 32px;
   color: $color;
+  display: inline-block;
   border-radius: 78px;  
   border: 1px solid $border-color;
   transition: all 0.5s;  
