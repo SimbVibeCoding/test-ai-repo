@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter, Retry
 import urllib.robotparser as robotparser
 
-BASE_URL = "https://www.macplastsrl.it/it/"
+BASE_URL = "https://www.macplastsrl.it/es/"
 OUTPUT_CSV = "prodotti_macplast.csv"
 MAX_PAGES = 5000
 
