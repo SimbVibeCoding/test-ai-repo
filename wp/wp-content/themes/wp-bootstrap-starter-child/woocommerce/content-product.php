@@ -51,6 +51,15 @@ $label_new_raw  = apply_filters( 'wpml_translate_single_string', 'Novità', 'mac
 $label_more_raw = apply_filters( 'wpml_translate_single_string', 'Scopri di più', 'macplast-theme', 'product_card_cta' );
 $label_new  = esc_html( $label_new_raw );
 $label_more = esc_html( $label_more_raw );
+
+// Override domain to the child theme and (re)register strings for WPML
+$__wpml_domain = 'wp-bootstrap-starter-child';
+do_action( 'wpml_register_single_string', $__wpml_domain, 'product_badge_new', 'Novità' );
+do_action( 'wpml_register_single_string', $__wpml_domain, 'product_card_cta', 'Scopri di più' );
+$label_new_raw  = apply_filters( 'wpml_translate_single_string', 'Novità', $__wpml_domain, 'product_badge_new' );
+$label_more_raw = apply_filters( 'wpml_translate_single_string', 'Scopri di più', $__wpml_domain, 'product_card_cta' );
+$label_new      = esc_html( $label_new_raw );
+$label_more     = esc_html( $label_more_raw );
 ?>
 
 <li <?php wc_product_class( 'product-card', $product ); ?>>

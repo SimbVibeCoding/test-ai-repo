@@ -50,7 +50,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
       <?php if (function_exists('woocommerce_breadcrumb')) : ?>
         <?php woocommerce_breadcrumb([
           'delimiter'   => ' / ',
-          'wrap_before' => sprintf('<nav class="woocommerce-breadcrumb" aria-label="%s">', esc_attr__( 'Breadcrumbs', 'storefront-child' )),
+          'wrap_before' => sprintf('<nav class="woocommerce-breadcrumb" aria-label="%s">', esc_attr__( 'Breadcrumbs', 'wp-bootstrap-starter-child' )),
           'wrap_after'  => '</nav>',
           'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
         ]); ?>
@@ -98,7 +98,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
           <h2 class="product_title entry-title"><?php the_title(); ?></h2>
 
           <?php if ($product->get_sku()) : ?>
-            <div class="product-sku"><?php echo esc_html__( 'Articolo', 'storefront-child' ); ?>: <span><?php echo esc_html($product->get_sku()); ?></span></div>
+            <div class="product-sku"><?php echo esc_html__( 'Articolo', 'wp-bootstrap-starter-child' ); ?>: <span><?php echo esc_html($product->get_sku()); ?></span></div>
           <?php endif; ?>
 
           <?php
@@ -136,7 +136,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
           <?php endif; ?>
 
           <div class="product-cta button-azzurro">
-            <a href="#" class="select-material"><?php echo esc_html__( 'Visualizza materiale', 'storefront-child' ); ?></a>
+            <a href="#" class="select-material"><?php echo esc_html__( 'Visualizza materiale', 'wp-bootstrap-starter-child' ); ?></a>
           </div>
         </div>
       </div>
@@ -146,12 +146,12 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
     <!-- ACF Blocks -->
     <div class="product-acf-blocks wp-block-group full">
       <div class="centra-prd">
-      <h3><?php echo esc_html__( 'Informazioni tecniche', 'storefront-child' ); ?></h3>
+      <h3><?php echo esc_html__( 'Informazioni tecniche', 'wp-bootstrap-starter-child' ); ?></h3>
       <hr class="wp-block-separator has-alpha-channel-opacity spazietto">
       <?php if (function_exists('get_field')) : ?>
         <?php $scheda = get_field('scheda_dati'); if (!empty($scheda)) : ?>
           <div class="product-block product-block--scheda-dati">
-            <span class="label-prd"><?php echo esc_html__( 'Scheda dati', 'storefront-child' ); ?></span>
+            <span class="label-prd"><?php echo esc_html__( 'Scheda dati', 'wp-bootstrap-starter-child' ); ?></span>
             <div class="dati-pdr">
             <?php echo apply_filters('the_content', $scheda); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </div>
@@ -161,7 +161,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
         <?php if (function_exists('get_field')) : ?>
         <?php $info = get_field('info_tecniche'); if (!empty($info)) : ?>
           <div class="product-block product-block--info-tecniche">
-          <span class="label-prd"><?php echo esc_html__( 'Informazioni tecniche', 'storefront-child' ); ?></span>
+          <span class="label-prd"><?php echo esc_html__( 'Informazioni tecniche', 'wp-bootstrap-starter-child' ); ?></span>
           <div class="dati-pdr">
             <?php echo apply_filters('the_content', $info); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
           </div>
@@ -174,10 +174,10 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
     <?php if (function_exists('get_field')) : ?>     
       <?php $tablepress = get_field('tablepress'); if (!empty($tablepress)) : ?>
       <div class="product-tablepress-blocks">
-        <h3><?php echo esc_html__( 'Dimensionali', 'storefront-child' ); ?></h3>
+        <h3><?php echo esc_html__( 'Dimensionali', 'wp-bootstrap-starter-child' ); ?></h3>
         <hr class="wp-block-separator has-alpha-channel-opacity spazietto">    
             <div class="product-block product-block--tablepress">
-              <?php echo apply_filters('the_content', $tablepress); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              <?php echo do_shortcode('[table id='. $tablepress .' /]'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </div>      
       </div>
       <?php endif; ?>
@@ -211,7 +211,7 @@ if (!is_wp_error($product_terms) && !empty($product_terms)) {
         if ($related->have_posts()) : ?>
           <section class="related-by-category full wp-block-group"> 
             <div class="centra-prd">
-          <h3><?php echo esc_html__( 'Prodotti nella stessa categoria', 'storefront-child' ); ?></h3>
+          <h3><?php echo esc_html__( 'Prodotti nella stessa categoria', 'wp-bootstrap-starter-child' ); ?></h3>
           <hr class="wp-block-separator has-alpha-channel-opacity spazietto">
             <?php woocommerce_product_loop_start(); ?>
             <?php while ($related->have_posts()) : $related->the_post(); ?>
