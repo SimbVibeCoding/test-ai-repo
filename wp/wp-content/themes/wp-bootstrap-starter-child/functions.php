@@ -42,3 +42,10 @@ function mostra_categorie_prodotti_vetrina() {
     return $output;
 }
 add_shortcode('categorie_prodotti_vetrina', 'mostra_categorie_prodotti_vetrina');
+
+// Register translatable strings for WPML/Polylang (CTA + badge)
+add_action('init', function() {
+    // These actions are safe no-ops if WPML is not active
+    do_action('wpml_register_single_string', 'macplast-theme', 'product_card_cta', 'Scopri di più');
+    do_action('wpml_register_single_string', 'macplast-theme', 'product_badge_new', 'Novità');
+});

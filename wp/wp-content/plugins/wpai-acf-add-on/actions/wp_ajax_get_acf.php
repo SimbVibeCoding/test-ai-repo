@@ -1,5 +1,5 @@
 <?php
-use wpai_acf_add_on\acf\groups\GroupFactory;
+use wpai_acf_add_on\groups\GroupFactory;
 
 /**
  *  Render ACF group
@@ -10,7 +10,7 @@ function pmai_wp_ajax_get_acf() {
         exit(json_encode(array('html' => __('Security check', 'wp_all_import_acf_add_on'))));
     }
 
-    if (!current_user_can('manage_options')) {
+    if (!current_user_can(PMXI_Plugin::$capabilities)) {
         exit(json_encode(array('html' => __('Security check', 'wp_all_import_acf_add_on'))));
     }
 

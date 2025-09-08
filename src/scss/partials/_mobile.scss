@@ -6,7 +6,17 @@
 
 
 @media screen and (max-width:$mobile) {
-   
+  // Mobile: 1 colonna per i prodotti
+  .woocommerce,
+  .woocommerce-page {
+    ul.products {
+      gap: $products-grid-gap;
+      li.product {
+        width: 100%;
+      }
+    }
+  }
+
 .desktop {
     display: none!important;
 }
