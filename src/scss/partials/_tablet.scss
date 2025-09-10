@@ -1,9 +1,10 @@
 @media screen and (max-width:$tablet-wide) {
-  // no-op placeholder for now
+  // spazio per piccoli aggiustamenti tra desktop e tablet
 }
 
-// Tablet: always 2 columns for product lists
+// Tablet: layout e componenti
 @media screen and (max-width:$tablet) {
+  // Lista prodotti: 2 colonne
   .woocommerce,
   .woocommerce-page {
     ul.products {
@@ -11,6 +12,126 @@
       li.product {
         width: calc((100% - (1 * #{$products-grid-gap})) / 2);
       }
+      .product-card__image {
+        height: 160px;
+      }
+      .product-card__icons {
+        img { width: 28px; height: 28px; }
+      }
+      .product-card__content {
+        padding: 20px 24px 32px;
+      }
+    }
+  }
+
+  // Blog/griglie articoli: 2 colonne
+  .blog .woocommerce ul.products li.product,
+  .blog .woocommerce-page ul.products li.product,
+  .page-articoli .woocommerce ul.products li.product,
+  .page-articoli .woocommerce-page ul.products li.product,
+  .shop-layout ul.products li.product {
+    width: calc((100% - (1 * 32px)) / 2) !important;
+  }
+
+  // Single product
+  .single-product {
+    .product { margin-top: 140px; }
+    .centra-prd { padding: 60px 40px; }
+    .prodotto-main {
+      flex-direction: column;
+      gap: 24px;
+      padding: 40px 0;
+      .product-gallery,
+      .product-summary { max-width: 100%; }
+      .product-summary { padding: 40px 0; }
+    }
+  }
+
+  // Shop layout: sidebar sopra, contenuto sotto
+  .shop-layout {
+    flex-direction: column;
+    .shop-sidebar {
+      max-width: 100%;
+      padding: 40px 24px 20px 24px;
+      border-radius: 8px;
+    }
+    .shop-content {
+      padding: 40px 24px;
+    }
+  }
+
+  // Hero shop
+  .shop-hero { height: 320px; padding-top: 80px; }
+
+  // Pagine generali
+  #testata-home {
+    #slider-home {
+      figure { height: 70vh; border-radius: 0 0 16px 16px; }
+    }
+    .slick-dots { bottom: 40px; left: 0; text-align: center; }
+  }
+  #testata-hero { height: 60vh; &>div { margin-bottom: 80px; } }
+
+  .categorie-prodotti-vetrina {
+    li {
+      width: 50%;
+      padding: 20px;
+      img { max-width: 64px; }
+    }
+  }
+
+  #home-download {
+    &::before, &::after { display: none; }
+    &>div>div { justify-content: center; }
+  }
+
+  #home-certificazioni .galleriacertificati figure img { max-width: 90px !important; }
+}
+
+// Tablet overrides: Header
+@media screen and (max-width:$tablet) {
+  .site-header {
+    #header {
+      .menu-principale { gap: 8px; }
+      .menu-principale a { font-size: 14px; padding: 8px; }
+      .secondmenu { gap: 12px; }
+    }
+  }
+  #header.full .wp-block-group__inner-container { padding: 16px 40px; }
+}
+
+// Tablet overrides: Footer
+@media screen and (max-width:$tablet) {
+  body:not(.theme-preset-active) footer#colophon {
+    .primo-footer {
+      margin-top: 120px;
+      margin-bottom: 100px;
+      & > div > div { gap: 60px; }
+    }
+    .secondo-footer {
+      padding-top: 80px;
+      padding-bottom: 56px;
+      border-radius: 56px 56px 0 0;
+      width: calc(100vw - 12px);
+      margin-left: calc(-50vw + 50% + 6px);
+      img { margin-bottom: 56px; }
+      .menufooter {
+        #secondo-footer { gap: 60px; }
+        #modal-3 .wp-block-navigation__container {
+          gap: 20px 24px;
+          li { width: calc(50% - 12px); }
+        }
+      }
+    }
+    #afterfooter {
+      p { font-size: 14px; }
+      .simbiosi p { font-size: 11px; }
+    }
+  }
+  .indirizzi {
+    li {
+      font-size: 15px;
+      &::before { width: 22px; height: 22px; margin-right: 10px; }
     }
   }
 }

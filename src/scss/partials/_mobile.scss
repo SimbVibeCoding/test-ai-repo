@@ -1,25 +1,127 @@
 @media screen and (min-width:$mobile) {
-     .mobile {
-        display: none!important;
-    }
+  .mobile { display: none !important; }
 }
 
-
 @media screen and (max-width:$mobile) {
-  // Mobile: 1 colonna per i prodotti
+  // Product list: 1 colonna
   .woocommerce,
   .woocommerce-page {
     ul.products {
       gap: $products-grid-gap;
-      li.product {
-        width: 100%;
-      }
+      li.product { width: 100%; }
+      .product-card__image { height: 140px; }
+      .product-card__icons { img { width: 24px; height: 24px; } }
+      .product-card__content { padding: 16px 20px 24px; }
     }
   }
 
-.desktop {
-    display: none!important;
+  // Blog/griglie articoli: 1 colonna
+  .blog .woocommerce ul.products li.product,
+  .blog .woocommerce-page ul.products li.product,
+  .page-articoli .woocommerce ul.products li.product,
+  .page-articoli .woocommerce-page ul.products li.product,
+  .shop-layout ul.products li.product {
+    width: 100% !important;
+  }
+
+  // Single product
+  .single-product {
+    .product { margin-top: 120px; }
+    .centra-prd { padding: 40px 20px; }
+    .prodotto-main {
+      flex-direction: column;
+      gap: 20px;
+      padding: 32px 0;
+      .product-gallery,
+      .product-summary { max-width: 100%; }
+      .product-summary { padding: 24px 0; }
+    }
+  }
+
+  // Shop layout: colonna singola
+  .shop-layout {
+    flex-direction: column;
+    .shop-sidebar {
+      max-width: 100%;
+      padding: 24px;
+      border-radius: 8px;
+    }
+    .shop-content { padding: 24px; }
+  }
+
+  // Shop hero
+  .shop-hero { height: 260px; padding-top: 70px; margin-bottom: 16px; }
+
+  // Pagine generali
+  #testata-home {
+    #slider-home {
+      figure { height: 55vh; border-radius: 0 0 12px 12px; }
+    }
+    .slick-dots { bottom: 24px; left: 0; text-align: center; }
+  }
+  #testata-hero { height: 50vh; &>div { margin-bottom: 56px; } }
+
+  .categorie-prodotti-vetrina {
+    li { width: 100%; padding: 16px; img { max-width: 56px; } }
+  }
+
+  #home-download { &::before, &::after { display: none; } }
+
+  #home-certificazioni .galleriacertificati figure img { max-width: 70px !important; }
+
+  .desktop { display: none !important; }
 }
 
+// Mobile overrides: Header & Footer
+@media screen and (max-width:$mobile) {
+  .site-header {
+    #header {
+      .menu-principale { gap: 6px; }
+      .menu-principale a { font-size: 13px; padding: 8px 6px; }
+      .secondmenu { gap: 10px; }
+    }
+  }
+  #header.full .wp-block-group__inner-container { padding: 12px 16px; }
 
+  body:not(.theme-preset-active) footer#colophon {
+    background-position: center top;
+    .primo-footer {
+      margin-top: 80px;
+      margin-bottom: 60px;
+      & > div > div { gap: 32px; }
+    }
+    .secondo-footer {
+      padding-top: 48px;
+      padding-bottom: 40px;
+      border-radius: 40px 40px 0 0;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      img { margin-bottom: 32px; }
+      .menufooter {
+        #secondo-footer {
+          gap: 32px;
+          justify-content: flex-start;
+          &>div { max-width: 100%; }
+        }
+        .wp-block-navigation__container { gap: 16px; }
+        #modal-3 .wp-block-navigation__container {
+          gap: 16px 16px;
+          li { width: 100%; }
+        }
+      }
+    }
+    #afterfooter {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      p { font-size: 13px; }
+      .simbiosi { justify-content: center; }
+      .simbiosi p { font-size: 11px; }
+    }
+  }
+  .indirizzi {
+    li {
+      font-size: 14px;
+      &::before { width: 20px; height: 20px; margin-right: 8px; }
+    }
+  }
 }

@@ -78,6 +78,24 @@ figure {
         }
         
 }
+
+.page-hero {
+    display: flex;
+    height: 320px;
+    padding-top: 110px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    h1 {
+        color: #FFF;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 68px; /* 113.333% */
+    }
+}
 .categorie-prodotti-vetrina {
     display: flex;
     flex-direction: row;
@@ -106,13 +124,13 @@ figure {
 
 // HOME
 
-#home-certificazioni {
+#home-certificazioni, .mezzobox {
     @include deep-gap(120px);
     p.label {
         color: $color-main1;
         }
         h2 {
-            margin-bottom: 16px;
+            margin-bottom: 16px!important;
             color: $nero;
         }
 }
@@ -169,6 +187,7 @@ figure {
         }
     }
 }
+
 #home-rete {
     h2, h4 {
         color: #3C3C3B;
@@ -284,6 +303,103 @@ figure {
     }
 }
 #home-dubbi {
+    h2 {
+        margin-bottom: 16px;
+    }
+    h4 {
+        max-width: 540px;
+        color: #3C3C3B;
+    }
+    .info-home {
+        figure {
+            border: 3px solid $color-main2;
+            display: flex;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        p {
+            font-size: 16px;
+            color: #575756;
+        }
+    }
+}
+
+.callfullpage {   
+    padding-top: 0;
+    padding-bottom: 0;    
+    &>div>div {      
+         border-radius: 16px;
+         background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%),
+            url('/wp-content/uploads/2025/09/sondotondi.jpg') 50% / cover no-repeat,
+            #1D71B8;
+            background-blend-mode: normal, soft-light, normal;        
+            overflow: hidden;
+            padding-top: 120px;
+            padding-bottom: 120px;    
+        h4, h2 {
+            color: #fff;
+        }
+        h2 {
+            padding-top: 24px!important;
+            padding-bottom: 24px!important;
+        }
+        p.label {
+            color: $color-main2;
+        }
+        .wp-block-buttons {
+            margin-top: 40px!important;
+        }
+    }
+}
+.certificati {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 30px!important;
+        figure {
+            max-width: 230px!important;
+        }
+}
+.certicerti {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 64px!important;
+    align-items: center;
+    figure {
+        max-width: 130px!important;
+        max-height: 75px!important;
+        img {
+            object-fit: contain;
+        }
+    }
+}
+.certificatipr {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 39px!important;
+    padding-top: 80px;
+    figure {
+        max-width: 200px!important;
+    }
+}
+
+.wp-block-gallery.has-nested-images.alignleft, .wp-block-gallery.has-nested-images.alignright {
+    max-width: 100%!important;
+}
+
+#bloccontatti{
     h2 {
         margin-bottom: 16px;
     }

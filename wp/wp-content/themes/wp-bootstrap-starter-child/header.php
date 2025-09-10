@@ -30,7 +30,19 @@
 
         <?php display_block_pattern( 'header' ); ?>
 
-</header><!-- #masthead -->
+        </header><!-- #masthead -->
+
+        <?php
+        // Hero header for all pages except the front page
+        if ( is_page() && ! is_front_page() ) :
+            $featured_img_url = get_the_post_thumbnail_url( get_queried_object_id(), 'full' );
+        ?>
+            <div class="page-hero" <?php if ( $featured_img_url ) : ?>style="background-image: url('<?php echo esc_url( $featured_img_url ); ?>');"<?php endif; ?>>
+                <div class="page-hero__inner">
+                    <h1 class="page-hero__title"><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>
+                </div>
+            </div>
+        <?php endif; ?>
     
 	<div id="content" class="site-content">
 		<div class="container">
