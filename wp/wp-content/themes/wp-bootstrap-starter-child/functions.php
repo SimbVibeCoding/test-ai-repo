@@ -49,3 +49,36 @@ add_action('init', function() {
     do_action('wpml_register_single_string', 'macplast-theme', 'product_card_cta', 'Scopri di più');
     do_action('wpml_register_single_string', 'macplast-theme', 'product_badge_new', 'Novità');
 });
+
+// 1) (Consigliato) Disabilita i template a blocchi di WooCommerce
+add_filter( 'woocommerce_has_block_template', '__return_false', 999 );
+
+/**
+ * 2) Forza TUTTI gli archivi prodotti ad usare /woocommerce/archive-product.php del child theme
+ *    - Shop principale (/negozio)
+ *    - Archivio post type product
+ *    - Categorie (product_cat), tag (product_tag)
+ *    - Attributi prodotto (pa_*)
+ */
+add_filter( 'template_include', function( $template ) {
+
+    // Prendi oggetto tassonomia se presente
+    $q = get_queried_object();
+
+    // Riconosciamo tutti i casi "archivio prodotti"
+    $is_product_archive =
+        is_shop() ||
+        is_post_type_archive( 'product' ) ||
+        is_tax( array( 'product_cat', 'product_tag' ) ) ||
+        ( is_tax() && $q && isset( $q->taxonomy ) && strpos( $q->taxonomy, 'pa_' ) === 0 );
+
+    if ( $is_product_archive ) {
+        $forced = get_stylesheet_directory() . '/woocommerce/archive-product.php';
+        if ( file_exists( $forced ) ) {
+            return $forced;
+        }
+    }
+
+    return $template;
+}, 50 );
+
