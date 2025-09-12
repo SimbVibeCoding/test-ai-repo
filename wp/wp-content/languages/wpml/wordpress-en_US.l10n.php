@@ -1,0 +1,2 @@
+<?php
+return ['messages'=>['Categoria'=>'Category','Categorie prodotto'=>'Product categories','URL product_cat tax slug'=>'product-category','URL product_tag tax slug'=>'product-tag','URL slug: product'=>'product','categorie-prodotti'=>'product-category','prodotto'=>'product','tag-prodotti'=>'product-tag','taxonomy general name: Categorie prodotto'=>'Product categories','taxonomy singular name: Categoria'=>'Category']];
