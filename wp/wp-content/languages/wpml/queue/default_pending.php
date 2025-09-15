@@ -1,2 +1,2 @@
 <?php
-return ['items'=>['%d Plugin Updates'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>[],'urls'=>[]]]];
+return ['items'=>['%d Plugin Updates'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>[],'urls'=>[]],'Natural\\4Shadow name'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>[],'urls'=>[]],'%1$s %2$s %3$s %4$s Feed'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>[],'urls'=>[]],'Widgets'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>[],'urls'=>[]],'Plugins'=>['saveStringInDb'=>true,'cmp'=>['WordPress',3],'names'=>[],'urls'=>[]]]];
