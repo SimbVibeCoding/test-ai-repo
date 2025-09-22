@@ -1,5 +1,7 @@
-@media screen and (max-width:$desktop-wide) {
+@media screen and (min-width:$desktop-wide) {
    
-
+.invert>div>div {
+    flex-direction: row-reverse;
+}
 
 }
