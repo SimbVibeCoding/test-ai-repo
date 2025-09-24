@@ -3,6 +3,11 @@
     margin-top: 170px;
   }
 
+
+
+  .tablepress>:where(thead)+tbody>:where(:not(.child))>*, .tablepress>tbody>*~:where(:not(.child))>*, .tablepress>tfoot>:where(:first-child)>* {
+    border: 1px solid var(--border-color);
+}
   .product-breadcrumbs {
     background-color: #FBFBFB;
     color: #3C3C3B;
@@ -231,18 +236,29 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   row-gap: 16px;
+  padding: 0px 80px;
 
   h5 {
     flex: 0 0 250px;
     margin: 0;
     min-width: 250px;
     padding-right: 90px;
-
+    color: #3C3C3B;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; 
+   
     &:not(:first-of-type) {
       padding-top: 32px;
     }
   }
-
+  li,p {
+    color: #3C3C3B;
+    font-size: 14px;
+    font-style: normal;      
+    line-height: 130%; 
+  }
   > div {
     flex: 1 0 auto;
     margin: 0;
@@ -280,7 +296,7 @@
 
 
 .woocommerce,
-.woocommerce-page {
+.woocommerce-page, .home {
   // Product list grid (default: desktop 4 columns)
   ul.products {
     display: flex;

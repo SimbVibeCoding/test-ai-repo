@@ -41,5 +41,15 @@
             margin-top: 12px;
         }
     }
-
+&.contatti {
+    .form-row-my {
+       
+        input[type=text], input[type=email], input[type=tel], textarea {            
+            background-color: #f6f6f6;
+        }
+        input[type=submit], label span {
+            color: #3c3c3b;
+        }
+    }
+    }
 }

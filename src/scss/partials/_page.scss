@@ -112,11 +112,22 @@ figure {
         padding: 30px;    
         img {
             max-width: 80px;
+            width: 80px;
             height: auto;
             margin: auto;
             margin-bottom: 16px;
             display: block;
             opacity: 0.5;
+            transition: all 0.3s;
+            &:hover {
+                opacity: 1;
+                transform: scale(1.3);
+                transition: all 0.3s;
+                &+span {
+                 transform: translateY(10px);   
+                 transition: all 0.3s;
+                }
+            }
         }
     }
 }
@@ -263,7 +274,7 @@ figure {
         }
     }
     .home-login {
-        max-width: 470px;
+        max-width: 480px;
         h5 {
             color: #3C3C3B;
             margin-bottom: 16px;
@@ -334,6 +345,18 @@ figure {
     }
 }
 
+#home-nuoviprodotti {
+    h3 {
+        text-align: center;
+    }
+    hr {
+        margin: 8px auto 40px;
+    }
+    .button-grigio {
+        margin: 40px auto 0px;
+    }
+}
+
 .callfullpage {   
     padding-top: 0;
     padding-bottom: 0;    
@@ -400,6 +423,9 @@ figure {
 }
 
 #bloccontatti{
+    background-repeat: no-repeat;
+    background-image: url(/wp-content/uploads/2025/09/cerchiogrigio.svg);
+    background-position-x: right;
     h2 {
         margin-bottom: 16px;
     }
@@ -432,6 +458,22 @@ figure {
 }
 
 .galleryazienda {
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+#mappa {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    &>div {
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+}
+
+.page-id-2404 #colophon {
+    background-color: #fff!important;
+    #footer {
+        display: none!important;
+    }
 }
