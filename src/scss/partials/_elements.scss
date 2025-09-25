@@ -14,7 +14,11 @@
     .button-nero a {
         @include button($bgcolor: #000, $color: #fff, $hovercolor: #fff, $hoverbgcolor: #000, $border-color: #fff);
     }
+    .button-grigio a {
+        @include button($bgcolor: transparent, $color: #575756, $hovercolor: #000, $hoverbgcolor: #fff, $border-color: #E1E1E1);
+    }
 
+    
 
 p.label {
     text-transform: uppercase;
@@ -35,4 +39,3 @@ p.label {
 .stonda {
     border-radius: 8px;
 }
-

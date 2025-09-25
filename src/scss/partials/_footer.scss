@@ -18,7 +18,7 @@ body:not(.theme-preset-active) footer#colophon {
             p {
                 margin-bottom: 32px;
             }
-           
+
         }
     }
     .secondo-footer {
@@ -39,32 +39,39 @@ body:not(.theme-preset-active) footer#colophon {
             filter: brightness(0.4) sepia(1) hue-rotate(170deg) saturate(3);
         }
         .menufooter {
-            p {
-                font-weight: 700;
-            }
-            .wp-block-navigation__container {
-                flex-direction: column;
-                gap: 24px;
-                align-items: flex-start;
-            }
-             #modal-3 .wp-block-navigation__container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 24px 40px;
-                li {
-                    width: calc(50% - 20px)
-                }
-               
-            }
+         
             #secondo-footer {
                 gap: 120px;
                 justify-content: flex-end;
-                &>div {
+                & > div {
                     width: fit-content;
                     max-width: 270px;
                     flex-basis: auto;
                     flex-grow: unset;
                 }
+                .areacli ul li {
+                    width: 100%;
+                }
+            }
+               p {
+                font-weight: 700;
+            }
+            .wp-block-navigation__container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 24px 40px;
+                li {
+                    width: calc(50% - 20px);
+                }
+            }
+            #modal-3 .wp-block-navigation__container {
+                flex-direction: column;
+                gap: 24px;
+                align-items: flex-start;
+                li {
+                    width: 100%;
+                }
+
             }
         }
     }
@@ -90,40 +97,35 @@ body:not(.theme-preset-active) footer#colophon {
     }
 }
 
-
- .indirizzi {
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                li {
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: 120%;
-                    list-style: none;
-                    &::before {
-                        content: "";
-                        display: inline-block;
-                        width: 24px;
-                        height: 24px;
-                        margin-right: 12px;
-                        vertical-align: middle;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        background-image: url("/wp-content/uploads/2025/07/phone-call-1-2.svg");
-                    }
-                    &:first-child::before {
-                        background-image: url("/wp-content/uploads/2025/07/marker-1-2.svg");
-                    }
-                    &:last-child::before {
-                        background-image: url("/wp-content/uploads/2025/07/envelope-open-1-2.svg");
-                    }
-                    &::marker {
-                        margin-right: 12px;
-                    }
-                }
-            }
-
-
-
-            
+.indirizzi {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    li {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        list-style: none;
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            vertical-align: middle;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("/wp-content/uploads/2025/07/phone-call-1-2.svg");
+        }
+        &:first-child::before {
+            background-image: url("/wp-content/uploads/2025/07/marker-1-2.svg");
+        }
+        &:last-child::before {
+            background-image: url("/wp-content/uploads/2025/07/envelope-open-1-2.svg");
+        }
+        &::marker {
+            margin-right: 12px;
+        }
+    }
+}

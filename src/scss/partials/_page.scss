@@ -8,75 +8,73 @@ figure {
 }
 
 #testata-home {
-    padding-top: 0;
-    padding-bottom: 0;
-    #slider-home {
-        figure {
-            height: 90vh;
-            border-radius: 0 0 24px 24px;
-            overflow: hidden;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;           
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.40) 6.15%, rgba(0, 0, 0, 0.00) 45.1%, rgba(0, 0, 0, 0.00) 81.59%, rgba(0, 0, 0, 0.40) 100%);
-              }
-        }
-    }  
-     .slick-dots {
-                bottom: 75px;
-                left: calc(50vw - 840px);
-                max-width: $site-width;
-                text-align: left;
-                li {
-                    width: auto;
-                    button {           
-                        background: #ffffff;
-                        opacity: 0.4;           
-                        height: 4px;
-                        width: 20px;           
-                        padding: 1px;
-                        border-radius: 30px;   
-                        &::before {
-                            display: none;
-                        }        
-                    }
-                    &.slick-active button {
-                        width: 60px;
-                        opacity: 1;
-                    }
-                }
-              } 
-              
-}
-#testata-hero {    
-        position: absolute;
-        top: 0px;
-        padding-top: 0;
-        padding-bottom: 0;   
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        flex-wrap: nowrap;
-        &>div {
-            margin-bottom: 140px;
+    padding: 0 20px;
+    height: 90vh;
+    .wp-block-group__inner-container {
+        height: 100%;
+        overflow: hidden;
+        border-radius: 0 0 24px 24px;
+        background-color: #000;
+        padding: 0;
+        /* Il contenitore: scegli tu l’altezza (vh, px o clamp) */
+        .video-hero {
+            position: relative;
             width: 100%;
-            max-width: $site-width;
-            h1 {
-                color: #fff;
-                margin-bottom: 32px;
-            }           
+            height: 90vh;
+            /* <-- cambia a piacere (es. 70vh / 600px) */
+            overflow: hidden;
+             border-radius: 0 0 24px 24px;
+            /* opzionale: come nel tuo screenshot */
+            background: #000;
+            /* evita flash sotto */
         }
-        
+
+        /* L’iframe viene centrato e scalato per coprire sempre il box */
+        .video-hero iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* misure “cover” per un video 16:9:
+     - base su larghezza: 56.25vw di altezza (9/16)
+     - base su altezza: 177.78vh di larghezza (16/9)
+     con min-* garantiamo la copertura in entrambi i casi   */
+            width: 100vw;
+            height: 56.25vw;
+            /* 9/16 di width */
+            min-width: 177.78vh;
+            /* 16/9 di height */
+            min-height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            /* così i clic passano agli elementi sopra, se serve */
+        }
+
+        // &>div {
+        //     height: 100%;
+        //     width: 100%;
+        // }
+    }
+
+}
+#testata-hero {
+    position: absolute;
+    top: 0;
+    padding: 0 120px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    & > div {
+        margin-bottom: 80px;
+        width: 100%;
+        max-width: $site-width;
+        h1 {
+            color: #fff;
+            margin-bottom: 32px;
+        }
+    }
+
 }
 
 .page-hero {
@@ -93,13 +91,14 @@ figure {
         font-size: 60px;
         font-style: normal;
         font-weight: 400;
-        line-height: 68px; /* 113.333% */
+        line-height: 68px;
+        /* 113.333% */
     }
 }
 .categorie-prodotti-vetrina {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
     li {
         width: 25%;
         list-style-type: none;
@@ -108,41 +107,52 @@ figure {
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
-        line-height: 120%;   
-        padding: 30px;    
+        line-height: 120%;
+        padding: 30px;
         img {
             max-width: 80px;
+            width: 80px;
             height: auto;
-            margin: auto;
-            margin-bottom: 16px;
+            margin: auto auto 16px;
             display: block;
             opacity: 0.5;
+            transition: all 0.3s;
+            &:hover {
+                opacity: 1;
+                transform: scale(1.3);
+                transition: all 0.3s;
+                &+span {
+                    transform: translateY(10px);
+                    transition: all 0.3s;
+                }
+            }
         }
     }
 }
 
-
 // HOME
 
-#home-certificazioni, .mezzobox {
+#home-certificazioni,
+.mezzobox {
     @include deep-gap(120px);
     p.label {
         color: $color-main1;
-        }
-        h2 {
-            margin-bottom: 16px!important;
-            color: $nero;
-        }
+    }
+    h2 {
+        margin-bottom: 16px!important;
+        color: $nero;
+    }
 }
 
-#home-soluzioni {   
+#home-soluzioni {
     padding-top: 0;
-    padding-bottom: 0;    
-    &>div>div {      
+    padding-bottom: 0;
+    & > div > div {
         background-color: $color-main1;
         border-radius: 16px;
         overflow: hidden;
-        p, h2 {
+        h2,
+        p {
             color: #fff;
         }
         h2 {
@@ -158,21 +168,18 @@ figure {
     }
 }
 
-#home-sostenibilita {   
+#home-sostenibilita {
     padding-top: 0;
-    padding-bottom: 0;    
-    &>div>div {      
-         border-radius: 16px;
-         background: 
-            linear-gradient(270deg, rgba(29, 113, 184, 0) 34.02%, rgba(29, 113, 184, 0.90) 57.37%),
-            linear-gradient(270deg, rgba(0, 39, 166, 0) 38.89%, rgba(0, 0, 0, 0.90) 85.35%),
-            url('/wp-content/uploads/2025/07/13feaba250f04e0b01696436351a5df6426b734d.jpg') center / cover no-repeat,
-            #1D71B8;
-            background-blend-mode: multiply, normal, normal, normal;        
-            overflow: hidden;
-            padding-top: 120px;
-            padding-bottom: 120px;    
-        h4, h2 {
+    padding-bottom: 0;
+    & > div > div {
+        border-radius: 16px;
+        background: linear-gradient(270deg, rgba(29, 113, 184, 0) 34.02%, rgba(29, 113, 184, 0.90) 57.37%), linear-gradient(270deg, rgba(0, 39, 166, 0) 38.89%, rgba(0, 0, 0, 0.90) 85.35%), url("/wp-content/uploads/2025/07/13feaba250f04e0b01696436351a5df6426b734d.jpg") center / cover no-repeat, #1D71B8;
+        background-blend-mode: multiply, normal, normal, normal;
+        overflow: hidden;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        h2,
+        h4 {
             color: #fff;
         }
         h2 {
@@ -189,9 +196,10 @@ figure {
 }
 
 #home-rete {
-    h2, h4 {
+    h2,
+    h4 {
         color: #3C3C3B;
-        margin-bottom: 16px;;       
+        margin-bottom: 16px;
         max-width: 380px;
     }
     .wp-block-buttons {
@@ -201,47 +209,48 @@ figure {
         color: $color-main1;
         margin-bottom: 16px;
     }
-    .spazietto {      
+    .spazietto {
         margin-bottom: 24px;
     }
     .galleriacertificati {
-            figure {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                align-content: center;
-                justify-content: center;
-                align-items: center;
-                padding: 20px;
-                img {
-                    max-width: 120px!important;
-                    max-height: 75px;
-                    object-fit: contain;
-                }
+        figure {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            img {
+                max-width: 120px!important;
+                max-height: 75px;
+                object-fit: contain;
+            }
         }
     }
 }
 #home-download {
     position: relative;
-    &>div>div {      
+    & > div > div {
         justify-content: space-between;
     }
-    &::before, &::after {
+    &::after,
+    &::before {
         content: "";
         width: calc(50vw - 14px);
         height: 100%;
-        position: absolute;       
-        top: 0;    
+        position: absolute;
+        top: 0;
         z-index: -1;
         border-radius: 16px;
     }
     &::before {
         background-color: #282828;
-        left: 12px;        
+        left: 12px;
     }
-    &::after {        
+    &::after {
         background-color: #F3F3F3;
-        right: 12px;        
+        right: 12px;
     }
     .dwbox {
         p.label {
@@ -253,7 +262,7 @@ figure {
             margin-bottom: 24px;
             max-width: 470px;
         }
-        .spazietto {      
+        .spazietto {
             margin-bottom: 64px;
         }
         .texton {
@@ -263,12 +272,12 @@ figure {
         }
     }
     .home-login {
-        max-width: 470px;
+        max-width: 480px;
         h5 {
             color: #3C3C3B;
             margin-bottom: 16px;
         }
-        .spazietto {      
+        .spazietto {
             margin-bottom: 16px;
         }
         #loginform {
@@ -276,28 +285,30 @@ figure {
             label {
                 display: none;
             }
-            input[type=password], input[type=text] {
+            input[type=password],
+            input[type=text] {
                 border-radius: 4px;
                 border: 1px solid #E1E1E1;
-                background:#FFF;
+                background: #FFF;
                 width: 100%;
                 padding: 12px;
-                color:#575756;
+                color: #575756;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 400;
-                line-height: 140%; /* 19.6px */
+                line-height: 140%;
+                /* 19.6px */
             }
             input[type=submit] {
-            background-color: $color-main1;
-            padding: 16px 32px;
-            color: #fff;
-            border-radius: 78px;
-            border: 1px solid #fff;    
-            transition: all 0.5s;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 14px;
+                background-color: $color-main1;
+                padding: 16px 32px;
+                color: #fff;
+                border-radius: 78px;
+                border: 1px solid #fff;
+                transition: all 0.5s;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 14px;
             }
         }
     }
@@ -334,19 +345,30 @@ figure {
     }
 }
 
-.callfullpage {   
+#home-nuoviprodotti {
+    h3 {
+        text-align: center;
+    }
+    hr {
+        margin: 8px auto 40px;
+    }
+    .button-grigio {
+        margin: 40px auto 0;
+    }
+}
+
+.callfullpage {
     padding-top: 0;
-    padding-bottom: 0;    
-    &>div>div {      
-         border-radius: 16px;
-         background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%),
-            url('/wp-content/uploads/2025/09/sondotondi.jpg') 50% / cover no-repeat,
-            #1D71B8;
-            background-blend-mode: normal, soft-light, normal;        
-            overflow: hidden;
-            padding-top: 120px;
-            padding-bottom: 120px;    
-        h4, h2 {
+    padding-bottom: 0;
+    & > div > div {
+        border-radius: 16px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("/wp-content/uploads/2025/09/sondotondi.jpg") 50% / cover no-repeat, #1D71B8;
+        background-blend-mode: normal, soft-light, normal;
+        overflow: hidden;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        h2,
+        h4 {
             color: #fff;
         }
         h2 {
@@ -362,13 +384,13 @@ figure {
     }
 }
 .certificati {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: 30px!important;
-        figure {
-            max-width: 230px!important;
-        }
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 30px!important;
+    figure {
+        max-width: 230px!important;
+    }
 }
 .certicerti {
     flex-direction: row;
@@ -395,11 +417,15 @@ figure {
     }
 }
 
-.wp-block-gallery.has-nested-images.alignleft, .wp-block-gallery.has-nested-images.alignright {
+.wp-block-gallery.has-nested-images.alignleft,
+.wp-block-gallery.has-nested-images.alignright {
     max-width: 100%!important;
 }
 
-#bloccontatti{
+#bloccontatti {
+    background-repeat: no-repeat;
+    background-image: url("/wp-content/uploads/2025/09/cerchiogrigio.svg");
+    background-position-x: right;
     h2 {
         margin-bottom: 16px;
     }
@@ -432,6 +458,22 @@ figure {
 }
 
 .galleryazienda {
-    margin-top: 0;
-    margin-bottom: 0;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
+#mappa {
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    & > div {
+        padding-left: 0!important;
+        padding-right: 0!important;
+    }
+}
+
+.page-id-2404 #colophon {
+    background-color: #fff!important;
+    #footer {
+        display: none!important;
+    }
 }

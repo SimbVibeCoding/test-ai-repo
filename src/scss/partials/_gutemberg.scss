@@ -153,12 +153,7 @@
         }
       }
 
-      @media screen and (max-width:$mobile) {
-        >* {
-          text-align: center;
-          justify-content: center;
-        }
-      }
+     
     }
 
     &+#{$wp-block-columns} {
