@@ -43,6 +43,70 @@ function mostra_categorie_prodotti_vetrina() {
 }
 add_shortcode('categorie_prodotti_vetrina', 'mostra_categorie_prodotti_vetrina');
 
+// Shortcode: [macplast_recent_products]
+function macplast_recent_products_shortcode($atts = array()) {
+    $atts = shortcode_atts(
+        array(
+            'per_page' => 4,
+            'title'    => esc_html__( 'Ultimi prodotti inseriti', 'wp-bootstrap-starter-child' ),
+        ),
+        $atts,
+        'macplast_recent_products'
+    );
+
+    $per_page = (int) $atts['per_page'];
+    if ($per_page <= 0) {
+        $per_page = 4;
+    } elseif ($per_page > 12) {
+        $per_page = 12;
+    }
+
+    $query = new WP_Query(
+        array(
+            'post_type'           => 'product',
+            'post_status'         => 'publish',
+            'posts_per_page'      => $per_page,
+            'orderby'             => 'date',
+            'order'               => 'DESC',
+            'ignore_sticky_posts' => 1,
+            'no_found_rows'       => true,
+        )
+    );
+
+    if (!$query->have_posts()) {
+        wp_reset_postdata();
+        return '';
+    }
+
+    ob_start();
+
+   
+
+    $title = trim($atts['title']);
+    if ($title !== '') {
+        echo '<h3>' . esc_html($title) . '</h3>';
+        echo '<hr class="wp-block-separator has-alpha-channel-opacity spazietto">';
+    }
+
+    wc_set_loop_prop('name', 'macplast_recent_products');
+    wc_set_loop_prop('is_shortcode', true);
+
+    woocommerce_product_loop_start();
+
+    while ($query->have_posts()) {
+        $query->the_post();
+        wc_get_template_part('content', 'product');
+    }
+
+    woocommerce_product_loop_end();
+
+  echo '<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"><div class="wp-block-button button-grigio"><a href="/prodotti" class="wp-block-button__link wp-element-button">'. esc_html__( 'Tutti i prodotti', 'wp-bootstrap-starter-child' ) .'</a></div></div>';
+    wp_reset_postdata();
+
+    return ob_get_clean();
+}
+add_shortcode('macplast_recent_products', 'macplast_recent_products_shortcode');
+
 // Register translatable strings for WPML/Polylang (CTA + badge)
 add_action('init', function() {
     // These actions are safe no-ops if WPML is not active
