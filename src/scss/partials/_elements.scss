@@ -39,3 +39,18 @@ p.label {
 .stonda {
     border-radius: 8px;
 }
+
+.slick-prev, .slick-next {
+    z-index: 100;
+    padding: 20px;
+    transform: translate(-25%, -50%);
+}
+
+.woocommerce:where(body:not(.woocommerce-uses-block-theme)) .woocommerce-breadcrumb {
+    font-size: .92em;
+    color: #3C3C3B;
+}
+
+
+/* Cards responsive per TablePress (mostra solo < 450px) */
+.tp-cards{display:none}

@@ -200,18 +200,14 @@ header.entry-header {
         z-index: 1200;
     }
 
-    .site-header .wp-block-navigation__responsive-container[hidden] {
-        display: none !important;
-    }
-
-    .site-header .wp-block-navigation__responsive-container-content {
+     .site-header .wp-block-navigation__responsive-container-content {
         width: 85vw;
         max-width: 340px;
         height: 100vh;
         background-color: #0c3455;
         color: #fff;
         padding: 32px 32px 36px;
-        display: flex;
+        display: none;
         flex-direction: column;
         position: relative;
         gap: 32px;
@@ -268,12 +264,19 @@ header.entry-header {
         display: flex;
         align-items: center;
         gap: 16px;
+        align-self: flex-start;
+    }
+
+    .mobile-menu__brand-link {
+        display: inline-flex;
+        align-items: center;
     }
 
     .mobile-menu__brand figure,
-    .mobile-menu__brand img {
-        max-width: 140px;
-        height: auto;
+    .mobile-menu__brand img,
+    .mobile-menu__brand .mobile-menu__brand-image {
+        max-height: 60px;
+        width: auto;
     }
 
     .mobile-menu__brand figure {
@@ -284,12 +287,14 @@ header.entry-header {
         font-size: 18px;
         font-weight: 600;
         letter-spacing: 0.2px;
+        text-transform: uppercase;
     }
 
     .mobile-menu__icons {
         margin-top: auto;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 18px;
     }
 

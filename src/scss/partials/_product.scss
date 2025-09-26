@@ -317,14 +317,14 @@
       position: relative;
       width: calc((100% - (3 * 20px)) / 4); // 4 columns desktop default
       border-radius: 16px;
-      border: 1px solid #fff;
+      border: 1px solid #E1E1E1;
       background: #fff;
       box-shadow: 0 125px 35px 0 rgba(0, 0, 0, 0.00), 0 80px 32px 0 rgba(0, 0, 0, 0.01), 0 45px 27px 0 rgba(0, 0, 0, 0.02), 0 20px 20px 0 rgba(0, 0, 0, 0.03), 0 5px 11px 0 rgba(0, 0, 0, 0.04);  
       display: flex; 
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-start;  
-      overflow: hidden;   
+      overflow: hidden;       
       .product-card__inner {
         width: 100%;        
       }
@@ -531,8 +531,25 @@ h1, p {
     }
 }
 
+.woocommerce div.product div.images {
+  margin-bottom: 0;
+  .flex-control-thumbs li {
+    list-style: none;
+    padding: 10px;   
+    img {
+      border-radius: 6.4px;
+      box-shadow: 0 3.2px 19.2px 0 rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      padding: 5px;
+      filter: brightness(1.1);
+    }
+}
+}
 
 
+.woocommerce-product-gallery__image img {
+  padding: 20px;
+}
 
 // Blog (pagina articoli): 3 colonne su desktop
 .blog .woocommerce ul.products li.product,

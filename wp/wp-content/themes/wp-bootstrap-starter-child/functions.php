@@ -226,3 +226,42 @@ function macplast_extend_product_search_distinct( $distinct, $query ) {
     return $distinct;
 }
 add_filter( 'posts_distinct', 'macplast_extend_product_search_distinct', 10, 2 );
+
+add_action('wp_footer', function() {
+    static $rendered = false;
+
+    if ($rendered || is_admin()) {
+        return;
+    }
+
+    $rendered = true;
+
+    $account_url = is_user_logged_in() ? get_edit_profile_url(get_current_user_id()) : wp_login_url();
+    $brand_source = get_bloginfo('name');
+    $brand_name = $brand_source ? ( function_exists('mb_strtoupper') ? mb_strtoupper($brand_source) : strtoupper($brand_source) ) : 'MACPLAST';
+
+    $data = apply_filters('macplast_mobile_menu_data', array(
+        'mobile-account'   => $account_url,
+        'mobile-brand'     => $brand_name,
+        'mobile-logo'      => content_url('uploads/2025/07/Property-1negativo.svg'),
+        'mobile-logo-alt'  => $brand_name,
+        'mobile-logo-link' => home_url('/'),
+        'mobile-extra'     => '#',
+        'mobile-extra-label'=> __('Cambia lingua', 'wp-bootstrap-starter-child'),
+    ));
+
+    echo '<div id="mobile-menu-data"';
+
+    foreach ($data as $attr => $value) {
+        $value = is_scalar($value) ? (string) $value : '';
+        $value = trim($value);
+
+        if ($value === '') {
+            continue;
+        }
+
+        echo ' data-' . esc_attr($attr) . '="' . esc_attr($value) . '"';
+    }
+
+    echo '></div>';
+});

@@ -32,7 +32,6 @@
 
         <div id="ricerca-panel" class="header-search-panel" aria-hidden="true">
             <div class="header-search-panel__inner">
-                <button type="button" class="header-search-panel__close" aria-label="<?php esc_attr_e( 'Chiudi la barra di ricerca', 'wp-bootstrap-starter' ); ?>">&times;</button>
                 <form role="search" method="get" class="header-search-panel__form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <label for="ricerca-input" class="header-search-panel__label screen-reader-text"><?php esc_html_e( 'Cerca prodotti', 'wp-bootstrap-starter' ); ?></label>
                     <input type="search" id="ricerca-input" name="s" class="header-search-panel__field" placeholder="<?php esc_attr_e( 'Cerca tra i prodotti...', 'wp-bootstrap-starter' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" required />
