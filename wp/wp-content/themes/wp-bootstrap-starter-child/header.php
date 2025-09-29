@@ -30,31 +30,7 @@
 
         <?php display_block_pattern( 'header' ); ?>
 
-        <div id="ricerca-panel" class="header-search-panel" aria-hidden="true">
-            <div class="header-search-panel__inner">
-                <form role="search" method="get" class="header-search-panel__form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <label for="ricerca-input" class="header-search-panel__label screen-reader-text"><?php esc_html_e( 'Cerca prodotti', 'wp-bootstrap-starter' ); ?></label>
-                    <input type="search" id="ricerca-input" name="s" class="header-search-panel__field" placeholder="<?php esc_attr_e( 'Cerca tra i prodotti...', 'wp-bootstrap-starter' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" required />
-                    <input type="hidden" name="post_type" value="product" />
-                    <?php do_action( 'wpml_add_language_form_field' ); ?>
-                    <button type="submit" class="header-search-panel__submit"><?php esc_html_e( 'Cerca', 'wp-bootstrap-starter' ); ?></button>
-                </form>
-            </div>
-        </div>
-
-        </header><!-- #masthead -->
-
-        <?php
-        // Hero header for all pages except the front page
-        if ( is_page() && ! is_front_page() ) :
-            $featured_img_url = get_the_post_thumbnail_url( get_queried_object_id(), 'full' );
-        ?>
-            <div class="page-hero" <?php if ( $featured_img_url ) : ?>style="background-image: url('<?php echo esc_url( $featured_img_url ); ?>');"<?php endif; ?>>
-                <div class="page-hero__inner">
-                    <h1 class="page-hero__title"><?php echo esc_html( get_the_title( get_queried_object_id() ) ); ?></h1>
-                </div>
-            </div>
-        <?php endif; ?>
+</header><!-- #masthead -->
     
 	<div id="content" class="site-content">
 		<div class="container">

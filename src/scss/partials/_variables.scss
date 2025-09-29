@@ -1,15 +1,15 @@
 $ThemesPath : "wp/wp-content/themes/";
 $parentThemePath : "wp/wp-content/themes/storefront/";
 $childThemePath : "/wp-content/themes/storefront-child/";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 // COLORS
-$color-main1: #1D71B8; //blu
-$color-main2: #F4CA00 ; //giallo
+$color-main1: #00132A; //blu
+$color-main2: #BD944F ; //giallo
 
 
-$color-neutro1: #3C3C3B; //nero
-$color-neutro2: #282828; //grigio scuro
+$color-neutro1: #000000; //nero
+$color-neutro2: rgba(210, 227, 235, 0.40); //grigio scuro
 $color-neutro3: rgba(255, 255, 255, 0.60); //grigio
 $color-neutro4: #ffffff; //bianco
 
@@ -43,7 +43,7 @@ $color-h5: $nero;
 
 /*definisce i  breakpoint locali*/
 $bootstrap-grid-breakpoint-xl: 1440px;
-$bootstrap-grid-breakpoint-lg: 1440px;
+$bootstrap-grid-breakpoint-lg: 1300px;
 $bootstrap-grid-breakpoint-md: 992px;
 $bootstrap-grid-breakpoint-sm: 576px;
 $bootstrap-grid-breakpoint-xs: 0px;
@@ -78,9 +78,6 @@ $container-max-widths: (
 
 // GUTTER DEFAULT DI BOOTSTRAP
 $grid-gutter-width: 20px;
-
-// Spacing for product grids
-$products-grid-gap: 24px !default;
 
 // $colSelectorSizeMapHalf: (
 // xs: 12 ,
@@ -126,14 +123,14 @@ $break-mobile: $bootstrap-grid-breakpoint-sm;
 
 //TYPOGRAPHY
 
-$font-family1: "Roboto", sans-serif; //400
-$font-family2: "Roboto", sans-serif; //400
-$font-family3: "Roboto", sans-serif; //400
-$font-family4: "Roboto", sans-serif; //400
-$font-family1_fontname: "Roboto", sans-serif; //400
-$font-family2_fontname: "Roboto", sans-serif; //400
-$font-family3_fontname: "Roboto", sans-serif; //400
-$font-family4_fontname: "Roboto", sans-serif; //400
+$font-family1: '"Manrope", sans-serif;'; //400
+$font-family2: '"Manrope", sans-serif;'; //400
+$font-family3: '"Manrope", sans-serif;'; //400
+$font-family4: '"Manrope", sans-serif;'; //400
+$font-family1_fontname: '"Manrope", sans-serif;'; //400
+$font-family2_fontname: '"Manrope", sans-serif;'; //400
+$font-family3_fontname: '"Manrope", sans-serif;'; //400
+$font-family4_fontname: '"Manrope", sans-serif;'; //400
 
 
 $default-wp-group-padding-vertical: 120px;

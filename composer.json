@@ -6,6 +6,7 @@
 
       "wpackagist-plugin/ultimate-addons-for-gutenberg":">=1.13.3",
       "wpackagist-plugin/w3-total-cache":">=0.9.7",
+       "wpengine/advanced-custom-fields-pro": "*",
       "wpackagist-plugin/contact-form-7":">=5.0.2",
       "wpackagist-plugin/contact-form-7-dynamic-text-extension":">=2.0.3",
       "wpackagist-plugin/query-monitor":">=3.0.1",
@@ -24,6 +25,10 @@
       "retina/wp-bootstrap-starter-child": "dev-dev"
     },   
 	"repositories": [      
+		  {
+      "type": "composer",
+      "url": "https://connect.advancedcustomfields.com"
+    },
 		{
 		   "type":"composer",
 		   "url":"https://wpackagist.org"
@@ -47,11 +52,5 @@
           "npm install"
         ]
 
-    },
-  "config": {
-    "allow-plugins": {
-      "johnpbloch/wordpress-core-installer": true,
-      "composer/installers": true
     }
-  }
 }

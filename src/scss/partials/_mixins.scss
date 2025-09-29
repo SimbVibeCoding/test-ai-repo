@@ -421,13 +421,11 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
   background-color: $bgcolor;
   padding: 16px 32px;
   color: $color;
-  display: inline-block;
-  border-radius: 78px;  
+  border-radius: 0;  
   border: 1px solid $border-color;
   transition: all 0.5s;  
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 12px;
     &:hover {
       background-color: $hoverbgcolor;   
       color: $hovercolor!important;
@@ -813,13 +811,5 @@ Questo mixin è utile per far sì che un elemento, come un overlay di sfondo o u
     }
   }
 }
-
-
-@mixin deep-gap($space) {
-  & > div > div {
-    gap: $space;
-  }
-}
-
 
 @import "mixin-aliases";

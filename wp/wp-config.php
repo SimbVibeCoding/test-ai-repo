@@ -33,16 +33,16 @@
 
 
 // // /** The name of the database for WordPress */
-  define( 'DB_NAME', 'macplastsrl_db' );
+  define( 'DB_NAME', 'repo-ai-test' );
 
 // // /** Database username */
-  define( 'DB_USER', 'macplastsrl_admin' );
+  define( 'DB_USER', 'root' );
 
 // // /** Database password */
- define( 'DB_PASSWORD', ';h6Ub{D=eh[NL@d&' );
+ define( 'DB_PASSWORD', 'root' );
 
 // // /** Database hostname */
-  define( 'DB_HOST', '192.168.0.73' );
+  define( 'DB_HOST', 'localhost' );
 
 // // /** Database charset to use in creating database tables. */
   define( 'DB_CHARSET', 'utf8' );
