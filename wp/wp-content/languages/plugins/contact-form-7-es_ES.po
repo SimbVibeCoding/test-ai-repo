@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-05 09:20:42+0000\n"
+"PO-Revision-Date: 2025-09-30 06:27:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,16 +11,61 @@ msgstr ""
 "Language: es\n"
 "Project-Id-Version: Plugins - Contact Form 7 - Stable (latest release)\n"
 
+#. translators: 1: URL to support page about Cloudflare Turnstile, 2: Stripe
+#: admin/includes/welcome-panel.php:139
+msgid "With help from cloud-based machine learning, anti-spam services will protect your forms (<a href=\"%1$s\">Cloudflare Turnstile</a>). Even payment services are natively supported (<a href=\"%2$s\">Stripe</a>)."
+msgstr "Con ayuda de aprendizaje automático basado en la nube, los servicios anti spam protegerán tus formularios (<a href=\"%1$s\">Cloudflare Turnstile</a>). Ya se incluyen incluso servicios de pago (<a href=\"%2$s\">Stripe</a>)."
+
+#. translators: 1: URL to support page about Akismet, 2: Cloudflare Turnstile,
+#. 3: Disallowed list
+#: admin/includes/welcome-panel.php:64
+msgid "Contact Form 7 supports spam-filtering with <a href=\"%1$s\">Akismet</a>. <a href=\"%2$s\">Cloudflare Turnstile</a> blocks annoying spambots. Plus, using <a href=\"%3$s\">disallowed list</a>, you can block messages containing specified keywords or those sent from specified IP addresses."
+msgstr "Contact Form 7 puede realizar filtrado de spam con <a href=\"%1$s\">Akismet</a>. <a href=\"%2$s\">Cloudflare Turnstile</a> bloque los molestos bots de spam. Además, usando la <a href=\"%3$s\">lista de rechazados</a>, puedes bloquear mensajes que contengan palabras clave específicas o que se envíen desde determinadas direcciones IP."
+
+#. translators: %s: URL to support page about the additional settings editor
+#: admin/includes/editor.php:520
+msgid "You can add customization code snippets here. For details, see <a href=\"%s\">Additional settings</a>."
+msgstr "Puedes añadir fragmentos de código de personalización aquí. Para conocer los detalles ve a los <a href=\"%s\">ajustes adicionales</a>."
+
+#. translators: %s: URL to support page about the messages editor
+#: admin/includes/editor.php:459
+msgid "You can edit messages used in various situations here. For details, see <a href=\"%s\">Editing messages</a>."
+msgstr "Puedes editar mensajes utilizados en diversas situaciones aquí. Para conocer los detalles ve a la <a href=\"%s\">edición de mensajes</a>."
+
+#. translators: %s: URL to support page about the email template
+#: admin/includes/editor.php:207
+msgid "You can edit the email template here. For details, see <a href=\"%s\">Setting up mail</a>."
+msgstr "Puedes editar la plantilla de correo electrónico aquí. Para conocer los detalles ve a la <a href=\"%s\">configuración del correo electrónico</a>."
+
+#. translators: %s: URL to support page about the form template
+#: admin/includes/editor.php:86
+msgid "You can edit the form template here. For details, see <a href=\"%s\">Editing form template</a>."
+msgstr "Puedes editar la plantilla del formulario aquí. Para conocer los detalles ve a la <a href=\"%s\">edición de la plantilla del formulario</a>."
+
+#: admin/includes/editor.php:37
+msgid "Contact form editor tabs"
+msgstr "Pestañas del editor de formularios de contacto"
+
+#. Author URI of the plugin
+#: wp-contact-form-7.php
+msgid "https://github.com/rocklobster-in/"
+msgstr "https://github.com/rocklobster-in/"
+
+#. Author of the plugin
+#: wp-contact-form-7.php
+msgid "Rock Lobster Inc."
+msgstr "Rock Lobster Inc."
+
 #. translators: %s: Search query.
 #: admin/admin.php:467
 msgid "Search results for: <strong>%s</strong>"
 msgstr "Resultados de búsqueda para <strong>%s</strong>"
 
-#: modules/turnstile/turnstile.php:174
+#: modules/turnstile/turnstile.php:179
 msgid "Turnstile validation failed."
 msgstr "Falló la validación de Turnstile."
 
-#: modules/turnstile/turnstile.php:169
+#: modules/turnstile/turnstile.php:174
 msgid "Turnstile token is empty."
 msgstr "El token de Turnstile está vacío."
 
@@ -71,11 +116,7 @@ msgstr "No se pudo acceder al sistema de archivos."
 msgid "Sender&#8217;s message failed to send"
 msgstr "Ha fallado el envío del mensaje del remitente"
 
-#: admin/includes/welcome-panel.php:70 admin/includes/welcome-panel.php:165
-msgid "Cloudflare Turnstile"
-msgstr "Cloudflare Turnstile"
-
-#: admin/includes/welcome-panel.php:69 admin/includes/welcome-panel.php:164
+#: admin/includes/welcome-panel.php:66 admin/includes/welcome-panel.php:140
 #: modules/turnstile/service.php:279
 msgid "https://contactform7.com/turnstile-integration/"
 msgstr "https://contactform7.com/turnstile-integration/"
@@ -97,20 +138,16 @@ msgstr "Añadir formulario de contacto"
 msgid "Invalid Stripe Payment Intent ID detected."
 msgstr "Se detectó una ID de intención de pago de Stripe no válida."
 
-#: admin/includes/welcome-panel.php:102
-msgid "contribute to the project"
-msgstr "contribuye con el proyecto"
-
-#: admin/includes/welcome-panel.php:101
+#: admin/includes/welcome-panel.php:90
 msgid "https://contactform7.com/contributing/"
 msgstr "https://contactform7.com/contributing/"
 
-#. translators: %s: link labeled 'contribute to the project'
-#: admin/includes/welcome-panel.php:99
-msgid "There are several ways for you to %s: testing, coding, translating it into your local languages, helping other users, financial donations, etc, etc. We equally welcome you regardless of the way you contribute."
-msgstr "Hay varias maneras para que puedas %s: pruebas, programar, traducirlo a tus idiomas locales, ayudar a otros usuarios, donaciones financieras, etc. etc. Te lo agradecemos independientemente del modo en que contribuyas."
+#. translators: %s: URL to support page about ways to contribute
+#: admin/includes/welcome-panel.php:89
+msgid "There are several ways for you to <a href=\"%s\">contribute to the project</a>: testing, coding, translating it into your local languages, helping other users, financial donations, etc, etc. We equally welcome you regardless of the way you contribute."
+msgstr "Hay varias maneras para que puedas <a href=\"%s\">contribuir al proyecto</a>: pruebas, programar, traducirlo a tus idiomas locales, ayudar a otros usuarios, donaciones financieras, etc. etc. Te lo agradecemos independientemente del modo en que contribuyas."
 
-#: admin/includes/welcome-panel.php:96
+#: admin/includes/welcome-panel.php:86
 msgid "It is hard to continue to maintain this plugin without support from users like you."
 msgstr "Es duro seguir manteniendo este plugin sin el apoyo de usuarios como tú."
 
@@ -413,7 +450,6 @@ msgstr "Se ha detectado un error en la configuración."
 msgid "Brevo is active on this site."
 msgstr "Brevo está activo en este sitio."
 
-#: admin/includes/welcome-panel.php:157
 #: modules/sendinblue/contact-form-properties.php:110
 #: modules/sendinblue/contact-form-properties.php:405
 #: modules/sendinblue/service.php:30
@@ -637,34 +673,28 @@ msgstr "Identificador único para el formulario de contacto."
 msgid "Dots are used in form-tag names."
 msgstr "Se están usando puntos en los nombres de las etiquetas de formulario."
 
-#: admin/includes/welcome-panel.php:305
+#: admin/includes/welcome-panel.php:276
 msgid "Show welcome panel"
 msgstr "Mostrar el panel de bienvenida"
 
-#: admin/includes/welcome-panel.php:302
+#: admin/includes/welcome-panel.php:273
 msgid "Welcome panel"
 msgstr "Panel de bienvenida"
 
-#: admin/includes/welcome-panel.php:169 modules/stripe/service.php:38
+#: modules/stripe/service.php:38
 msgid "Stripe"
 msgstr "Stripe"
 
-#: admin/includes/welcome-panel.php:168 modules/stripe/service.php:183
+#: admin/includes/welcome-panel.php:141 modules/stripe/service.php:183
 msgid "https://contactform7.com/stripe-integration/"
 msgstr "https://contactform7.com/stripe-integration/"
 
-#. translators: 1: link labeled 'Cloudflare Turnstile', 2: link labeled
-#. 'Stripe'
-#: admin/includes/welcome-panel.php:162
-msgid "With help from cloud-based machine learning, anti-spam services will protect your forms (%1$s). Even payment services are natively supported (%2$s)."
-msgstr "Con ayuda del aprendizaje automático basado en la nube, los servicios antispam protegerán tus formularios (%1$s). Incluso los servicios de pago son compatibles de forma nativa (%2$s)."
+#. translators: %s: URL to support page about the Brevo integration
+#: admin/includes/welcome-panel.php:134
+msgid "Your contact forms will become more powerful and versatile by integrating them with external APIs. With CRM and email marketing services, you can build your own contact lists (<a href=\"%s\">Brevo</a>)."
+msgstr "Tus formularios de contacto serán más potentes y versátiles integrándolos con API externas. Con los servicios de CRM y de marketing por correo electrónico, puedes crear tus propias listas de contactos (<a href=\"%s\">Brevo</a>)."
 
-#. translators: 1: link labeled 'Brevo'
-#: admin/includes/welcome-panel.php:154
-msgid "Your contact forms will become more powerful and versatile by integrating them with external APIs. With CRM and email marketing services, you can build your own contact lists (%1$s)."
-msgstr "Tus formularios de contacto serán más potentes y versátiles integrándolos con API externas. Con los servicios de CRM y de marketing por correo electrónico, puedes crear tus propias listas de contactos (%1$s)."
-
-#: admin/includes/welcome-panel.php:146
+#: admin/includes/welcome-panel.php:127
 msgid "You have strong allies to back you up."
 msgstr "Tienes fuertes aliados que te respaldan."
 
@@ -759,7 +789,7 @@ msgstr "Clave de la API"
 msgid "Setup integration"
 msgstr "Configurar la integración"
 
-#: admin/includes/welcome-panel.php:156
+#: admin/includes/welcome-panel.php:135
 #: modules/sendinblue/contact-form-properties.php:97
 #: modules/sendinblue/service.php:176
 msgid "https://contactform7.com/sendinblue-integration/"
@@ -794,10 +824,6 @@ msgstr "Enviar"
 #: includes/contact-form-template.php:37
 msgid "(optional)"
 msgstr "(opcional)"
-
-#: admin/includes/welcome-panel.php:74
-msgid "disallowed list"
-msgstr "lista de rechazo"
 
 #. translators: %s: comma separated list of disallowed words
 #: modules/disallowed-list.php:36
@@ -837,10 +863,6 @@ msgstr "documentación"
 #: admin/edit-contact-form.php:366
 msgid "%1$s and %2$s"
 msgstr "%1$s y %2$s"
-
-#: admin/includes/editor.php:527
-msgid "Additional settings"
-msgstr "Ajustes adicionales"
 
 #: modules/sendinblue/service.php:127 modules/sendinblue/service.php:138
 msgid "Error"
@@ -975,34 +997,11 @@ msgstr "Aceptado"
 msgid "Sending mail has been aborted."
 msgstr "El envío de correo electrónico ha sido cancelado."
 
-#. translators: %s: link labeled 'Editing messages'
 #: admin/includes/editor.php:460
-msgid "You can edit messages used in various situations here. For details, see %s."
-msgstr "Aquí puedes editar aquí los mensajes usados en diversas situaciones. Para más detalles, consulta %s."
-
-#: admin/includes/editor.php:463
-msgid "Editing messages"
-msgstr "Editar los mensajes"
-
-#: admin/includes/editor.php:462
 msgid "https://contactform7.com/editing-messages/"
 msgstr "https://contactform7.com/editing-messages/"
 
-#. translators: %s: link labeled 'Setting up mail'
-#: admin/includes/editor.php:205
-msgid "You can edit the mail template here. For details, see %s."
-msgstr "Aquí puedes editar la plantilla de correo electrónico. Para más detalles, consulta %s."
-
-#. translators: %s: link labeled 'Editing form template'
-#: admin/includes/editor.php:81
-msgid "You can edit the form template here. For details, see %s."
-msgstr "Puedes editar aquí la plantilla del formulario. Para más detalles, consulta %s."
-
-#: admin/includes/editor.php:84
-msgid "Editing form template"
-msgstr "Editar la plantilla del formulario"
-
-#: admin/includes/editor.php:83
+#: admin/includes/editor.php:87
 msgid "https://contactform7.com/editing-form-template/"
 msgstr "https://contactform7.com/editing-form-template/"
 
@@ -1097,38 +1096,28 @@ msgstr "Ha ocurrido un error al guardar el formulario de contacto."
 msgid "Hook %1$s is <strong>deprecated</strong> since Contact Form 7 version %2$s! Use %3$s instead."
 msgstr "¡El gancho %1$s está <strong>obsoleto</strong> desde la versión %2$s de Contact Form 7! Usa %3$s en su lugar."
 
-#: admin/includes/welcome-panel.php:130
-msgid "Flamingo"
-msgstr "Flamingo"
+#. translators: %s: URL to support page about the Flamingo plugin
+#: admin/includes/welcome-panel.php:112
+msgid "Install a message storage plugin before this happens to you. <a href=\"%s\">Flamingo</a> saves all messages through contact forms into the database. Flamingo is a free WordPress plugin created by the same author as Contact Form 7."
+msgstr "Instala un plugin de almacenamiento de mensajes antes de que te pase esto. <a href=\"%s\">Flamingo</a> guarda todos los mensajes de tus formularios de contacto en la base de datos. Flamingo es un plugin WordPress creado por el mismo autor de Contact Form 7."
 
-#. translators: %s: link labeled 'Flamingo'
-#: admin/includes/welcome-panel.php:127
-msgid "Install a message storage plugin before this happens to you. %s saves all messages through contact forms into the database. Flamingo is a free WordPress plugin created by the same author as Contact Form 7."
-msgstr "Instala un plugin de almacenamiento de mensajes antes de que te pase esto. %s guarda todos los mensajes de tus formularios de contacto en la base de datos. Flamingo es un plugin WordPress creado por el mismo autor de Contact Form 7."
-
-#: admin/includes/welcome-panel.php:124
+#: admin/includes/welcome-panel.php:109
 msgid "Contact Form 7 does not store submitted messages anywhere. Therefore, you may lose important messages forever if your mail server has issues or you make a mistake in mail configuration."
 msgstr "Contact Form 7 no almacena en ninguna parte los mensajes enviados. Por tanto, puede que pierdas mensajes importantes para siempre si tu servidor de correo tiene problemas o si cometes un error en la configuración de correo electrónico."
 
-#: admin/includes/welcome-panel.php:118
+#: admin/includes/welcome-panel.php:104
 msgid "Before you cry over spilt mail&#8230;"
 msgstr "Antes de llorar por perder correos&#8230;"
 
-#: admin/includes/welcome-panel.php:73
+#: admin/includes/welcome-panel.php:67
 msgid "https://contactform7.com/comment-blacklist/"
 msgstr "https://contactform7.com/comment-blacklist/"
 
-#. translators: links labeled 1: 'Akismet', 2: 'Cloudflare Turnstile', 3:
-#. 'disallowed list'
-#: admin/includes/welcome-panel.php:63
-msgid "Contact Form 7 supports spam-filtering with %1$s. %2$s blocks annoying spambots. Plus, using %3$s, you can block messages containing specified keywords or those sent from specified IP addresses."
-msgstr "Contact Form 7 es compatible con el filtrado de spam de %1$s. %2$s bloquea los molestos spambots. Además, usando una %3$s, puedes bloquear mensajes que contengan palabras clave específicas o las que se envíen desde direcciones IP concretas."
-
-#: admin/includes/welcome-panel.php:60
+#: admin/includes/welcome-panel.php:61
 msgid "Spammers target everything; your contact forms are not an exception. Before you get spammed, protect your contact forms with the powerful anti-spam features Contact Form 7 provides."
 msgstr "Los spammers atacan todo; y tus formularios de contacto no son una excepción. Antes de que te llegue spam protege tus formularios de contacto con las potentes características anti spam que ofrece Contact Form 7."
 
-#: admin/includes/welcome-panel.php:54
+#: admin/includes/welcome-panel.php:56
 msgid "Getting spammed? You have protection."
 msgstr "¿Recibes spam? Puedes protegerte."
 
@@ -1247,16 +1236,6 @@ msgstr "Valores de clave no válidos."
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
-#. Author URI of the plugin
-#: wp-contact-form-7.php
-msgid "https://ideasilo.wordpress.com/"
-msgstr "https://ideasilo.wordpress.com/"
-
-#. Author of the plugin
-#: wp-contact-form-7.php
-msgid "Takayuki Miyoshi"
-msgstr "Takayuki Miyoshi"
-
 #. Description of the plugin
 #: wp-contact-form-7.php
 msgid "Just another contact form plugin. Simple but flexible."
@@ -1276,7 +1255,7 @@ msgstr "Formulario de contacto %d"
 msgid "text area"
 msgstr "área de texto"
 
-#: admin/includes/welcome-panel.php:66 modules/akismet/service.php:22
+#: modules/akismet/service.php:22
 msgid "Akismet"
 msgstr "Akismet"
 
@@ -1659,60 +1638,55 @@ msgstr "Acciones disponibles"
 msgid "Overview"
 msgstr "Resumen"
 
-#. translators: %s: link labeled 'Additional settings'
-#: admin/includes/editor.php:524
-msgid "You can add customization code snippets here. For details, see %s."
-msgstr "Aquí puedes añadir fragmentos de código personalizado. Para más detalles, consulta %s."
-
-#: admin/includes/editor.php:526
+#: admin/includes/editor.php:521
 msgid "https://contactform7.com/additional-settings/"
 msgstr "https://contactform7.com/additional-settings/"
 
-#: admin/includes/editor.php:433
+#: admin/includes/editor.php:432
 msgid "File attachments"
 msgstr "Archivos adjuntos"
 
-#: admin/includes/editor.php:417
+#: admin/includes/editor.php:416
 msgid "Use HTML content type"
 msgstr "Usar contenido de tipo HTML"
 
-#: admin/includes/editor.php:397
+#: admin/includes/editor.php:396
 msgid "Exclude lines with blank mail-tags from output"
 msgstr "Excluir las líneas con etiquetas de correo electrónico vacías en la salida"
 
-#: admin/includes/editor.php:360
+#: admin/includes/editor.php:359
 msgid "Message body"
 msgstr "Cuerpo del mensaje"
 
-#: admin/includes/editor.php:329
+#: admin/includes/editor.php:328
 msgid "Additional headers"
 msgstr "Cabeceras adicionales"
 
-#: admin/includes/editor.php:301 includes/contact-form-template.php:40
+#: admin/includes/editor.php:300 includes/contact-form-template.php:40
 msgid "Subject"
 msgstr "Asunto"
 
-#: admin/includes/editor.php:273
+#: admin/includes/editor.php:272
 msgid "From"
 msgstr "De"
 
-#: admin/includes/editor.php:245
+#: admin/includes/editor.php:244
 msgid "To"
 msgstr "Para"
 
-#: admin/includes/editor.php:217
+#: admin/includes/editor.php:216
 msgid "In the following fields, you can use these mail-tags:"
 msgstr "En los siguientes campos puedes usar estas etiquetas de correo electrónico:"
 
-#: admin/includes/editor.php:191
+#: admin/includes/editor.php:193
 msgid "Mail (2) is an additional mail template often used as an autoresponder."
 msgstr "Correo electrónico (2) es una plantilla de correo electrónico adicional, usada frecuentemente como respuesta automática."
 
-#: admin/includes/editor.php:130
+#: admin/includes/editor.php:132
 msgid "Use Mail (2)"
 msgstr "Usar correo electrónico (2)"
 
-#: admin/includes/editor.php:129
+#: admin/includes/editor.php:131
 msgid "Mail (2)"
 msgstr "Correo electrónico (2)"
 
@@ -1747,24 +1721,24 @@ msgstr "Shortcode"
 msgid "Title"
 msgstr "Título"
 
-#: admin/edit-contact-form.php:449 admin/includes/editor.php:536
+#: admin/edit-contact-form.php:448 admin/includes/editor.php:529
 msgid "Additional Settings"
 msgstr "Ajustes adicionales"
 
 #. translators: %d: number of additional settings
-#: admin/edit-contact-form.php:446
+#: admin/edit-contact-form.php:445
 msgid "Additional Settings (%d)"
 msgstr "Ajustes adicionales (%d)"
 
-#: admin/edit-contact-form.php:426 admin/includes/editor.php:481
+#: admin/edit-contact-form.php:425 admin/includes/editor.php:477
 msgid "Messages"
 msgstr "Mensajes"
 
-#: admin/edit-contact-form.php:422 admin/includes/editor.php:138
+#: admin/edit-contact-form.php:421 admin/includes/editor.php:140
 msgid "Mail"
 msgstr "Correo"
 
-#: admin/edit-contact-form.php:418 admin/includes/editor.php:91
+#: admin/edit-contact-form.php:417 admin/includes/editor.php:93
 msgid "Form"
 msgstr "Formulario"
 
@@ -1826,7 +1800,7 @@ msgstr "Guardar"
 msgid "You are not allowed to edit this contact form."
 msgstr "No tienes permisos para editar este formulario de contacto."
 
-#: admin/includes/welcome-panel.php:129
+#: admin/includes/welcome-panel.php:113
 msgid "https://contactform7.com/save-submitted-messages-with-flamingo/"
 msgstr "https://contactform7.com/save-submitted-messages-with-flamingo/"
 
@@ -1839,18 +1813,14 @@ msgid "https://contactform7.com/spam-filtering-with-akismet/"
 msgstr "https://contactform7.com/spam-filtering-with-akismet/"
 
 #: admin/includes/editor.php:208
-msgid "Setting up mail"
-msgstr "Configurar el correo"
-
-#: admin/includes/editor.php:207
 msgid "https://contactform7.com/setting-up-mail/"
 msgstr "https://contactform7.com/setting-up-mail/"
 
-#: admin/includes/welcome-panel.php:90
+#: admin/includes/welcome-panel.php:81
 msgid "Contact Form 7 needs your support."
 msgstr "Contact Form 7 necesita tu ayuda."
 
-#: admin/includes/welcome-panel.php:218
+#: admin/includes/welcome-panel.php:189
 msgid "Dismiss"
 msgstr "Descartar"
 

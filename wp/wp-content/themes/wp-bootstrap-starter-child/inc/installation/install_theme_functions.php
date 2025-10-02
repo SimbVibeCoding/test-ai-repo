@@ -1,152 +1,192 @@
 <?php
-
-add_action('after_switch_theme', 'mytheme_import_patterns_on_activation');
-add_action('admin_notices', 'mytheme_debug_import_messages');
-
-global $mytheme_debug_messages;
-$mytheme_debug_messages = [];
-
 /**
- * Importa i pattern al primo attivazione del tema
+ * Handles reusable block pattern imports and rendering helpers.
+ *
+ * @package WP_Bootstrap_Starter_Child
  */
-function mytheme_import_patterns_on_activation() {
-    global $mytheme_debug_messages;
 
-    // Controlla se Gutenberg è attivo
-    if (!function_exists('register_block_pattern')) {
-        $mytheme_debug_messages[] = 'Gutenberg non è attivo. I pattern non possono essere registrati.';
-        return;
-    }
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
-    $patterns_dir = get_stylesheet_directory() . '/patterns';
+if ( ! defined( 'WP_BOOTSTRAP_STARTER_CHILD_PATTERN_TRANSIENT' ) ) {
+    define( 'WP_BOOTSTRAP_STARTER_CHILD_PATTERN_TRANSIENT', 'wp_bootstrap_starter_child_pattern_messages' );
+}
 
-    // Controlla se la directory dei pattern esiste
-    if (!is_dir($patterns_dir)) {
-        $mytheme_debug_messages[] = "La directory dei pattern non esiste: $patterns_dir";
-        return;
-    }
+if ( ! defined( 'WP_BOOTSTRAP_STARTER_CHILD_PATTERN_CATEGORY' ) ) {
+    define( 'WP_BOOTSTRAP_STARTER_CHILD_PATTERN_CATEGORY', 'simbiosi' );
+}
 
-    // Trova i file JSON
-    $pattern_files = glob($patterns_dir . '/*.json');
-    if (!$pattern_files) {
-        $mytheme_debug_messages[] = "Nessun file JSON trovato nella directory: $patterns_dir";
-        return;
-    }
+add_action( 'after_switch_theme', 'wp_bootstrap_starter_child_import_patterns_on_activation' );
+add_action( 'admin_notices', 'wp_bootstrap_starter_child_admin_pattern_notices' );
 
-    // Registra la categoria "Simbiosi" se non esiste
-    register_block_pattern_category('simbiosi', ['label' => __('Simbiosi', 'mytheme')]);
-    $mytheme_debug_messages[] = 'Categoria "Simbiosi" registrata con successo.';
-
-    foreach ($pattern_files as $file_path) {
-        $pattern_content = file_get_contents($file_path);
-        if (!$pattern_content) {
-            $mytheme_debug_messages[] = "Impossibile leggere il file: $file_path";
-            continue;
+if ( ! function_exists( 'wp_bootstrap_starter_child_import_patterns_on_activation' ) ) {
+    /**
+     * Import block patterns bundled with the child theme.
+     */
+    function wp_bootstrap_starter_child_import_patterns_on_activation() {
+        if ( ! function_exists( 'register_block_pattern' ) ) {
+            wp_bootstrap_starter_child_store_pattern_messages( array( 'Block pattern API not available. Enable the block editor to import patterns.' ) );
+            return;
         }
 
-        $pattern_data = json_decode($pattern_content, true);
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            $mytheme_debug_messages[] = "Errore nel decodificare il JSON: " . json_last_error_msg() . " in $file_path";
-            continue;
+        $patterns_dir = trailingslashit( get_stylesheet_directory() ) . 'patterns';
+
+        if ( ! is_dir( $patterns_dir ) ) {
+            wp_bootstrap_starter_child_store_pattern_messages( array( 'The pattern directory does not exist: ' . $patterns_dir ) );
+            return;
         }
 
-        $title = $pattern_data['title'] ?? null;
-        $content = $pattern_data['content'] ?? null;
+        $pattern_files = glob( $patterns_dir . '/*.json' );
 
-        if (empty($title) || empty($content)) {
-            $mytheme_debug_messages[] = "Dati mancanti (titolo o contenuto) nel file: $file_path";
-            continue;
+        if ( empty( $pattern_files ) ) {
+            wp_bootstrap_starter_child_store_pattern_messages( array( 'No JSON files found in: ' . $patterns_dir ) );
+            return;
         }
 
-        // Controlla se un blocco con lo stesso titolo esiste già
-        $existing_block = get_page_by_title($title, OBJECT, 'wp_block');
-        if ($existing_block) {
-            $mytheme_debug_messages[] = "Il pattern '$title' esiste già. Ignorato.";
-            continue;
-        }
+        register_block_pattern_category(
+            WP_BOOTSTRAP_STARTER_CHILD_PATTERN_CATEGORY,
+            array( 'label' => __( 'Simbiosi', 'wp-bootstrap-starter-child' ) )
+        );
 
-        // Salva il pattern come blocco riutilizzabile (post di tipo wp_block)
-        $post_id = wp_insert_post([
-            'post_title'   => $title,
-            'post_content' => $content,
-            'post_status'  => 'publish',
-            'post_type'    => 'wp_block',
-        ]);
+        $messages   = array();
+        $messages[] = sprintf( 'Registered pattern category "%s".', WP_BOOTSTRAP_STARTER_CHILD_PATTERN_CATEGORY );
 
-        if ($post_id) {
-            $mytheme_debug_messages[] = "Pattern importato e salvato come blocco riutilizzabile: $title";
+        foreach ( $pattern_files as $file_path ) {
+            $pattern_content = file_get_contents( $file_path );
 
-            // Registra il pattern anche come pattern visibile in Gutenberg (editor dei blocchi)
-            $pattern_slug = sanitize_title($title);
+            if ( false === $pattern_content ) {
+                $messages[] = 'Unable to read pattern file: ' . $file_path;
+                continue;
+            }
+
+            $pattern_data = json_decode( $pattern_content, true );
+
+            if ( ! is_array( $pattern_data ) ) {
+                $messages[] = 'JSON decode error in ' . $file_path . ': ' . json_last_error_msg();
+                continue;
+            }
+
+            $title   = isset( $pattern_data['title'] ) ? sanitize_text_field( $pattern_data['title'] ) : '';
+            $content = isset( $pattern_data['content'] ) ? $pattern_data['content'] : '';
+
+            if ( '' === $title || '' === $content ) {
+                $messages[] = 'Missing title or content in ' . $file_path;
+                continue;
+            }
+
+            if ( get_page_by_title( $title, OBJECT, 'wp_block' ) ) {
+                $messages[] = sprintf( 'Pattern "%s" already exists. Skipping import.', $title );
+                continue;
+            }
+
+            $post_id = wp_insert_post(
+                array(
+                    'post_title'   => $title,
+                    'post_content' => $content,
+                    'post_status'  => 'publish',
+                    'post_type'    => 'wp_block',
+                ),
+                true
+            );
+
+            if ( is_wp_error( $post_id ) || ! $post_id ) {
+                $messages[] = sprintf( 'Pattern import failed for "%s".', $title );
+                continue;
+            }
+
+            $pattern_slug = sanitize_title( $title );
 
             register_block_pattern(
                 $pattern_slug,
-                [
+                array(
                     'title'       => $title,
-                    'description' => $pattern_data['description'] ?? '',
+                    'description' => isset( $pattern_data['description'] ) ? sanitize_text_field( $pattern_data['description'] ) : '',
                     'content'     => $content,
-                    'categories'  => ['simbiosi'], // Associa alla categoria Simbiosi
-                ]
+                    'categories'  => array( WP_BOOTSTRAP_STARTER_CHILD_PATTERN_CATEGORY ),
+                )
             );
+
+            $messages[] = sprintf( 'Pattern "%s" imported and registered.', $title );
+        }
+
+        if ( count( $messages ) === 1 ) {
+            $messages[] = 'No patterns were imported.';
         } else {
-            $mytheme_debug_messages[] = "Errore durante l'importazione del pattern: $title";
+            $messages[] = 'Pattern import completed.';
         }
-    }
 
-    $mytheme_debug_messages[] = 'Importazione completata.';
-}
-
-/**
- * Mostra i messaggi di debug nell'admin
- */
-function mytheme_debug_import_messages() {
-    global $mytheme_debug_messages;
-
-    if (!empty($mytheme_debug_messages)) {
-        echo '<div class="notice notice-success is-dismissible">';
-        echo '<h3>Debug Importazione Pattern:</h3>';
-        echo '<ul>';
-        foreach ($mytheme_debug_messages as $message) {
-            echo '<li>' . esc_html($message) . '</li>';
-        }
-        echo '</ul>';
-        echo '</div>';
+        wp_bootstrap_starter_child_store_pattern_messages( $messages );
     }
 }
 
-/**
- * Registra la categoria "Simbiosi" per i pattern
- */
-add_action('init', 'mytheme_register_simbiosi_category');
-
-function mytheme_register_simbiosi_category() {
-    register_block_pattern_category(
-        'simbiosi',
-        ['label' => __('Simbiosi', 'mytheme')]
-    );
+if ( ! function_exists( 'wp_bootstrap_starter_child_store_pattern_messages' ) ) {
+    /**
+     * Persist import messages in a transient to show them once.
+     *
+     * @param array $messages Messages to display in wp-admin.
+     */
+    function wp_bootstrap_starter_child_store_pattern_messages( array $messages ) {
+        set_transient( WP_BOOTSTRAP_STARTER_CHILD_PATTERN_TRANSIENT, $messages, MINUTE_IN_SECONDS * 10 );
+    }
 }
 
+if ( ! function_exists( 'wp_bootstrap_starter_child_admin_pattern_notices' ) ) {
+    /**
+     * Prints import debug messages in the dashboard when available.
+     */
+    function wp_bootstrap_starter_child_admin_pattern_notices() {
+        $messages = get_transient( WP_BOOTSTRAP_STARTER_CHILD_PATTERN_TRANSIENT );
 
+        if ( empty( $messages ) || ! is_array( $messages ) ) {
+            return;
+        }
 
-/**
- * Integra i pattern nel codice
- */
+        delete_transient( WP_BOOTSTRAP_STARTER_CHILD_PATTERN_TRANSIENT );
 
-function display_block_pattern( $pattern_title ) {
-    $args = array(
-        'post_type'      => 'wp_block',
-        'post_status'    => 'publish',
-        'title'          => $pattern_title, // Cerca in base al titolo
-        'posts_per_page' => 1,
-    );
-    
-    $query = new WP_Query( $args );
-    
-    if ( $query->have_posts() ) {
+        echo '<div class="notice notice-info is-dismissible"><h3>' . esc_html__( 'Pattern import', 'wp-bootstrap-starter-child' ) . '</h3><ul>';
+
+        foreach ( $messages as $message ) {
+            echo '<li>' . esc_html( $message ) . '</li>';
+        }
+
+        echo '</ul></div>';
+    }
+}
+
+if ( ! function_exists( 'display_block_pattern' ) ) {
+    /**
+     * Outputs a reusable block content by title.
+     *
+     * @param string $pattern_title Reusable block title.
+     */
+    function display_block_pattern( $pattern_title ) {
+        $pattern_title = sanitize_text_field( $pattern_title );
+
+        if ( '' === $pattern_title ) {
+            return;
+        }
+
+        $query = new WP_Query(
+            array(
+                'post_type'      => 'wp_block',
+                'post_status'    => 'publish',
+                'title'          => $pattern_title,
+                'posts_per_page' => 1,
+                'no_found_rows'  => true,
+            )
+        );
+
+        if ( ! $query->have_posts() ) {
+            wp_reset_postdata();
+            return;
+        }
+
         $query->the_post();
+
         echo do_blocks( get_the_content() );
+
         wp_reset_postdata();
-    } else {
-        echo '<p>Il pattern "' . esc_html( $pattern_title ) . '" non è stato trovato.</p>';
     }
 }
+

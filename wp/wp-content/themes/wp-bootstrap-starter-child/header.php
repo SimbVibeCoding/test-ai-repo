@@ -1,12 +1,8 @@
 <?php
 /**
- * The header for our theme
+ * Theme header template.
  *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WP_Bootstrap_Starter
+ * @package WP_Bootstrap_Starter_Child
  */
 
 ?><!DOCTYPE html>
@@ -15,24 +11,29 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-    
-<?php wp_head(); ?>
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?php if ( is_singular() && pings_open( get_queried_object_id() ) ) : ?>
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <?php endif; ?>
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-  <?php  do_action('bootstrap_child_before_site'); ?>
+<?php wp_body_open(); ?>
+<?php do_action( 'bootstrap_child_before_site' ); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
-    <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
-      <header class="site-header">  
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
 
-        <?php display_block_pattern( 'header' ); ?>
+    <?php if ( ! is_page_template( 'blank-page.php' ) && ! is_page_template( 'blank-page-with-container.php' ) ) : ?>
+        <header class="site-header">
+            <?php
+            if ( function_exists( 'display_block_pattern' ) ) {
+                display_block_pattern( 'header' );
+            }
+            ?>
+        </header>
 
-</header><!-- #masthead -->
-    
-	<div id="content" class="site-content">
-		<div class="container">
-			<div class="row">
-                <?php endif; ?>
+        <div id="content" class="site-content">
+            <div class="container">
+                <div class="row">
+    <?php endif; ?>
